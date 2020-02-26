@@ -1,7 +1,9 @@
 {
   "name": "medianeiras",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "admin-lte": "^3.0.2"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "author": "Andréa Alencar <andreaflether@gmail.com>",
