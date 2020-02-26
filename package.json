@@ -1,0 +1,9 @@
+{
+  "name": "medianeiras",
+  "private": true,
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Andréa Alencar <andreaflether@gmail.com>",
+  "license": "MIT"
+}
