@@ -71,6 +71,9 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.7.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     loofah (2.4.0)
@@ -178,6 +181,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  inline_svg
   jbuilder (~> 2.5)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)
