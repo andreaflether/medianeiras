@@ -1,6 +1,25 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "não pode ficar em branco."
+              taken: "já está em uso."
+              invalid: "inválido."
+            password:
+              blank: "não pode ficar em branco."
+              taken: "já está em uso."
+              invalid: "inválido."
+              confirmation: "não é igual a confirmação da senha."
+            password_confirmation:
+              blank: "não pode ficar em branco."
+              taken: "já está em uso."
+              invalid: "inválida."
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -63,3 +82,4 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      confirmation: "e senha não são iguais."

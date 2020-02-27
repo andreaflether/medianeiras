@@ -39,6 +39,7 @@ gem 'simple_form'
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
 gem 'inline_svg'
+gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

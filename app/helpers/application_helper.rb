@@ -22,13 +22,13 @@ module ApplicationHelper
 
   def custom_flash_messages
     flash_messages = []
-    flash.each do |type, message|
+    flash.each do |type, message| # Overall flash messages
       type = 'success' if type == 'notice'
       type = 'error'   if type == 'alert'
       text = "<script>$( document ).ready(function() {toastr.#{type}('#{message}');});</script>"
       flash_messages << text.html_safe if message
     end
-    resource.errors.full_messages.each do |m|
+    resource.errors.full_messages.each do |m| # Devise messages
       text = "<script>$(document).ready(function() {
       toastr.error('#{m}');
       });</script>"
@@ -36,4 +36,4 @@ module ApplicationHelper
     end
     flash_messages.join("\n").html_safe
   end
-end # module
+end # End module
