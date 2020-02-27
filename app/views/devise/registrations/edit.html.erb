@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <h3 class="text-center mb-3">Criar conta</h3>
+  <h3 class="text-center mb-3">Editar informações</h3>
   <div class="input-group mb-3"> <!-- Email -->
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
     placeholder: "Email", class: "form-control", required: false %>
@@ -35,6 +35,7 @@
         <span class="fas fa-lock"></span>
       </div>
     </div>
+    <small class="mt-2">Precisamos da sua senha atual para efetuar as mudanças.</small>
   </div>
   <div class="row">
     <div class="col-12">
@@ -43,7 +44,9 @@
   </div>
 <% end %>
 
-<p> <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" },
-                                        method: :delete %></p>
-<p>Essa ação é permanente e não poderá ser desfeita.</p>
-<%= link_to "Voltar", :back %>
+<div class="callout callout-danger mt-3"> <!-- Cancelar Conta -->
+  <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" },
+  method: :delete, class: "d-block text-dark" %>
+  <small>Essa ação é permanente e não poderá ser desfeita.</small>
+</div>
+<%= link_to "Voltar", :back, class: "d-block text-center" %>

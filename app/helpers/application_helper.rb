@@ -17,6 +17,11 @@ module ApplicationHelper
       when "passwords"
         "Mudar senha"
       end
+    when "create"
+      case controller
+      when "registrations"
+        "Criar Conta"
+      end
     end
   end
 

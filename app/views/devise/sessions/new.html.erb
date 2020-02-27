@@ -1,8 +1,13 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <p class="login-box-msg">Entre para dar início a sessão</p>
-    <div class="input-group email mb-3">
+    <div class="input-group mb-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email",
                                 placeholder: "Email", class: "form-control" %>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
     </div>
     <div class="input-group mb-3">
       <%= f.password_field :password, autofocus: true, autocomplete: "password", class: "form-control",
