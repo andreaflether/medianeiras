@@ -1,35 +1,49 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <h3 class="text-center mb-3">Criar conta</h3>
+  <div class="input-group mb-3"> <!-- Email -->
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+    placeholder: "Email", class: "form-control", required: false %>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="input-group mb-3"> <!-- Nova senha -->
+    <%= f.password_field :password, autofocus: true, autocomplete: "password", class: "form-control",
+    placeholder: "Nova senha", required: false %>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3"> <!-- Confirmação da nova senha -->
+    <%= f.password_field :password_confirmation, autocomplete: "password", class: "form-control",
+    placeholder: "Confirmação da nova senha", required: false %>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3"> <!-- Senha atual  -->
+    <%= f.password_field :current_password, autocomplete: "password", class: "form-control",
+    placeholder: "Senha atual", required: false %>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= f.submit "Salvar", class: "btn btn-primary btn-block" %>
+    </div>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<p> <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" },
+                                        method: :delete %></p>
+<p>Essa ação é permanente e não poderá ser desfeita.</p>
+<%= link_to "Voltar", :back %>
