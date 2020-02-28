@@ -33,11 +33,16 @@ module ApplicationHelper
       text = "<script>$( document ).ready(function() {toastr.#{type}('#{message}');});</script>"
       flash_messages << text.html_safe if message
     end
-    resource.errors.full_messages.each do |m| # Devise messages
-      text = "<script>$(document).ready(function() {
-      toastr.error('#{m}');
-      });</script>"
-      flash_messages << text.html_safe if m
+    unless controller_name != 'users'
+      if action_name === 'index' || 'edit' || 'show'
+      else
+      resource.errors.full_messages.each do |m| # Devise messages
+        text = "<script>$(document).ready(function() {
+        toastr.error('#{m}');
+        });</script>"
+        flash_messages << text.html_safe if m
+      end
+      end
     end
     flash_messages.join("\n").html_safe
   end

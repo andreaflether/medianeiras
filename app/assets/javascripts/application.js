@@ -17,4 +17,8 @@
 //= require admin-lte/dist/js/adminlte
 //= require toastr/toastr
 //= require jquery-validation/dist/jquery.validate
+//= require datatables.net/js/jquery.dataTables
+//= require datatables.net-bs4/js/dataTables.bootstrap4
+//= require datatables.net-colreorder/js/dataTables.colReorder
+//= require datatables.net-buttons/js/dataTables.buttons
 //= require_tree .

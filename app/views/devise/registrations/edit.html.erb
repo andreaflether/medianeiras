@@ -1,5 +1,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <h3 class="text-center mb-3">Editar informações</h3>
+  <div class="input-group mb-3"> <!-- Nome -->
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",
+    placeholder: "Nome", class: "form-control", required: true %>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+      </div>
+    </div>
+  </div>
   <div class="input-group mb-3"> <!-- Email -->
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
     placeholder: "Email", class: "form-control", required: false %>

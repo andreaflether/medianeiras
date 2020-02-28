@@ -1,0 +1,34 @@
+<table id="example1" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Privilégio</th>
+      <th>Última atualização</th>
+      <!-- <th colspan="2">Ações</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.role.capitalize %></td>
+    <td><%= user.updated_at %></td>
+    <!-- <td><button class="btn btn-outline-primary mr-3">Editar</button> <button class="btn btn-outline-danger">Apagar</button></td> -->
+  </tr>
+  </tbody>
+</table>
+<% end %>
+
+<script>
+$(document).ready(function() {
+  $(function () {
+    $('#example1').DataTable({
+      language: {
+        "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+      }
+    });
+  });
+})
+</script>

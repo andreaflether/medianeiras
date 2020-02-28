@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'admin/index'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'admin/index'
+  root 'admin#index'
+
+  resources :users, path: 'admin/users', module: :admin
 end
