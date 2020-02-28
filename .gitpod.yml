@@ -3,8 +3,8 @@ ports:
     onOpen: open-preview
 tasks:
   - init: >
+      \curl -sSL https://get.rvm.io | bash -s stable --rails &&
       bundle install --without production &&
-      rails db:migrate &&
       yarn install
     command: >
       rails server
