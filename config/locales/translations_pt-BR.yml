@@ -4,10 +4,19 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
+      event:
+        one: Evento
+        other: Eventos
+    attributes:
+      event:
+        title: Nome
+        description: Descrição
+        start_date: Data/hora de início
+        end_date: Data/hora do término
+        location: Local
   controllers:
     users: Usuários
     events: Eventos
     members: Membros
     volunteers: Voluntários
     activities: Atividades
-    

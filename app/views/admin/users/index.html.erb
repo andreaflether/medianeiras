@@ -14,7 +14,7 @@
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.role.capitalize %></td>
-    <td><%= user.updated_at %></td>
+    <td><%= l user.updated_at, format: :long %></td>
     <!-- <td><button class="btn btn-outline-primary mr-3">Editar</button> <button class="btn btn-outline-danger">Apagar</button></td> -->
   </tr>
   </tbody>

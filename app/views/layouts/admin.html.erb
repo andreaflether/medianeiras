@@ -188,19 +188,20 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <%= link_to events_path, class: "nav-link" do %>
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>
                 Eventos
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>
+            <% end %>
+
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar evento</p>
-                </a>
+                <%= link_to new_event_path, class: "nav-link" do %>
+                <i class="far fa-circle nav-icon"></i>
+                  <p> Novo evento</p>
+                <% end %>
               </li>
               <li class="nav-item">
                 <a href="../forms/advanced.html" class="nav-link">
@@ -209,10 +210,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ver todos</p>
-                </a>
+                <%= link_to events_path, class: "nav-link" do %>
+                <i class="far fa-circle nav-icon"></i>
+                  <p>Calendário</p>
+                <% end %>
               </li>
             </ul>
           </li>
