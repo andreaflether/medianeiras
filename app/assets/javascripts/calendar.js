@@ -21,7 +21,7 @@ $(document).ready(function() {
     },
     'themeSystem': 'bootstrap',
     //Random default events
-    events    : [],
+    events    : calendarEl.data('xhr'),
     editable  : false,
     droppable : false, // this allows things to be dropped onto the calendar !!!
   });
