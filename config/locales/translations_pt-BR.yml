@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+  controllers:
+    users: Usuários
+    events: Eventos
+    members: Membros
+    volunteers: Voluntários
+    activities: Atividades
+    

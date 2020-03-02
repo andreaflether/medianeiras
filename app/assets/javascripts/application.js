@@ -21,4 +21,13 @@
 //= require datatables.net-bs4/js/dataTables.bootstrap4
 //= require datatables.net-colreorder/js/dataTables.colReorder
 //= require datatables.net-buttons/js/dataTables.buttons
+//= require datatables.net-buttons/js/buttons.html5
+//= require datatables.net-buttons/js/buttons.print
+//= require datatables.net-buttons/js/buttons.colVis
+//= require datatables.net-buttons/js/buttons.flash
+//= require datatables.net-buttons-bs4/js/buttons.bootstrap4
+//= require @fullcalendar/core/main
+//= require @fullcalendar/daygrid/main
+//= require @fullcalendar/timegrid/main
+//= require @fullcalendar/bootstrap/main
 //= require_tree .

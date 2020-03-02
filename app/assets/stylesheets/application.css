@@ -17,6 +17,11 @@
  *= require toastr/toastr
  *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require datatables.net-buttons-bs4/css/buttons.bootstrap4
+
+ *= require @fullcalendar/core/main
+ *= require @fullcalendar/daygrid/main
+ *= require @fullcalendar/timegrid/main
+ *= require @fullcalendar/bootstrap/main
  */
 
  @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
