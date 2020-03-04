@@ -15,7 +15,9 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       else
         field_error_message = instance.error_message
       end
-      html = %(#{e}).html_safe
+      html = %(#{e}<script>$(document).ready(function(){
+      $('##{e['id']}').closest('.input-group').removeClass('mb-3').after('<span class="invalid-feedback d-inline-block mt-1 mb-3">#{field_error_message.capitalize}</span>')
+      });</script>).html_safe
     end
   end
 

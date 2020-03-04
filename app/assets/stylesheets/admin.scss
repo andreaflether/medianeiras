@@ -1,3 +1,37 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
+
+.logotipo {
+  width: 55%;
+  height: auto;
+}
+
+.nav-sidebar > .nav-item .nav-icon.fa.fa-circle,
+.nav-sidebar > .nav-item .nav-icon.fas.fa-circle,
+.nav-sidebar > .nav-item .nav-icon.far.fa-circle,
+.nav-sidebar > .nav-item .nav-icon.fab.fa-circle,
+.nav-sidebar > .nav-item .nav-icon.glyphicon.fa-circle,
+.nav-sidebar > .nav-item .nav-icon.ion.fa-circle {
+
+  font-size: 0.7rem !important;
+}
+
+.nav-sidebar > .nav-item .nav-icon.fas.fa-venus {
+  font-size: 1.2rem !important;
+}
+
+.medianeiras-logo {
+   margin-top: 7px !important;
+}
+
+.fc-today{
+ background-color: #fcf8e3 !important;
+}
+
+#last-activities > tbody > tr > td {
+ padding-top: 10px !important;
+ padding-bottom: 10px !important;
+}

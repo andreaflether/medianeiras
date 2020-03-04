@@ -31,7 +31,15 @@ class Admin::UsersController < AdminController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:id, :name, :role, :email, :update_at, :created_at)
+  end
+
+  def authorize
+    unless current_user.superadmin?
+      redirect_to root_path, alert: 'Você não possui acesso a esta página.'
+      return
+    end
   end
 end

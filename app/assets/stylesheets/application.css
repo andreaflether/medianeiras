@@ -11,43 +11,16 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require admin
  *= require @fortawesome/fontawesome-free/css/all.min
  *= require icheck-bootstrap/icheck-bootstrap
  *= require admin-lte/dist/css/adminlte
  *= require toastr/toastr
  *= require datatables.net-bs4/css/dataTables.bootstrap4
  *= require datatables.net-buttons-bs4/css/buttons.bootstrap4
-
+ *= require ekko-lightbox/dist/ekko-lightbox
  *= require @fullcalendar/core/main
  *= require @fullcalendar/daygrid/main
  *= require @fullcalendar/timegrid/main
  *= require @fullcalendar/bootstrap/main
  */
-
- @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
-
- .logotipo {
-   width: 55%;
-   height: auto;
- }
-
- .nav-sidebar > .nav-item .nav-icon.fa.fa-circle,
- .nav-sidebar > .nav-item .nav-icon.fas.fa-circle,
- .nav-sidebar > .nav-item .nav-icon.far.fa-circle,
- .nav-sidebar > .nav-item .nav-icon.fab.fa-circle,
- .nav-sidebar > .nav-item .nav-icon.glyphicon.fa-circle,
- .nav-sidebar > .nav-item .nav-icon.ion.fa-circle {
-     font-size: 0.7rem !important;
- }
-
- .nav-sidebar > .nav-item .nav-icon.fas.fa-venus {
-   font-size: 1.2rem !important;
- }
-
-.medianeiras-logo {
-  margin-top: 7px !important;
-}
-
-.fc-today {
-  background-color: #fcf8e3 !important;
-}
