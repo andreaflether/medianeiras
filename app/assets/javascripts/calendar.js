@@ -15,11 +15,12 @@ $(document).ready(function() {
   var calendar = new Calendar(calendarEl[0], {
     plugins: [ 'bootstrap', 'dayGrid', 'timeGrid' ],
     header    : {
-      left  : 'anterior,próximo hoje',
+      left  : 'prev,next today',
       center: 'title',
       right : 'dayGridMonth,timeGridWeek,timeGridDay'
     },
     'themeSystem': 'bootstrap',
+    locale: 'pt-br',
     //Random default events
     events    : calendarEl.data('xhr'),
     editable  : false,

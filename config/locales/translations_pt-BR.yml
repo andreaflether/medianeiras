@@ -7,12 +7,22 @@ pt-BR:
       event:
         one: Evento
         other: Eventos
+      activity:
+        one: Atividade
+        other: Atividades
     attributes:
       event:
         title: Nome
         description: Descrição
         start_date: Data/hora de início
         end_date: Data/hora do término
+        location: Local
+      activity:
+        name: Nome
+        description: Descrição
+        days: Dias
+        time_schedule: Horário
+        max_capacity: Quantidade máxima de alunos
         location: Local
   controllers:
     users: Usuários
