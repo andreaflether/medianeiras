@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>Medianeiras Admin | <%= t controller_name, scope: 'controllers' %></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
@@ -59,7 +59,7 @@
           </p>
           <div class="dropdown-divider"></div>
             <%= link_to 'Preferências', edit_user_registration_path, class: "dropdown-item text-center" %>
-          </a>
+
           <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "dropdown-item text-center" %>
         </div>
       </li>
@@ -128,21 +128,21 @@
               <p>
                 Atividades
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right"><%= @activities_count %></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../layout/top-nav.html" class="nav-link">
+                <%= link_to new_activity_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar atividade</p>
-                </a>
+                  Cadastrar atividade
+                <% end %>
               </li>
               <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                <%= link_to activities_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ver atividades</p>
-                </a>
+                  Ver atividades
+                <% end %>
               </li>
             </ul>
           </li>
@@ -280,7 +280,5 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-
 </body>
 </html>

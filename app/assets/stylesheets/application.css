@@ -12,6 +12,8 @@
  *
  *= require_self
  *= require admin
+ *= require select2/dist/css/select2
+ *= require admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4
  *= require @fortawesome/fontawesome-free/css/all.min
  *= require icheck-bootstrap/icheck-bootstrap
  *= require admin-lte/dist/css/adminlte
@@ -23,4 +25,5 @@
  *= require @fullcalendar/daygrid/main
  *= require @fullcalendar/timegrid/main
  *= require @fullcalendar/bootstrap/main
+ *= require daterangepicker/daterangepicker
  */

@@ -1,4 +1,16 @@
 module ApplicationHelper
+
+  def actions(action)
+    case action
+    when "new"
+      "Cadastrar"
+    when "edit"
+      "Editar"
+    when "show"
+      "Visualizar"
+    end  
+  end
+
   def devise_action(action, controller)
     case action
     when "new"

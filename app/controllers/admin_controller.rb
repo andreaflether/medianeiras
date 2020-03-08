@@ -4,7 +4,11 @@ class AdminController < ApplicationController
   layout 'admin'
 
   def index
+  end
 
+  def counter
+    @activities_count = Activity.all.count
+    @events_count = Event.all.count
   end
 
   protected

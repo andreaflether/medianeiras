@@ -5,6 +5,9 @@
 //= require admin-lte/dist/js/adminlte
 //= require toastr/toastr
 //= require jquery-validation/dist/jquery.validate
+//= require select2/dist/js/select2.full
+//= require daterangepicker/moment.min
+//= require daterangepicker/daterangepicker
 
 // DataTables
 //= require jszip/dist/jszip

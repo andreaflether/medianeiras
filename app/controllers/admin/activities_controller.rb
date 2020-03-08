@@ -1,5 +1,7 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :days_to_s, only: [:create]
+  before_action :counter
 
   # GET /activities
   # GET /activities.json
@@ -15,17 +17,19 @@ class Admin::ActivitiesController < AdminController
   # GET /activities/new
   def new
     @activity = Activity.new
+    @week_days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
   end
 
   # GET /activities/1/edit
   def edit
+
   end
 
   # POST /activities
   # POST /activities.json
   def create
-    @activity = Activity.new(activity_params)
 
+    @activity = Activity.new(activity_params)
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Atividade criada com sucesso!' }
@@ -70,5 +74,9 @@ class Admin::ActivitiesController < AdminController
     # Only allow a list of trusted parameters through.
     def activity_params
       params.require(:activity).permit(:name, :description, :location, :max_capacity, :days, :time_schedule)
+    end
+
+    def days_to_s
+      params[:activity][:days] = params[:activity][:days].join(', ')
     end
 end
