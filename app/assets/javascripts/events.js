@@ -39,4 +39,5 @@ $(document).ready(function() {
         "firstDay": 1
     }
   });
+  $('.new_event > input[type="text"], .new_event > textarea').addClass('form-control mb-3');
 })
