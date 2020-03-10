@@ -35,3 +35,11 @@
  padding-top: 10px !important;
  padding-bottom: 10px !important;
 }
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.breadcrumb-item:not(a) {
+  color: rgba(0, 0, 0, 0.7) !important;
+}

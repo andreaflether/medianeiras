@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'inline_svg'
 gem 'rails-i18n', '~> 5.1'
+gem 'breadcrumbs_on_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

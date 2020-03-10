@@ -40,4 +40,5 @@ $(document).ready(function() {
     }
   });
   $('.new_event > input[type="text"], .new_event > textarea').addClass('form-control mb-3');
+  $('.breadcrumb > li').addClass('breadcrumb-item');
 })

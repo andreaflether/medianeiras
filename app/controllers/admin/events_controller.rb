@@ -1,10 +1,12 @@
 class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "eventos", :events_path
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+    # add_breadcrumb "eventos", events_path
   end
 
   # GET /events/1
@@ -14,6 +16,7 @@ class Admin::EventsController < AdminController
 
   # GET /events/new
   def new
+    add_breadcrumb "novo evento", new_event_path
     @event = Event.new
   end
 
