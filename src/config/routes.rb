@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'admin#index'
 
   resources :people, path: 'admin/people', module: :admin
+  resources :students, path: 'admin/students', module: :admin
   resources :users, path: 'admin/users', module: :admin
   resources :events, path: 'admin/events', module: :admin
   resources :activities, path: 'admin/activities', module: :admin
