@@ -4,6 +4,7 @@ class CreateVolunteers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :speciality
       t.string :cpf
+      t.references :person, foreign_key: true
 
       t.timestamps
     end

@@ -13,7 +13,20 @@
     <%= f.input :exit_date %>
   </div>
 
+  <%= f.simple_fields_for :student do |s| %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= s.input :school %>
+
+    </div>
+    <div class="col-md-4">
+      <%= s.input :current_grade %>
+
+    </div>
+  </div>
+  <% end %>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

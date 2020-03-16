@@ -15,6 +15,7 @@ class Admin::PeopleController < AdminController
   # GET /people/new
   def new
     @person = Person.new
+    @person.build_student
   end
 
   # GET /people/1/edit
@@ -69,6 +70,9 @@ class Admin::PeopleController < AdminController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :birthday, :address, :religion, :rg, :start_date, :exit_date)
+      params.require(:person).permit(:name, :birthday, :address, :religion, :rg, :start_date, :exit_date,
+                                     student_attributes: [:current_grade, :school], # Nested Attributes: Alunos
+                                     volunteer_attributes: [:email, :speciality, :cpf] # Nested Attributes: Voluntários
+      )
     end
 end

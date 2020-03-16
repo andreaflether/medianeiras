@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_134047) do
+ActiveRecord::Schema.define(version: 2020_03_15_213940) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,27 @@ ActiveRecord::Schema.define(version: 2020_03_07_134047) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.date "birthday"
+    t.string "address"
+    t.string "religion"
+    t.string "rg"
+    t.date "start_date"
+    t.date "exit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "current_grade"
+    t.string "school"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_students_on_person_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,6 +66,16 @@ ActiveRecord::Schema.define(version: 2020_03_07_134047) do
     t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "email"
+    t.string "speciality"
+    t.string "cpf"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_volunteers_on_person_id"
   end
 
 end
