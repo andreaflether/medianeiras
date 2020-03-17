@@ -37,6 +37,7 @@ class Admin::PeopleController < AdminController
       if @person.save
         # puts params[:person].has_key?(:student_attributes)
         format.html do
+          redirect_to @person, notice: "Cadastro efetuado com sucesso!" if person_params.has_key?(:student_attributes) && person_params.has_key?(:volunteer_attributes) && 
           redirect_to @person.student, type: 'student', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:student_attributes)
           redirect_to @person.volunteer, type: 'volunteer', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:volunteer_attributes)
         end

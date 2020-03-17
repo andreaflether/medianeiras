@@ -1,0 +1,2 @@
+class PromulherForm < ApplicationRecord
+end

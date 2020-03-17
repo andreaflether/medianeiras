@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Promulher Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Family size</th>
+      <th>F children</th>
+      <th>M children</th>
+      <th>Works</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @promulher_forms.each do |promulher_form| %>
+      <tr>
+        <td><%= promulher_form.family_size %></td>
+        <td><%= promulher_form.f_children %></td>
+        <td><%= promulher_form.m_children %></td>
+        <td><%= promulher_form.works %></td>
+        <td><%= link_to 'Show', promulher_form %></td>
+        <td><%= link_to 'Edit', edit_promulher_form_path(promulher_form) %></td>
+        <td><%= link_to 'Destroy', promulher_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Promulher Form', new_promulher_form_path %>
