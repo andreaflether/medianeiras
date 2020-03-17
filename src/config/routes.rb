@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suggestions
   resources :promulher_forms
   devise_for :users
   get 'admin/index'

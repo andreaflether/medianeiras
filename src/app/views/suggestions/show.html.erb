@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parents:</strong>
+  <%= @suggestion.parents %>
+</p>
+
+<p>
+  <strong>Children:</strong>
+  <%= @suggestion.children %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @suggestion.comments %>
+</p>
+
+<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<%= link_to 'Back', suggestions_path %>
