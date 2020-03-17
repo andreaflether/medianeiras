@@ -37,7 +37,7 @@ class Admin::PeopleController < AdminController
       if @person.save
         # puts params[:person].has_key?(:student_attributes)
         format.html do
-          redirect_to @person, notice: "Cadastro efetuado com sucesso!" if person_params.has_key?(:student_attributes) && person_params.has_key?(:volunteer_attributes) && 
+          redirect_to @person, notice: "Cadastro efetuado com sucesso!" if person_params.has_key?(:student_attributes) && person_params.has_key?(:volunteer_attributes)
           redirect_to @person.student, type: 'student', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:student_attributes)
           redirect_to @person.volunteer, type: 'volunteer', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:volunteer_attributes)
         end
@@ -54,7 +54,7 @@ class Admin::PeopleController < AdminController
   def update
     respond_to do |format|
       if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
+        format.html { redirect_to @person, notice: 'Cadastro atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @person }
       else
         format.html { render :edit }
