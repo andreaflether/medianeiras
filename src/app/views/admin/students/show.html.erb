@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">Informações de cadastro</h3>
+  </div>
+  <div class="card-body">
+    <h4><%= @student.person.name %></h4>
+    <b>Data de nascimento:</b> <%= @student.person.birthday %>
+    <hr>
+    <b>Endereço:</b> <%= @student.person.address %>
+    <hr>
+    <b>Identidade (RG):</b> <%= @student.person.rg %>
+    <hr>
+    <b>Data de entrada:</b> <%= @student.person.address %>
+  </div>
+</div>
 
 <p>
-  <strong>Current grade:</strong>
+  <strong>Nome:</strong>
+  <%= @student.person.name %>
+</p>
+
+<p>
+  <strong>Série:</strong>
   <%= @student.current_grade %>
 </p>
 
 <p>
-  <strong>School:</strong>
+  <strong>Colégio:</strong>
   <%= @student.school %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Editar informações', edit_student_path(@student) %> |
+<%= link_to 'Voltar', students_path %>

@@ -10,6 +10,15 @@ pt-BR:
       activity:
         one: Atividade
         other: Atividades
+      people:
+        one: Pessoa
+        other: Pessoas
+      student:
+        one: Aluno
+        other: Alunos
+      volunteer:
+        one: Voluntário
+        other: Voluntários
     attributes:
       event:
         title: Nome
@@ -24,9 +33,24 @@ pt-BR:
         time_schedule: Horário
         max_capacity: Quantidade máxima de alunos
         location: Local
+      person:
+        name: Nome
+        birthday: Data de nascimento
+        address: Endereço
+        neighborhood: Bairro
+        religion: Religião
+        rg: Identidade
+        start_date: Data de entrada
+        exit_date: Data de saída
+      student:
+        current_grade: Série
+        school: Colégio
+
   controllers:
     users: Usuários
     events: Eventos
-    members: Membros
+    students: Alunos
     volunteers: Voluntários
     activities: Atividades
+    admin: Início
+    people: Pessoas

@@ -101,16 +101,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <%= link_to new_person_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar aluno</p>
-                </a>
+                  Cadastrar aluno
+                <% end %>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <%= link_to students_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ver alunos</p>
-                </a>
+                  Ver alunos cadastrados
+                <% end %>
               </li>
             </ul>
           </li>

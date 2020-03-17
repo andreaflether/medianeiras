@@ -1,29 +1,64 @@
-
 <%= simple_form_for(@person) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :birthday %>
-    <%= f.input :address %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :rg %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :birthday %>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <%= text_field_tag :birthday, nil, class: "form-control", data: { :'inputmask-alias' => "datetime", :'inputmask-inputformat' => "dd/mm/yyyy", :mask => ""} %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :address %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :neighborhood %>
+      </div>
+    </div>
     <%= f.input :religion %>
-    <%= f.input :rg %>
-    <%= f.input :start_date %>
-    <%= f.input :exit_date %>
+
+    <div class="row">
+      <div class="col-md-6"> <!-- Data de entrada -->
+        <%= f.label :start_date %>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <%= text_field_tag :start_date, nil, class: "form-control", data: { :'inputmask-alias' => "datetime", :'inputmask-inputformat' => "dd/mm/yyyy", :mask => ""} %>
+        </div>
+      </div>
+
+      <div class="col-md-6"> <!-- Data de saída -->
+        <%= f.label :exit_date %>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+          </div>
+          <%= text_field_tag :birthday, nil, disabled: true, class: "form-control", data: { :'inputmask-alias' => "datetime", :'inputmask-inputformat' => "dd/mm/yyyy", :mask => ""} %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <%= f.simple_fields_for :student do |s| %>
-  <div class="row">
-    <div class="col-md-8">
-      <%= s.input :school %>
-
+    <div class="row">
+      <div class="col-md-8">
+        <%= s.input :school %>
+      </div>
+      <div class="col-md-4">
+        <%= s.input :current_grade %>
+      </div>
     </div>
-    <div class="col-md-4">
-      <%= s.input :current_grade %>
-
-    </div>
-  </div>
   <% end %>
 
   <div class="form-actions">

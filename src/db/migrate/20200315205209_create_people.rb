@@ -4,6 +4,7 @@ class CreatePeople < ActiveRecord::Migration[5.2]
       t.string :name
       t.date :birthday
       t.string :address
+      t.string :neighborhood
       t.string :religion
       t.string :rg
       t.date :start_date

@@ -1,6 +1,5 @@
 class Admin::PeopleController < AdminController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-
   # GET /people
   # GET /people.json
   def index
@@ -10,6 +9,7 @@ class Admin::PeopleController < AdminController
   # GET /people/1
   # GET /people/1.json
   def show
+
   end
 
   # GET /people/new
@@ -29,7 +29,11 @@ class Admin::PeopleController < AdminController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        # puts params[:person].has_key?(:student_attributes)
+        # format.html { if params.has_key?(:student_attributes)
+        #   redirect_to @person, type: 'student' end }
+        @student = Student.find(@person.student.id)
+        format.html { redirect_to @student, notice: 'Cadastro efetuado com sucesso!' }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }
@@ -70,7 +74,7 @@ class Admin::PeopleController < AdminController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:name, :birthday, :address, :religion, :rg, :start_date, :exit_date,
+      params.require(:person).permit(:name, :birthday, :address, :neighborhood, :religion, :rg, :start_date, :exit_date,
                                      student_attributes: [:current_grade, :school], # Nested Attributes: Alunos
                                      volunteer_attributes: [:email, :speciality, :cpf] # Nested Attributes: Voluntários
       )

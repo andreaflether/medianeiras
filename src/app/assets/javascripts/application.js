@@ -7,6 +7,7 @@
 //= require jquery-validation/dist/jquery.validate
 //= require select2/dist/js/select2.full
 //= require daterangepicker/moment.min
+//= require inputmask/dist/jquery.inputmask.bundle
 //= require daterangepicker/daterangepicker
 
 // DataTables

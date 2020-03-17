@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_15_213940) do
     t.string "name"
     t.date "birthday"
     t.string "address"
+    t.string "neighborhood"
     t.string "religion"
     t.string "rg"
     t.date "start_date"
