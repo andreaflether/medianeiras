@@ -25,7 +25,22 @@
         <%= f.input :neighborhood %>
       </div>
     </div>
-    <%= f.input :religion %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :religion %>
+      </div>
+      <div class="col-md-4">
+        <%= label_tag "Situação", nil, class: "d-block mb-3" %>
+        <div class="icheck-primary d-inline">
+          <%= check_box_tag 'status', 'active', true %>
+          <!-- <input type="checkbox" id="checkboxPrimary3"> -->
+          <label for="status">
+            Em atividade
+          </label>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-6"> <!-- Data de entrada -->
@@ -44,7 +59,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
           </div>
-          <%= text_field_tag :birthday, nil, disabled: true, class: "form-control", data: { :'inputmask-alias' => "datetime", :'inputmask-inputformat' => "dd/mm/yyyy", :mask => ""} %>
+          <%= text_field_tag :exit_date, nil, disabled: true, class: "form-control", data: { :'inputmask-alias' => "datetime", :'inputmask-inputformat' => "dd/mm/yyyy", :mask => ""} %>
         </div>
       </div>
     </div>

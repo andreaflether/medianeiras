@@ -9,6 +9,7 @@
 //= require daterangepicker/moment.min
 //= require inputmask/dist/jquery.inputmask.bundle
 //= require daterangepicker/daterangepicker
+//= require dependent-fields
 
 // DataTables
 //= require jszip/dist/jszip
