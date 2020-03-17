@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_213940) do
+ActiveRecord::Schema.define(version: 2020_03_17_203130) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_03_15_213940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "promulher_forms", force: :cascade do |t|
+    t.integer "family_size"
+    t.integer "f_children"
+    t.integer "m_children"
+    t.string "works"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "current_grade"
     t.string "school"
@@ -56,6 +65,14 @@ ActiveRecord::Schema.define(version: 2020_03_15_213940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_students_on_person_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.text "parents"
+    t.text "children"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

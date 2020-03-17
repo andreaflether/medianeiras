@@ -1,1 +1,3 @@
-<div id="calendar" data-xhr='/admin/events.json'></div>
+<% @events.each do |event| %>
+  <%= event.title %>
+<% end %>

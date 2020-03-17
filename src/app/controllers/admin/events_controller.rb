@@ -2,6 +2,11 @@ class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   add_breadcrumb "eventos", :events_path
+
+  def calendar
+
+  end 
+
   # GET /events
   # GET /events.json
   def index

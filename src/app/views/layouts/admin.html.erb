@@ -214,20 +214,18 @@
               <li class="nav-item">
                 <%= link_to events_path, class: "nav-link" do %>
                 <i class="far fa-circle nav-icon"></i>
-                  <p>Calendário</p>
+                  <p>Listagem de eventos</p>
                 <% end %>
               </li>
             </ul>
           </li>
           <li class="nav-header">OUTROS</li>
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendário
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
+            <%= link_to calendar_path, class: "nav-link" do %>
+            <i class="far fa-circle nav-icon"></i>
+              <p>Calendário</p>
+              <span class="badge badge-info right">2</span>
+            <% end %>
           </li>
         </ul>
       </nav>
