@@ -45,6 +45,10 @@ pt-BR:
       student:
         current_grade: Série
         school: Colégio
+      volunteer:
+        email: E-mail
+        cpf: CPF
+        speciality: Especialização
 
   controllers:
     users: Usuários

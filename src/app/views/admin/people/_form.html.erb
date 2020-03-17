@@ -17,6 +17,7 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-8">
         <%= f.input :address %>
@@ -32,12 +33,10 @@
       </div>
       <div class="col-md-4">
         <%= label_tag "Situação", nil, class: "d-block mb-3" %>
+
         <div class="icheck-primary d-inline">
           <%= check_box_tag 'status', 'active', true %>
-          <!-- <input type="checkbox" id="checkboxPrimary3"> -->
-          <label for="status">
-            Em atividade
-          </label>
+          <%= label_tag 'status', 'Em atividade', nil %>
         </div>
       </div>
     </div>
@@ -74,6 +73,20 @@
         <%= s.input :current_grade %>
       </div>
     </div>
+  <% end %>
+
+  <%= f.simple_fields_for :volunteer do |v| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= v.input :cpf %>
+      </div>
+
+      <div class="col-md-6">
+        <%= v.input :speciality %>
+      </div>
+    </div>
+
+    <%= v.input :email %>
   <% end %>
 
   <div class="form-actions">

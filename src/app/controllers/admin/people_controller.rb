@@ -14,8 +14,14 @@ class Admin::PeopleController < AdminController
 
   # GET /people/new
   def new
+    @type = params[:type]
     @person = Person.new
-    @person.build_student
+    case @type
+    when 'student'
+      @person.build_student
+    when 'volunteer'
+      @person.build_volunteer
+    end
   end
 
   # GET /people/1/edit
@@ -30,10 +36,10 @@ class Admin::PeopleController < AdminController
     respond_to do |format|
       if @person.save
         # puts params[:person].has_key?(:student_attributes)
-        # format.html { if params.has_key?(:student_attributes)
-        #   redirect_to @person, type: 'student' end }
-        @student = Student.find(@person.student.id)
-        format.html { redirect_to @student, notice: 'Cadastro efetuado com sucesso!' }
+        format.html do
+          redirect_to @person.student, type: 'student', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:student_attributes)
+          redirect_to @person.volunteer, type: 'volunteer', notice: 'Cadastro efetuado com sucesso!' if person_params.has_key?(:volunteer_attributes)
+        end
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }

@@ -101,7 +101,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <%= link_to new_person_path, class: "nav-link" do %>
+                <%= link_to new_person_path(type: 'student'), class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
                   Cadastrar aluno
                 <% end %>
@@ -156,10 +156,10 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../charts/chartjs.html" class="nav-link">
+                <%= link_to new_person_path(type: 'volunteer'), class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cadastrar voluntário</p>
-                </a>
+                  Cadastrar voluntário
+                <% end %>
               </li>
               <li class="nav-item">
                 <a href="../charts/flot.html" class="nav-link">
@@ -169,6 +169,7 @@
               </li>
             </ul>
           </li>
+          <% if current_user.superadmin? %>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
@@ -187,6 +188,7 @@
               </li>
             </ul>
           </li>
+          <% end %>
           <li class="nav-item has-treeview">
             <%= link_to events_path, class: "nav-link" do %>
               <i class="nav-icon fas fa-bullhorn"></i>

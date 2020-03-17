@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :activities, path: 'admin/activities', module: :admin
   resources :events, path: 'admin/events', module: :admin
   resources :users, path: 'admin/users', module: :admin
+
 end
