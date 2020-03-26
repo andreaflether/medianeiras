@@ -42,9 +42,6 @@ ActiveRecord::Schema.define(version: 2020_03_17_203130) do
     t.string "rg"
     t.date "start_date"
     t.date "exit_date"
-    t.string "citizenship"
-    t.string "civil_status"
-    t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

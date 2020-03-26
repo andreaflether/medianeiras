@@ -1,44 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
-
-.logotipo {
-  width: 55%;
-  height: auto;
-}
-
-.nav-sidebar > .nav-item .nav-icon.fa.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.fas.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.far.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.fab.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.glyphicon.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.ion.fa-circle {
-  font-size: 0.7rem !important;
-}
-
-.nav-sidebar > .nav-item .nav-icon.fas.fa-venus {
-  font-size: 1.2rem !important;
-}
-
-.medianeiras-logo {
-   margin-top: 7px !important;
-}
-
-.fc-today {
-  background-color: #fcf8e3 !important;
-  color: #212529 !important;
-  .fc-day-number {
-    font-weight: bold !important;
-  }
-}
-
-#last-activities > tbody > tr > td {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-  color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.breadcrumb-item:not(a) {
-  color: rgba(0, 0, 0, 0.7) !important;
-}
+/*
+ *= require_self
+ *= require custom_admin
+ *= require select2/dist/css/select2
+ *= require admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4
+ *= require @fortawesome/fontawesome-free/css/all.min
+ *= require icheck-bootstrap/icheck-bootstrap
+ *= require admin-lte/dist/css/adminlte
+ *= require toastr/toastr
+ *= require datatables.net-bs4/css/dataTables.bootstrap4
+ *= require datatables.net-buttons-bs4/css/buttons.bootstrap4
+ *= require ekko-lightbox/dist/ekko-lightbox
+ *= require @fullcalendar/core/main
+ *= require @fullcalendar/daygrid/main
+ *= require @fullcalendar/timegrid/main
+ *= require @fullcalendar/bootstrap/main
+ *= require daterangepicker/daterangepicker
+ */
