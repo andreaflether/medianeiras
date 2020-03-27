@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2020_03_17_203130) do
     t.string "rg"
     t.date "start_date"
     t.date "exit_date"
+    t.string "citizenship"
+    t.string "civil_status"
+    t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,7 +83,8 @@ ActiveRecord::Schema.define(version: 2020_03_17_203130) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

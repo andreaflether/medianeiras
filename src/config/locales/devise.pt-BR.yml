@@ -18,6 +18,11 @@ pt-BR:
               blank: "não pode ficar em branco."
               taken: "já está em uso."
               invalid: "inválida."
+            first_name:
+              blank: "não pode ficar em branco."
+              taken: "já está em uso."
+              invalid: "inválido."
+              too_short: "é muito curta. (mínimo: %{count} caracteres)"
     attributes:
       user:
         confirmation_sent_at: Confirmação enviada em
@@ -30,6 +35,8 @@ pt-BR:
         email: E-mail
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
+        first_name: Nome
+        last_name: Sobrenome
         last_sign_in_at: Último acesso em
         last_sign_in_ip: Último IP de acesso
         locked_at: Bloqueado em

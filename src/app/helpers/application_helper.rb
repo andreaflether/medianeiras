@@ -43,7 +43,7 @@ module ApplicationHelper
       type = 'success' if type == 'notice'
       type = 'error'   if type == 'alert'
       text = "<script>$( document ).ready(function() {toastr.#{type}('#{message}');});</script>"
-      flash_messages << text.html_safe if message
+      flash_messages << text.html_safe
     end
     unless controller_name != 'users'
       if action_name === 'index' || 'show'
@@ -52,7 +52,7 @@ module ApplicationHelper
           text = "<script>$(document).ready(function() {
           toastr.error('#{m}');
           });</script>"
-          flash_messages << text.html_safe if m
+          flash_messages << text.html_safe
         end
       end
     end
