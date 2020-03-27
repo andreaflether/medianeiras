@@ -1,17 +1,16 @@
-<h3>Mudar senha</h3>
+<h3 class="text-center mb-3">Mudar senha</h3>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <p class="login-box-msg">Entre para dar início a sessão</p>
     <div class="input-group mb-3">
-      <%= f.email_field :password, autocomplete: "password",
-                        placeholder: "Nova senha", class: "form-control" %>
+      <%= f.password_field :password, autocomplete: "password",
+                          placeholder: "Nova senha", class: "form-control" %>
       <div class="input-group-append">
         <div class="input-group-text">
           <span class="fas fa-lock"></span>
         </div>
       </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <%= f.password_field :password_confirmation, autocomplete: "password", class: "form-control",
                             placeholder: "Confirmação da nova senha" %>
       <div class="input-group-append">
@@ -23,7 +22,7 @@
 
     <div class="row">
       <div class="col-12">
-        <%= f.submit "Mudar senha", class: "btn btn-primary btn-block mt-3" %>
+        <%= f.submit "Confirmar alterações", class: "btn btn-primary btn-block mt-3" %>
       </div>
     </div>
 

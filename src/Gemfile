@@ -42,6 +42,7 @@ gem 'inline_svg'
 gem 'rails-i18n', '~> 5.1'
 gem 'breadcrumbs_on_rails'
 gem 'dependent-fields-rails'
+gem 'actionmailer_inline_css'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

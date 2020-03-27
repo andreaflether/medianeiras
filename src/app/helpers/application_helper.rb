@@ -46,14 +46,14 @@ module ApplicationHelper
       flash_messages << text.html_safe if message
     end
     unless controller_name != 'users'
-      if action_name === 'index' || 'edit' || 'show'
+      if action_name === 'index' || 'show'
       else
-      resource.errors.full_messages.each do |m| # Devise messages
-        text = "<script>$(document).ready(function() {
-        toastr.error('#{m}');
-        });</script>"
-        flash_messages << text.html_safe if m
-      end
+        resource.errors.full_messages.each do |m| # Devise messages
+          text = "<script>$(document).ready(function() {
+          toastr.error('#{m}');
+          });</script>"
+          flash_messages << text.html_safe if m
+        end
       end
     end
     flash_messages.join("\n").html_safe

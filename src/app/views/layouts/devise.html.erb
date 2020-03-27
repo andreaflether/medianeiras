@@ -10,8 +10,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'admin' %>
-    <%= javascript_include_tag 'admin' %>
+    <%= stylesheet_link_tag 'devise' %>
+    <%= javascript_include_tag 'devise' %>
     <%= custom_flash_messages %>
 
   </head>
@@ -19,7 +19,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <%= inline_svg("logo.svg", class: "logotipo", style: "cursor: pointer;") %>
+        <%= inline_svg_tag("logo.svg", class: "logotipo", style: "cursor: pointer;") %>
       </div>
       <div class="card">
         <div class="card-body login-card-body">
