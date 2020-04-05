@@ -1,0 +1,5 @@
+event_1:
+  title: Teste de evento
+  description: Estamos testando o evento em questão.
+  start_date: Date.parse("2020-04-30")
+  location: Centro Comunitário Nossa Senhora Medianeira
