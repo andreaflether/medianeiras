@@ -1,42 +1,35 @@
-<table id="example1" class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>E-mail</th>
-      <th>Privilégio</th>
-      <th>Última atualização</th>
-      <!-- <th colspan="2">Ações</th> -->
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.role.capitalize %></td>
-    <td><%= l user.updated_at, format: :long %></td>
-    <!-- <td><button class="btn btn-outline-primary mr-3">Editar</button> <button class="btn btn-outline-danger">Apagar</button></td> -->
-  </tr>
-  </tbody>
-</table>
-<% end %>
-
-<script>
-$(document).ready(function() {
-  $(function () {
-    $('#example1').DataTable({
-      dom: "<'row'<'col-md-4'l><'col-md-4'B><'col-md-4'f>>" +
-            "<'row'<'col-md-6'><'col-md-6'>>" +
-            "<'row'<'col-md-12't>><'row'<'col-md-6'i><'col-md-6'p>>",
-      buttons: [
-        { "extend": 'pdf', "text": 'PDF', "className": 'btn btn-default' },
-        { "extend": 'excel', "text": 'Planilha Excel', "className": 'btn btn-default' },
-        { "extend": 'print', "text": 'Imprimir', "className": 'btn btn-default' }
-      ],
-      language: {
-        "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
-      }
-    });
-  });
-})
-</script>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Lista de usuários cadastrados no sistema</h3> 
+  </div>
+  
+  <div class="card-body px-0" style="display: block;">
+    <table class="table table-bordered table-hover dataTable" style="margin-bottom: 15px !important; margin-top: 15px !important;">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Privilégio</th>
+          <th>Última atualização</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.full_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role.capitalize %></td>
+            <td><%= l user.updated_at, format: :long %></td>
+            <td><%= link_to edit_user_path(user), class: "btn btn-outline-primary mr-2" do %>
+                  <i class="fas fa-user-edit"></i>
+                <% end %>
+                <%= link_to users_path(user), class: "btn btn-outline-danger", method: :delete do %>
+                  <i class="fas fa-user-times"></i>
+                <% end %>  
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

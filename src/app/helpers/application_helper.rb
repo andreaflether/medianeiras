@@ -1,54 +1,30 @@
 module ApplicationHelper
-
-  def actions(action)
-    case action
-    when "new"
-      "Cadastrar"
-    when "edit"
-      "Editar"
-    when "show"
-      "Visualizar"
-    end  
-  end
-
-  def devise_action(action, controller)
-    case action
-    when "new"
-      case controller
-      when "passwords"
-        "Recuperar senha"
-      when "registrations"
-        "Criar conta"
-      when "sessions"
-        "Entrar"
-      end
-    when "edit"
-      case controller
-      when "registrations"
-        "Editar informações de conta"
-      when "passwords"
-        "Mudar senha"
-      end
-    when "create"
-      case controller
-      when "registrations"
-        "Criar Conta"
-      end
-    end
-  end
-
   def custom_flash_messages
     flash_messages = []
-    flash.each do |type, message| # Overall flash messages
+
+    # Overall flash messages
+    flash.each do |type, message|
       type = 'success' if type == 'notice'
       type = 'error'   if type == 'alert'
       text = "<script>$( document ).ready(function() {toastr.#{type}('#{message}');});</script>"
       flash_messages << text.html_safe
     end
-    unless controller_name != 'users'
-      if action_name === 'index' || 'show'
+
+    # Validation errors
+    unless action_name == 'index'
+      resource = eval("@#{controller_name.singularize}")
+      
+      if resource.errors.full_messages.any? 
+        resource.errors.full_messages.each do |error_message| 
+          text = "<script>$( document ).ready(function() { toastr.error('#{error_message}');});</script>"
+          flash_messages << text.html_safe
+        end 
+      end 
+    end
+    unless controller_name != 'users' # Devise messages
+      if action_name === 'index' || action_name === 'show' || action_name === 'edit'
       else
-        resource.errors.full_messages.each do |m| # Devise messages
+        resource.errors.full_messages.each do |m| 
           text = "<script>$(document).ready(function() {
           toastr.error('#{m}');
           });</script>"

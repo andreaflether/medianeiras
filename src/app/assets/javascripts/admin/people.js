@@ -9,7 +9,6 @@ $(document).ready(function() {
   $('#status').change(function(){
     if ($('#status').is(':checked') == true){
       $('#exit_date').val('').prop('disabled', true);
-      console.log("corona vairuuus");
     } else {
       $('#exit_date').val('').prop('disabled', false);
     }
