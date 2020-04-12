@@ -56,7 +56,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <p class="dropdown-item text-center mb-0">
-            <%= current_user.name %> <span class="ml-1 right badge badge-primary">Admin</span>
+            <%= current_user.full_name %> <span class="ml-1 right badge badge-primary">Admin</span>
           </p>
           <div class="dropdown-divider"></div>
             <%= link_to 'Preferências', edit_user_registration_path, class: "dropdown-item text-center" %>
@@ -69,7 +69,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-1">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <span class="fas fa-cog brand-image medianeiras-logo"></span>
@@ -84,7 +84,7 @@
           <img src="https://avatars3.githubusercontent.com/u/50052646?s=460&v=4" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><%= current_user.name %></a>
+          <a href="#" class="d-block"><%= current_user.full_name %></a>
         </div>
       </div>
 
@@ -104,13 +104,13 @@
               <li class="nav-item">
                 <%= link_to new_person_path(type: 'student'), class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Cadastrar aluno
+                  <p>Cadastrar aluno</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to students_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Ver alunos cadastrados
+                  <p>Ver alunos cadastrados</p>
                 <% end %>
               </li>
             </ul>
@@ -136,13 +136,13 @@
               <li class="nav-item">
                 <%= link_to new_activity_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Cadastrar atividade
+                  <p>Cadastrar atividade</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to activities_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Ver atividades
+                  <p>Ver atividades</p>
                 <% end %>
               </li>
             </ul>
@@ -159,7 +159,7 @@
               <li class="nav-item">
                 <%= link_to new_person_path(type: 'volunteer'), class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Cadastrar voluntário
+                  <p>Cadastrar voluntário</p>
                 <% end %>
               </li>
               <li class="nav-item">
@@ -177,14 +177,14 @@
               <p>
                 Usuários
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">Superadmin</span>
+                <span class="badge badge-info right"><%= current_user.role.capitalize %></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <%= link_to users_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
-                  Gerenciar
+                  <p>Gerenciar</p>
                 <% end %>
               </li>
             </ul>
@@ -225,7 +225,6 @@
             <%= link_to calendar_path, class: "nav-link" do %>
             <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Calendário</p>
-              <span class="badge badge-info right">2</span>
             <% end %>
           </li>
         </ul>
@@ -239,7 +238,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <div class="container-fluid">
+      <div class="container-fluid px-4 pt-3">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1><%= t controller_name, scope: 'controllers' %></h1>
@@ -252,10 +251,10 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid px-4 pb-3">
         <%= yield %>
       </div>
     </section>
@@ -281,4 +280,5 @@
 </div>
 <!-- ./wrapper -->
 </body>
+
 </html>

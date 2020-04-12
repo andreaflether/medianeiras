@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  validates_presence_of :title, :location, :start_date, :description
+  validates_presence_of :title, :start_date, :description, :location
 end

@@ -1,6 +1,5 @@
 /* initialize the calendar
  -----------------------------------------------------------------*/
-//Date for the calendar events (dummy data)
 $(document).ready(function() {
   var date = new Date()
   var d    = date.getDate(),
@@ -14,6 +13,7 @@ $(document).ready(function() {
   // -----------------------------------------------------------------
   var calendar = new Calendar(calendarEl[0], {
     plugins: [ 'bootstrap', 'dayGrid', 'timeGrid' ],
+    timeZone: 'UTC',
     header    : {
       left  : 'prev,next today',
       center: 'title',
@@ -22,7 +22,7 @@ $(document).ready(function() {
     'themeSystem': 'bootstrap',
     locale: 'pt-br',
     //Random default events
-    events    : calendarEl.data('xhr'),
+    events    : '/admin/events.json',
     editable  : false,
     droppable : false, // this allows things to be dropped onto the calendar !!!
   });

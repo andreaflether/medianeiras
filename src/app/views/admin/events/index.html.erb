@@ -1,3 +1,57 @@
-<% @events.each do |event| %>
-  <%= event.title %>
+<%= search_form_for @q do |f| %>
+
+<div class="card collapsed-card">
+  <div class="card-header">
+    <h3 class="card-title">Filtros</h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" 
+      title="Collapse"><i class="fas fa-plus"></i></button>  
+    </div> <!-- Tools -->
+  </div> <!-- Header -->
+  <div class="card-body" style="display: none;">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.label :location_cont %>
+        <%= f.search_field :location_cont, class: "form-control" %>
+        <%= f.submit "Pesquisar", class: "btn btn-primary mt-3" %>
+      </div> <!-- Col-md-6 -->
+    </div> <!-- Row -->
+  </div> <!-- Card body -->
+</div>
+
 <% end %>
+
+<div class="card card-primary card-outline">
+  <div class="card-body p-0" style="diplay: block;">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Data</th>
+          <th>Local</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.title %></td>
+            <td><%= event_date(event.start_date, event.end_date)%></td>
+            <td><span class="badge badge-primary"><%= event.location %></span></td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <%= link_to edit_event_path(event), class: "btn btn-info" do %>
+                  <i class="fas fa-pen"></i>
+                <% end %>
+                <%= link_to event_path(event), class: "btn btn-danger", method: :delete,
+                data: { confirm: "Tem certeza que deseja apagar o evento #{event.title.upcase}?"} do %>
+                  <i class="fas fas fa-trash"></i>
+                <% end %>
+              </div>  
+            </td>                   
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

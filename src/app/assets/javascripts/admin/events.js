@@ -1,44 +1,50 @@
 $(document).ready(function() {
-  $('.daterange-input').daterangepicker({
-    "singleDatePicker": true,
-    "timePicker": true,
-    "timePicker24Hour": true,
-    "autoUpdateInput": true,
-    "locale": {
-        "format": "DD/MM/YYYY - hh:mm",
-        "separator": " - ",
-        "applyLabel": "Aplicar",
-        "cancelLabel": "Cancelar",
-        "fromLabel": "From",
-        "toLabel": "To",
-        "customRangeLabel": "Custom",
-        "weekLabel": "W",
-        "daysOfWeek": [
-            "Dom",
-            "Seg",
-            "Ter",
-            "Qua",
-            "Qui",
-            "Sex",
-            "Sab"
-        ],
-        "monthNames": [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro"
-        ],
-        "firstDay": 1
-    }
-  });
-  $('.new_event > input[type="text"], .new_event > textarea').addClass('form-control mb-3');
-  $('.breadcrumb > li').addClass('breadcrumb-item');
-})
+
+	$('.breadcrumb > li').addClass('breadcrumb-item');
+
+	$('#start_date').daterangepicker({
+		singleDatePicker: true,		
+		minDate : moment(),
+		startDate: moment().endOf('hour').add(1, 'm'),
+		timePicker: true,
+		timePicker24Hour: true,
+		timePickerIncrement: 15,
+		locale: {
+			format: 'DD/MM/YYYY HH:mm',
+			applyLabel: "Salvar",
+      cancelLabel: "Cancelar"
+		}
+	});
+
+	$('#end_date').daterangepicker({
+		singleDatePicker: true,
+		timePicker: true,
+		timePicker24Hour: true,
+		timePickerIncrement: 30,
+		locale: {
+			format: 'DD/MM/YYYY HH:mm',
+			applyLabel: "Salvar",
+			cancelLabel: "Cancelar"
+		},
+		startDate: moment().endOf('hour').add(1, 'm').add(1, 'h'),
+	});
+	
+	$('#start_date').on('apply.daterangepicker', function(ev, picker) {
+		
+		var new_start = picker.startDate.clone().add(1, 'h');
+
+    $('#end_date').daterangepicker({
+      singleDatePicker: true,
+			minDate: new_start,
+			timePicker: true,
+			timePicker24Hour: true,
+			timePickerIncrement: 30,
+			locale: {
+				format: 'DD/MM/YYYY HH:mm',
+				applyLabel: "Salvar",
+				cancelLabel: "Cancelar"
+			},
+			startDate: new_start
+    });
+	});
+});

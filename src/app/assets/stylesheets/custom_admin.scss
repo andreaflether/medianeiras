@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
 
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .logotipo {
   width: 55%;
   height: auto;
@@ -41,4 +45,38 @@
 
 .breadcrumb-item:not(a) {
   color: rgba(0, 0, 0, 0.7) !important;
+}
+
+[class*="sidebar-dark-"] {
+  background-color: #3a3b45 !important;
+}
+
+.content-wrapper {
+  background: #f8f9fc !important;
+}
+
+.nav-icon {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 1rem !important;
+}
+
+.nav-treeview > .nav-item > .nav-link.active > .nav-icon {
+  color: #3a3b45 !important;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active > .nav-icon {
+  color: #fff !important;
+}
+
+table.dataTable {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.form-group {
+  margin-bottom: 1.3rem !important;
+}
+
+.btn-actions-group > .btn{
+  margin-left: 5px;
 }

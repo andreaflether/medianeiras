@@ -1,56 +1,53 @@
 class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  autocomplete :event, :location, :limit => 10
   add_breadcrumb "eventos", :events_path
 
-  def calendar
+  def calendar 
 
   end 
-
-  # GET /events
-  # GET /events.json
   def index
-    @events = Event.all
+    @q = Event.ransack(params[:q])
+    @events = @q.result
+    # @events = Event.all
     # add_breadcrumb "eventos", events_path
   end
 
-  # GET /events/1
-  # GET /events/1.json
+
   def show
+    add_breadcrumb "visualizar evento"
   end
 
-  # GET /events/new
   def new
     add_breadcrumb "novo evento", new_event_path
+    
     @event = Event.new
+    
   end
 
-  # GET /events/1/edit
   def edit
+    add_breadcrumb "editar evento"
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params)
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'Evento criado com sucesso!' }
         format.json { render :show, status: :created, location: @event }
       else
+        
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Evento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -59,23 +56,20 @@ class Admin::EventsController < AdminController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: 'Evento excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_event
       @event = Event.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:title, :description, :start_date, :end_date, :location)
     end
