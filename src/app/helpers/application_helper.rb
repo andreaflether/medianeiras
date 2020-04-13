@@ -11,7 +11,7 @@ module ApplicationHelper
     end
 
     # Validation errors
-    unless action_name == 'index'
+    if action_name == 'new' || action_name == 'show' || action_name == 'edit'
       resource = eval("@#{controller_name.singularize}")
       
       if resource.errors.full_messages.any? 
@@ -21,6 +21,11 @@ module ApplicationHelper
         end 
       end 
     end
+    flash_messages.join("\n").html_safe
+  end
+
+  def devise_messages 
+    flash_messages = []
     unless controller_name != 'users' # Devise messages
       if action_name === 'index' || action_name === 'show' || action_name === 'edit'
       else
@@ -33,5 +38,5 @@ module ApplicationHelper
       end
     end
     flash_messages.join("\n").html_safe
-  end
+  end 
 end # End module
