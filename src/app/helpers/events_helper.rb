@@ -4,6 +4,11 @@ module EventsHelper
     l(start_date, format: "%-d de %B - %H:%M às #{ending}")
   end 
 
+  def event_time(start_hour, end_hour)
+    ends_at = end_date.to_s(:time)
+    l(start_hour, format: "%H:%M às #{ends_at}")
+  end
+
   def date_format(date)
     date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
   end 

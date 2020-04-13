@@ -4,25 +4,26 @@ class Admin::EventsController < AdminController
   add_breadcrumb "eventos", :events_path
 
   def calendar 
-
   end 
+
+  def next_events 
+    @events = Event.this_month
+    add_breadcrumb "próximos eventos"
+  end 
+
   def index
     @q = Event.ransack(params[:q])
     @events = @q.result
-    # @events = Event.all
-    # add_breadcrumb "eventos", events_path
   end
 
-
   def show
-    add_breadcrumb "visualizar evento"
+    add_breadcrumb @event.title
   end
 
   def new
     add_breadcrumb "novo evento", new_event_path
     
-    @event = Event.new
-    
+    @event = Event.new  
   end
 
   def edit
@@ -36,8 +37,7 @@ class Admin::EventsController < AdminController
       if @event.save
         format.html { redirect_to @event, notice: 'Evento criado com sucesso!' }
         format.json { render :show, status: :created, location: @event }
-      else
-        
+      else    
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -66,11 +66,11 @@ class Admin::EventsController < AdminController
 
   private
 
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date, :location)
-    end
+  def event_params
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :location)
+  end
 end

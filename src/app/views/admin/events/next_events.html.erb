@@ -1,0 +1,45 @@
+<div class="row">
+  <% if @events.blank? %>
+    <div class="col-md-12 text-center ">
+      <h4 class="text-secondary mt-3">
+      Não há eventos agendados para o mês de <%= l(Date.today, format: "%B").downcase %>.
+      </h4>
+      <%= link_to 'Cadastrar evento', new_event_path, class: "btn btn-primary mt-2"%>
+    </div>
+  <% else %>
+    <% @events.each do |event| %>
+      <div class="col-md-6 col-sm-12">
+        <div class="info-box <%= event.is_today? ? 'bg-primary' : 'bg-light' %>">
+          <div class="info-box-content">
+            <div class="d-flex <%= "text-muted" unless event.is_today? %>">
+              <div class="mr-4 text-center">
+                <h2 class="mb-1 "><b><%= event.start_date.day %></b></h2>
+                <p class="mb-0 pb-0"><%= l(event.start_date, format: "%b").upcase %></p>     
+              </div>
+              <div class="flex-grow-1">
+                <h5 class="mt-1"><b><%= event.title %></b></h5>
+                <%= event.location%> - <%= event_time(event.start_date, event.end_date) %>
+              </div>
+              <div>
+              <style>
+                .dropdown-toggle::after {
+                  content: none;
+                }
+              </style>
+                <li class="dropdown" style="list-style: none;">
+                  <a class="nav-link <%= "text-light" if event.is_today? %> dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fas fa-sm fa-cog"></i> <span class="caret"></span>
+                  </a>
+                  <div class="dropdown-menu" x-placement="top-start">
+                    <%= link_to 'Editar', edit_event_path(event),class: "dropdown-item" %>
+                    <%= link_to 'Excluir', event_path(event), method: :delete, class: "dropdown-item" %>
+                  </div>
+                </li>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

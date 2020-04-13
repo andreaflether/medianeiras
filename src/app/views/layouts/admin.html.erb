@@ -52,12 +52,11 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <p>Usuário <i class="fas fa-angle-down"></i></p>
+          <p><%= current_user.full_name %> 
+          <span class="mr-2 ml-1 right badge badge-primary"><%= current_user.role.capitalize %> </span><i class="fas fa-angle-down"></i>
+          </p>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <p class="dropdown-item text-center mb-0">
-            <%= current_user.full_name %> <span class="ml-1 right badge badge-primary">Admin</span>
-          </p>
           <div class="dropdown-divider"></div>
             <%= link_to 'Preferências', edit_user_registration_path, class: "dropdown-item text-center" %>
 
@@ -193,8 +192,7 @@
           <li class="nav-item has-treeview">
             <%= link_to events_path, class: "nav-link" do %>
               <i class="nav-icon fas fa-bullhorn"></i>
-              <p>
-                Eventos
+              <p>Eventos
                 <i class="fas fa-angle-left right"></i>
               </p>
             <% end %>
@@ -202,28 +200,27 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <%= link_to new_event_path, class: "nav-link" do %>
-                <i class="far fa-circle nav-icon"></i>
-                  <p> Novo evento</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Novo evento</p>
                 <% end %>
               </li>
               <li class="nav-item">
-                <a href="../forms/advanced.html" class="nav-link">
+                <%= link_to next_events_path, class: "nav-link" do %>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Próximos eventos</p>
-                </a>
+                <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to events_path, class: "nav-link" do %>
-                <i class="far fa-circle nav-icon"></i>
-                  <p>Listagem de eventos</p>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ver todos</p>
                 <% end %>
               </li>
             </ul>
           </li>
-          <li class="nav-header">OUTROS</li>
           <li class="nav-item">
             <%= link_to calendar_path, class: "nav-link" do %>
-            <i class="nav-icon fas fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Calendário</p>
             <% end %>
           </li>

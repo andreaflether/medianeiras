@@ -35,7 +35,7 @@
       <tbody>
         <% @events.each do |event| %>
           <tr>
-            <td><%= event.title %></td>
+            <td><%= link_to event.title, event %></td>
             <td><%= event_date(event.start_date, event.end_date)%></td>
             <td><span class="badge badge-primary"><%= event.location %></span></td>
             <td>

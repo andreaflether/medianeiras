@@ -21,10 +21,6 @@ $(document).ready(function() {
     language: {
       "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
     },
-    
-    
-
-
   });
 
   // Add active class to sidebar
@@ -33,6 +29,8 @@ $(document).ready(function() {
     if (window.location.pathname == curr_page) {
       $(this).addClass("active");
       $(this).closest('.nav-treeview').prev().addClass('active');
+      $(this).closest('.nav-treeview').css('display', "block");
+      $(this).closest('.has-treeview').addClass('menu-open')
     }
   });
 })
