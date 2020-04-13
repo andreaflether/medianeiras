@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   get 'admin/index'
   root 'admin#index'
 
-  resources :people, path: 'admin/people', module: :admin
-  resources :students, path: 'admin/students', module: :admin
-  resources :volunteers, path: 'admin/volunteers', module: :admin
-  resources :activities, path: 'admin/activities', module: :admin
-  get 'admin/events/calendar', as: :calendar, to: 'admin/events#calendar'
-  resources :events, path: 'admin/events', module: :admin do 
-    get :autocomplete_event_location, :on => :collection
+  scope module: "admin" do
+    resources :people, path: 'admin/people'
+    resources :students, path: 'admin/students'
+    resources :volunteers, path: 'admin/volunteers'
+    resources :activities, path: 'admin/activities'
+    get 'admin/events/calendar', as: :calendar, to: 'events#calendar'
+    get 'admin/events/next_events', as: :next_events, to: 'events#next_events'
+    resources :events, path: 'admin/events' do 
+      get :autocomplete_event_location, :on => :collection
+    end 
+    resources :users, path: 'admin/users'
   end 
-  resources :users, path: 'admin/users', module: :admin
+ 
 end
