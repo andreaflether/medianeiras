@@ -26,8 +26,9 @@
                   content: none;
                 }
               </style>
-                <li class="dropdown" style="list-style: none;">
-                  <a class="nav-link <%= "text-light" if event.is_today? %> dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                <li class="dropdown" style="list-style: none;" >
+                  <a class="nav-link <%= "text-light" if event.is_today? %> dropdown-toggle" title="Opções" 
+                  data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fas fa-sm fa-cog"></i> <span class="caret"></span>
                   </a>
                   <div class="dropdown-menu" x-placement="top-start">

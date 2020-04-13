@@ -38,14 +38,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'simple_form'
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
+# Get an SVG into your view and then style it with CSS.
 gem 'inline_svg'
+# A set of common locale data and translations to internationalize your Rails applications.
 gem 'rails-i18n', '~> 5.1'
+# A RoR plugin for creating and managing a breadcrumb navigation for a Rails project.
 gem 'breadcrumbs_on_rails'
+# Makes it easy to hide or show dependent fields in forms based on select or checkbox values.
 gem 'dependent-fields-rails'
-# gem 'actionmailer_inline_css'
+# Ransack enables the creation of both simple and advanced search forms for your application.
 gem 'ransack'
+# Unobtrusive nested forms handling, using jQuery.
 gem 'cocoon'
-# gem 'jquery-ujs'
+# Use jQuery's autocomplete plugin with Rails 4+.
 gem 'rails-jquery-autocomplete'
 
 group :development, :test do
