@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Datemask dd/mm/yyyy
   $('#birthday').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/aaaa' })
-
+  // $('#activity_max_capacity').inputmask('Regex', { regex: "^[1-9][0-9]?$|^100$" });
   // Dependent fields
   // DependentFields.bind();
 

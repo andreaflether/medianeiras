@@ -1,19 +1,56 @@
-<%= simple_form_for(@activity) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <% if action_name === 'edit' %>
-      <%= f.input :days, collection: @activity.days.split(','), :selected => @activity.days.split(','),
-      input_html: { multiple: true } %>
-    <% else %>
-      <%= f.input :days, collection: @week_days, include_blank: false, include_hidden: false, input_html: { multiple: true } %>
-    <% end %>
-    <%= f.input :time_schedule %>
-    <%= f.input :max_capacity %>
-  </div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+<h4><%= actions(action_name) %></h4>
+
+<div class="card card-primary card-outline">
+  <div class="card-body">
+    <%= simple_form_for(@activity) do |f| %>
+      <div class="form-inputs">
+        <div class="row">
+          <div class="col-md-8">
+            <%= f.input :name %>
+          </div>
+          <div class="col-md-4">
+             <%= f.input :max_capacity, input_html: { min: 1 } %>
+          </div>
+        </div>
+
+        <%= f.input :description %>
+        
+        <div class="row">
+          <div class="col-md-6">
+             <% if action_name === 'edit' %>
+              <%= f.input :days, collection: [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
+              ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']], :selected => @activity.days.split(','),
+              label_method: :second, include_hidden: false, 
+              include_blank: false, value_method: :second, input_html: { multiple: true } %>
+            <% else %>
+              <%= f.input :days, collection: [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
+              ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']], label_method: :second, include_hidden: false, 
+              include_blank: false, value_method: :second, input_html: { multiple: true } %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :time_schedule %>
+          </div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :location, :url => autocomplete_event_location_events_path, :as => :autocomplete %>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div> 
+      </div>
+
+      <div class="form-actions">
+
+      <%= link_to 'Voltar', activities_path, class: "btn btn-default" %>
+        <%= f.button :submit, class: "btn btn-primary float-right" %>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

@@ -1,7 +1,8 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :days_to_s, only: [:create]
-  before_action :counter
+  autocomplete :event, :location, :limit => 10
+  before_action :counter, only: [:index]
 
   # GET /activities
   # GET /activities.json
@@ -17,7 +18,8 @@ class Admin::ActivitiesController < AdminController
   # GET /activities/new
   def new
     @activity = Activity.new
-    @week_days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+    @week_days = [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
+    ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']]
   end
 
   # GET /activities/1/edit
@@ -77,6 +79,8 @@ class Admin::ActivitiesController < AdminController
     end
 
     def days_to_s
-      params[:activity][:days] = params[:activity][:days].join(', ')
+      unless params[:activity][:days].blank?
+        params[:activity][:days] = params[:activity][:days].join(', ')
+      end
     end
 end
