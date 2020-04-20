@@ -1,43 +1,64 @@
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Detalhes da atividade</h3>
-
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-        <i class="fas fa-minus"></i></button>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
-        <div class="row">
-          <div class="col-12 col-sm-4">
-            <div class="info-box bg-light">
-              <div class="info-box-content">
-                <span class="info-box-text text-center text-muted">Capacidade máxima de alunos</span>
-                <span class="info-box-number text-center text-muted mb-0"><%= @activity.max_capacity %></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-4">
-            <div class="info-box bg-light">
-              <div class="info-box-content">
-                <span class="info-box-text text-center text-muted">Total amount spent</span>
-                <span class="info-box-number text-center text-muted mb-0">2000</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-4">
-            <div class="info-box bg-light">
-              <div class="info-box-content">
-                <span class="info-box-text text-center text-muted">Estimated project duration</span>
-                <span class="info-box-number text-center text-muted mb-0">20 <span>
-              </span></span></div>
-            </div>
-          </div>
-        </div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card custom-card">
+      <div class="card-body">
+        <h4>
+          <b><%= @activity.name %></b>
+          <span class="badge badge-success float-right mt-1" style="font-size: 13px;">Ativa</span>
+        </h4>
+        <hr>
+         
+        <p class="mt-3 mb-1 text-gray-dark"><b>Descrição</b></p>
+        <p class=" text-secondary"><%= @activity.description %></p>
+        
+        <p class="mt-3 mb-2 text-gray-dark"><b>Imagem de exibição</b></p>
+        <img class="img-fluid" src="https://via.placeholder.com/450x300">
       </div>
-
+    </div>  
   </div>
-  <!-- /.card-body -->
-</div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12"> <!-- Informações -->
+        <div class="card custom-card">
+          <div class="card-body">
+            <h5 class="mb-3">Informações</h5>
+            <hr>
+            <dl class="row mb-0">
+            <dt class="col-md-5 text-gray-dark">Total</dt>
+              <dd class="col-md-7 text-secondary">
+                10 alunos cadastrados  
+              </dd>
+              <dt class="col-md-5 text-gray-dark">Lotação máxima</dt>
+              <dd class="col-md-7 text-secondary">
+                <%= @activity.max_capacity%> alunos  
+              </dd>
+              <dt class="col-md-5 text-gray-dark">Status</dt>
+              <dd class="col-md-7 text-secondary">
+                <span class="badge badge-success">40 vagas disponíveis</span>   
+              </dd>
+              <dt class="col-md-12">
+                 <div class="progress mb-2 mt-2">
+                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" 
+                aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                  <span class="sr-only">40 vagas disponíveis</span>
+                </div>
+              </div>
+              </dt>
+              <dd class="col-md-12"><hr></dd>
+              <dt class="col-md-5 text-gray-dark">Professor(es)</dt>
+              <dd class="col-md-7 text-secondary">Patrícia Maria Fernandes</dd>
+              <dt class="col-md-5 text-gray-dark">Dia/hora</dt>
+              <dd class="col-md-7 text-secondary">
+                <%= @activity.week_days.map(&:description).join(', ')%> - 
+                <%= event_time(@activity.starts_at, @activity.ends_at) %>
+              </dd>
+              <dt class="col-md-5 text-gray-dark">Local</dt>
+              <dd class="col-md-7 text-secondary"><%= @activity.location %></dd>
+            </dl>  
+          </div> <!-- Card body -->
+        </div> <!-- Card -->
+      </div> <!-- Col-md-12 -->
+    </div> <!-- Row  -->
+  </div> <!-- Secondary Row -->
+
+</div> <!-- Main Row -->

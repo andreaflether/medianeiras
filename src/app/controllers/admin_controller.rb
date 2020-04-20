@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize
   layout 'admin'
-  add_breadcrumb "início", :root_path
+  add_breadcrumb "Início", :root_path
 
   def index
   end

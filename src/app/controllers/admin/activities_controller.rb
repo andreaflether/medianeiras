@@ -1,10 +1,8 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  # before_action :days_to_s, only: [:create]
   autocomplete :event, :location, :limit => 10
   before_action :counter, only: [:index]
-  before_action :selected_days, only: [:edit]
-  add_breadcrumb "atividades", :activities_path
+  add_breadcrumb "Atividades", :activities_path
 
   # GET /activities
   # GET /activities.json
@@ -20,7 +18,7 @@ class Admin::ActivitiesController < AdminController
 
   # GET /activities/new
   def new
-    add_breadcrumb "nova atividade", new_activity_path
+    add_breadcrumb "Nova atividade", new_activity_path
     @activity = Activity.new
     @days = WeekDay.all
   end
@@ -28,7 +26,7 @@ class Admin::ActivitiesController < AdminController
 
   # GET /activities/1/edit
   def edit
-    add_breadcrumb "editar atividade"
+    add_breadcrumb "Editar informações de #{@activity.name}"
     @days = WeekDay.all
   end
 
@@ -54,7 +52,6 @@ class Admin::ActivitiesController < AdminController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        puts field_error_message = instance.error_message
         format.html { redirect_to @activity, notice: 'Atividade atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @activity }
       else
