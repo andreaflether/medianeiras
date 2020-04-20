@@ -10,17 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_203130) do
+ActiveRecord::Schema.define(version: 2020_04_19_180200) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "location"
-    t.string "days"
-    t.string "time_schedule"
+    t.time "starts_at"
+    t.time "ends_at"
     t.integer "max_capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "activities_week_days", id: false, force: :cascade do |t|
+    t.integer "activity_id", null: false
+    t.integer "week_day_id", null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -98,6 +103,12 @@ ActiveRecord::Schema.define(version: 2020_03_17_203130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_volunteers_on_person_id"
+  end
+
+  create_table "week_days", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

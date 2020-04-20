@@ -4,8 +4,8 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.string :location
-      t.string :days
-      t.string :time_schedule
+      t.time :starts_at
+      t.time :ends_at
       t.integer :max_capacity
 
       t.timestamps

@@ -32,8 +32,9 @@ pt-BR:
       activity:
         name: Nome
         description: Descrição
-        days: Dias
-        time_schedule: Horário
+        week_days: Dias
+        starts_at: Inicia às
+        ends_at: Termina às
         max_capacity: Quantidade máxima de alunos
         location: Local
       person:
