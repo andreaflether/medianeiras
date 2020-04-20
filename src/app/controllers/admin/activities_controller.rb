@@ -1,8 +1,10 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :days_to_s, only: [:create]
+  # before_action :days_to_s, only: [:create]
   autocomplete :event, :location, :limit => 10
   before_action :counter, only: [:index]
+  before_action :selected_days, only: [:edit]
+  add_breadcrumb "atividades", :activities_path
 
   # GET /activities
   # GET /activities.json
@@ -13,25 +15,29 @@ class Admin::ActivitiesController < AdminController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    add_breadcrumb @activity.name
   end
 
   # GET /activities/new
   def new
+    add_breadcrumb "nova atividade", new_activity_path
     @activity = Activity.new
-    @week_days = [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
-    ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']]
+    @days = WeekDay.all
   end
+
 
   # GET /activities/1/edit
   def edit
-
+    add_breadcrumb "editar atividade"
+    @days = WeekDay.all
   end
 
   # POST /activities
   # POST /activities.json
   def create
-
     @activity = Activity.new(activity_params)
+    @days = WeekDay.all
+    
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: 'Atividade criada com sucesso!' }
@@ -48,6 +54,7 @@ class Admin::ActivitiesController < AdminController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
+        puts field_error_message = instance.error_message
         format.html { redirect_to @activity, notice: 'Atividade atualizada com sucesso!' }
         format.json { render :show, status: :ok, location: @activity }
       else
@@ -68,19 +75,14 @@ class Admin::ActivitiesController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_activity
-      @activity = Activity.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_activity
+    @activity = Activity.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def activity_params
-      params.require(:activity).permit(:name, :description, :location, :max_capacity, :days, :time_schedule)
-    end
-
-    def days_to_s
-      unless params[:activity][:days].blank?
-        params[:activity][:days] = params[:activity][:days].join(', ')
-      end
-    end
+  # Only allow a list of trusted parameters through.
+  def activity_params
+    params.require(:activity).permit(:name, :description, :location, :max_capacity, :starts_at, 
+                                     :ends_at, week_day_ids: [])
+  end
 end

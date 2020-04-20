@@ -15,23 +15,18 @@
           </div>
         </div>
 
-        <%= f.input :description %>
+        
         
         <div class="row">
           <div class="col-md-6">
-             <% if action_name === 'edit' %>
-              <%= f.input :days, collection: [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
-              ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']], :selected => @activity.days.split(','),
-              label_method: :second, include_hidden: false, 
-              include_blank: false, value_method: :second, input_html: { multiple: true } %>
-            <% else %>
-              <%= f.input :days, collection: [['1', 'Segunda'], ['2', 'Terça'], ['3', 'Quarta'], ['4', 'Quinta'], 
-              ['5', 'Sexta'], ['6', 'Sábado'], ['7', 'Domingo']], label_method: :second, include_hidden: false, 
-              include_blank: false, value_method: :second, input_html: { multiple: true } %>
-            <% end %>
+            <%= f.association :week_days, :collection => @days, :label_method => :description,
+            :value_method => :id, input_html: { multiple: true } %>
           </div>
-          <div class="col-md-6">
-            <%= f.input :time_schedule %>
+          <div class="col-md-3">
+            <%= f.input :starts_at, as: :tempus_dominus %>
+          </div>
+          <div class="col-md-3">
+            <%= f.input :ends_at, as: :tempus_dominus %>
           </div>
         </div>
        
@@ -40,9 +35,11 @@
             <%= f.input :location, :url => autocomplete_event_location_events_path, :as => :autocomplete %>
           </div>
           <div class="col-md-6">
-            
+         
           </div>
         </div> 
+
+        <%= f.input :description %>
       </div>
 
       <div class="form-actions">

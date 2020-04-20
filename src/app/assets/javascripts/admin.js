@@ -11,9 +11,9 @@
 //= require moment/locale/pt-br
 //= require inputmask/dist/jquery.inputmask.bundle
 //= require daterangepicker/daterangepicker
+//= require tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4
 //= require dependent-fields
 //= require cocoon
-
 //= require jquery-ui-dist/jquery-ui.min
 //= require jquery.autocomplete/jquery.autocomplete
 //= require autocomplete-rails
