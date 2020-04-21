@@ -11,7 +11,8 @@ namespace :dev do
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Cadastrando administrador padrão...") { %x(rails dev:add_default_superadmin) }
       show_spinner("Cadastrando usuário padrão...") { %x(rails dev:add_default_user) }
-      show_spinner("Cadastrando dias da semana...") { %x(rails dev:add_week_days) }
+      show_spinner("Adicionando dias da semana...") { %x(rails dev:add_week_days) }
+      show_spinner("Executando seeds...") { %x(rails db:seed) }
     else
       puts "Você não está em ambiente de desenvolvimento."
     end
