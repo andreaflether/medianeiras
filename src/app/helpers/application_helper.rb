@@ -10,10 +10,12 @@ module ApplicationHelper
       flash_messages << text.html_safe
     end
 
+    
+
     # Validation errors
-    if action_name == 'new' || action_name == 'show' || action_name == 'edit'
+    if action_name == 'new' || action_name == 'show' || action_name == 'edit' || action_name = ''
       resource = eval("@#{controller_name.singularize}")
-      
+    
       if resource.errors.full_messages.any? 
         resource.errors.full_messages.each do |error_message| 
           text = "<script>$( document ).ready(function() { toastr.error('#{error_message}');});</script>"

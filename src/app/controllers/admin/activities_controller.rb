@@ -3,6 +3,7 @@ class Admin::ActivitiesController < AdminController
   autocomplete :event, :location, :limit => 10
   before_action :counter, only: [:index]
   add_breadcrumb "Atividades", :activities_path
+  before_action :find_resources, only: [:new, :create, :edit, :update]
 
   # GET /activities
   # GET /activities.json
@@ -20,14 +21,17 @@ class Admin::ActivitiesController < AdminController
   def new
     add_breadcrumb "Nova atividade", new_activity_path
     @activity = Activity.new
-    @days = WeekDay.all
   end
 
+  def find_resources
+    @days = WeekDay.all
+    @students = Student.includes([:person])
+    @volunteers = Volunteer.includes([:person])
+  end 
 
   # GET /activities/1/edit
   def edit
     add_breadcrumb "Editar informações de #{@activity.name}"
-    @days = WeekDay.all
   end
 
   # POST /activities
@@ -80,6 +84,6 @@ class Admin::ActivitiesController < AdminController
   # Only allow a list of trusted parameters through.
   def activity_params
     params.require(:activity).permit(:name, :description, :location, :max_capacity, :starts_at, 
-                                     :ends_at, week_day_ids: [])
+                                     :ends_at, week_day_ids: [], student_ids: [], volunteer_ids: [])
   end
 end

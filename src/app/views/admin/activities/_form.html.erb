@@ -35,11 +35,15 @@
             <%= f.input :location, :url => autocomplete_event_location_events_path, :as => :autocomplete %>
           </div>
           <div class="col-md-6">
-         
+            <%= f.association :volunteers, :collection => @volunteers, 
+            :label_method => :person_name, :value_method => :id, input_html: { multiple: true } %>
           </div>
         </div> 
 
         <%= f.input :description %>
+
+        <%= f.association :students, label: "Alunos", :collection => @students, 
+            :label_method => :person_name, :value_method => :id, input_html: { multiple: true } %>
       </div>
 
       <div class="form-actions">

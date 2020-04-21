@@ -5,6 +5,11 @@ $(document).ready(function() {
     placeholder: "Selecione um ou mais dias"
   });
 
+  $('#activity_volunteer_ids').select2({
+    theme: 'bootstrap4',
+    placeholder: "Selecione um ou mais responsáveis pela atividade"
+  })
+
   $('#activity_ends_at, #activity_starts_at').datetimepicker({
     format: 'LT',
     stepping: 15,

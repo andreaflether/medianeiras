@@ -1,8 +1,11 @@
 pt-BR:
-  errors:
-    messages:
-      blank: "não pode ficar em branco."
   activerecord:
+    errors:
+      models:
+        activity:
+          attributes:
+            students:
+              max_length: Capacidade máxima de alunos atingida
     models:
       user:
         one: Usuário
@@ -37,6 +40,8 @@ pt-BR:
         ends_at: Termina às
         max_capacity: Quantidade máxima de alunos
         location: Local
+        students: ""
+        volunteers: Professor(a)/Responsável
       person:
         name: Nome
         birthday: Data de nascimento

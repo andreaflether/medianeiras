@@ -89,3 +89,15 @@ table.dataTable {
 abbr[title] {
   text-decoration: none !important;
 }
+
+dt, dd {
+  margin-bottom: .8rem !important;
+}
+
+.text-secondary {
+  color: rgb(115, 115, 115) !important;
+}
+
+// .weeklist > .list-group-item {
+//   border: 1px solid rgba(115, 115, 115, 0.4) !important;
+// }
