@@ -17,6 +17,7 @@
 //= require jquery-ui-dist/jquery-ui.min
 //= require jquery.autocomplete/jquery.autocomplete
 //= require autocomplete-rails
+//= require jquery.lwMultiSelect
 
 // DataTables
 //= require jszip/dist/jszip
