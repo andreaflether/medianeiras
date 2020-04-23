@@ -1,5 +1,11 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<% @activity.errors.full_messages_for(:students).each do |m| %>
+  <script>
+    toastr.error('<%= m %>')
+  </script>
+<% end %>
+
 <h4><%= actions(action_name) %></h4>
 
 <div class="card card-primary card-outline">
@@ -14,9 +20,6 @@
              <%= f.input :max_capacity, input_html: { min: 1 } %>
           </div>
         </div>
-
-        
-        
         <div class="row">
           <div class="col-md-6">
             <%= f.association :week_days, :collection => @days, :label_method => :description,
@@ -29,7 +32,6 @@
             <%= f.input :ends_at, as: :tempus_dominus %>
           </div>
         </div>
-       
         <div class="row">
           <div class="col-md-6">
             <%= f.input :location, :url => autocomplete_event_location_events_path, :as => :autocomplete %>
@@ -39,19 +41,17 @@
             :label_method => :person_name, :value_method => :id, input_html: { multiple: true } %>
           </div>
         </div> 
-
         <%= f.input :description %>
-
-        <%= f.association :students, label: "Alunos", :collection => @students, 
-            :label_method => :person_name, :value_method => :id, input_html: { multiple: true } %>
+        <div class="col-md-12 px-0">
+          <%= f.association :students, label: "Alunos", :collection => @students, 
+            :label_method => :person_name, :value_method => :id, 
+            input_html: { multiple: true, class: "activity_multiselect" }, label_html: { class: "mb-0"} %>
+        </div>  
       </div>
-
       <div class="form-actions">
-
       <%= link_to 'Voltar', activities_path, class: "btn btn-default" %>
         <%= f.button :submit, class: "btn btn-primary float-right" %>
       </div>
     <% end %>
-
   </div>
 </div>

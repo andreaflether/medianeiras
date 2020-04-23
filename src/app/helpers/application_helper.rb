@@ -6,23 +6,11 @@ module ApplicationHelper
     flash.each do |type, message|
       type = 'success' if type == 'notice'
       type = 'error'   if type == 'alert'
+      type = 'info'    if type == 'info'
       text = "<script>$( document ).ready(function() {toastr.#{type}('#{message}');});</script>"
       flash_messages << text.html_safe
     end
 
-    
-
-    # Validation errors
-    if action_name == 'new' || action_name == 'show' || action_name == 'edit' || action_name = ''
-      resource = eval("@#{controller_name.singularize}")
-    
-      if resource.errors.full_messages.any? 
-        resource.errors.full_messages.each do |error_message| 
-          text = "<script>$( document ).ready(function() { toastr.error('#{error_message}');});</script>"
-          flash_messages << text.html_safe
-        end 
-      end 
-    end
     flash_messages.join("\n").html_safe
   end
 

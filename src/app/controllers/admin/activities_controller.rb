@@ -44,7 +44,8 @@ class Admin::ActivitiesController < AdminController
       if @activity.save
         format.html { redirect_to @activity, notice: 'Atividade criada com sucesso!' }
         format.json { render :show, status: :created, location: @activity }
-      else
+      else  
+        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
         format.html { render :new }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
@@ -56,9 +57,10 @@ class Admin::ActivitiesController < AdminController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Atividade atualizada com sucesso!' }
+        format.html { redirect_to @activity, flash: { info: "Atividade atualizada com sucesso." } }
         format.json { render :show, status: :ok, location: @activity }
       else
+        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
         format.html { render :edit }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
