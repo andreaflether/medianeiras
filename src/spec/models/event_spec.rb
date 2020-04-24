@@ -15,6 +15,20 @@ RSpec.describe Event, type: :model do
     end
   end 
 
+  context 'Testes com travel_to' do
+    it 'Evento criado no dia 24' do 
+      travel_to Time.zone.local(2020, 04, 24, 2, 22, 22) do 
+        @event = create(:event)
+      end 
+      expect(@event.created_at.strftime("%d/%m/%Y")).to eq(Date.today.tomorrow.strftime("%d/%m/%Y"))
+      expect(@event.created_at).to be > Time.now
+    end 
+
+    # it 'Data de criação maior que a data atual' do 
+    #   expect(@event.created_at).to be > Time.now
+    # end 
+  end
+
   context 'Campos obrigatórios em branco' do 
     it 'Verifica se é um objeto do tipo RecordInvalid' do 
       expect { create(:event, title: nil) }.to raise_error(ActiveRecord::RecordInvalid)
