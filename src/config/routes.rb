@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'pages/index'
   resources :suggestions
   resources :promulher_forms
   devise_for :users
   
   get 'admin/index'
-  root 'admin#index'
+  root 'pages#index'
 
   scope module: "admin" do
     resources :people, path: 'admin/people'
