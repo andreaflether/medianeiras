@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap');
+
+* {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #555;
+  font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 0.5em 0;
+}
+
+.btn {
+  border-radius: 0;
+  font-weight: 600;
+  height: 3em;
+  line-height: 3em;
+  padding: 0 1.5em;
+}
