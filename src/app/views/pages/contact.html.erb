@@ -1,0 +1,29 @@
+<h1 class="text-center">Contato</h1>
+
+<p class="text-center">Preencha os campos abaixo para entrar em contato</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 formulario">
+      <%= form_tag '/path' do %>
+        <%= label_tag 'email', 'Email' %> </br> 
+        <%= text_field_tag 'email', '', class: "form-control", placeholder: "Seu email" %></br>
+
+        <%= label_tag 'name', 'Nome' %> </br> 
+        <%= text_field_tag 'name', '', class: "form-control", placeholder: "Seu nome"%></br>
+
+        <%= label_tag 'phone', 'Telefone' %> </br> 
+         <%= text_field_tag 'phone', '', class: "form-control", placeholder: "Telefone para contato"%></br>
+
+        <%= label_tag 'description', 'Observações' %> </br> 
+        <%= text_area_tag 'description', '', class: "form-control", placeholder: "Digite suas observações aqui"%></br>
+        <div class="d-block text-center">
+        
+        <%= submit_tag "submit", value: "Enviar", class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.83777428309213!2d-38.534945523750075!3d-3.72166189294116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c749b0d3c0129b%3A0x32ad9dac0e26a152!2sCentro%20Comunitario%20Nossa%20Senhora%20Medianeira!5e0!3m2!1spt-BR!2sbr!4v1588357135890!5m2!1spt-BR!2sbr" width="100%" height="300px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>

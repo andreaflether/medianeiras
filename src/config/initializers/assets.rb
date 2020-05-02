@@ -13,3 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( admin.js admin.css )      # Admin Pages
 Rails.application.config.assets.precompile += %w( devise.js devise.css )    # Devise Pages
 Rails.application.config.assets.precompile += %w( doublearrow.png )    # Devise Pages
+Rails.application.config.assets.precompile += %w( pages.js pages.css ) #Pages 

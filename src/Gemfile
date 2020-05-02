@@ -70,6 +70,10 @@ group :development, :test do
   gem 'httparty'
   gem 'webmock'
   gem 'vcr'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 group :development do
@@ -78,8 +82,10 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'rails-erd'
   gem 'bullet'
+  gem 'guard', '~> 2.15'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
 end
-
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

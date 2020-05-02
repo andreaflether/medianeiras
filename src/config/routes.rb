@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get 'admin/index'
   root 'pages#index'
+  get 'pages/contact'
 
   scope module: "admin" do
     resources :people, path: 'admin/people'
