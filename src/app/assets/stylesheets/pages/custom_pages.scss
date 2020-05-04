@@ -26,6 +26,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 1.5em;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .event-description {
     text-align: center;
@@ -90,4 +92,24 @@ input[type="text"], input[type="password"], input[type="email"], select {
   span {
     color: #6c757d !important;
   }
+}
+
+.activity-link {
+  transition: all .3s ease-in-out;
+}
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+      transform: scale(1,1);
+  }
+  50% {
+      transform: scale(1.2,1.2);
+  }
+  100% {
+      transform: scale(1,1);
+  }
+}
+
+.activity-link:hover {
+  animation: zoominoutsinglefeatured .1.5s infinite;
 }

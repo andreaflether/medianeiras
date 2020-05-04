@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous" />
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0"></script>
 <div class="container">
@@ -80,77 +81,150 @@
     </div>
   </div>
 </section>
+<style>
+.oi {
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
 
-<section>
+.oi.activate {
+  opacity: 1;
+}
 
-  <div class="container-fluid m-0 p-0">
-    <div class="row no-gutters">
-      <div class="col-md-6">
+.image{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.image img{
+    position:absolute;
+}
+</style>
+<section style="background-color: #f5f5f5">
+
+  <h2 class="text-center text-primary my-4">Principais atividades</h2>
+  <p class="text-center mb-4 text-dark">
+    <span class="font-weight-bold">Contamos com um corpo de colaboradores profissionais e voluntários que procuram dar resposta 
+    à diversidade de situações dos que o procuram.</span>
+    <br>
+ 
+    Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para o nosso público-alvo.
+  </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
         <div class="card border-0 text-white">
-          <img 
-          src="https://raw.githubusercontent.com/andreaflether/projeto_medianeiras/master/app/assets/images/ips_1.jpg" 
-          class="card-img rounded-0" alt="...">
-          <div class="card-img-overlay text-center " style="background-color: rgba(0, 123, 255, 0.6)">
           
-            <h3 class="card-title text-light">Atividades</h3>
-            <p class="card-text">
-              Contamos com um corpo de colaboradores profissionais e voluntários que procuram dar resposta 
-              à diversidade de situações dos que o procuram.
+            <img 
+            src="https://scontent.ffor8-2.fna.fbcdn.net/v/t1.0-9/89495429_772927179782589_5838308861185884160_n.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=C0Yv4HYW-HEAX_Iiuaz&_nc_ht=scontent.ffor8-2.fna&oh=85f9567e2bbb0f406cf9415a75051549&oe=5ED664F5" 
+            class="card-img rounded-0 hello" style="height: 100%; object-fit: cover;" alt="...">
+          
+          
+          <div class="card-img-overlay d-flex oi text-center " 
+          style="background-color: rgba(0, 123, 255, 0.6);">
+         
+            <i class="fas fa-share-alt mx-auto align-self-center p-3 border border-light rounded-circle"></i>
+                
+          </div>
+        </div>
+        <style>
+          .card-title:before {
+            position: absolute;
+            left: 20px;
+            top: 55px;
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #007bff;
+          }
+        </style>
+        <div class="card rounded-0 d-absolute mx-4" style="margin-top: -50px;">
+          <div class="card-body">        
+            <h4 class="text-dark mb-4 card-title title">Balé</h4>
+            <p class="text-dark font-weight-normal mb-2">
+              <small><i class="fas fa-user text-primary mr-2"></i></small>
+              Prof. Patrícia Fernandes
             </p>
-            <p>
-              Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para o nosso público-alvo.
-            </p>
+            <small class="text-dark mb-2"><i class="far fa-calendar-alt text-primary mr-2"></i>Sábado</small>
+            <small class="text-dark ml-2 mb-2"><i class="far fa-clock text-primary mr-2"></i>09 às 11h</small>
+
           </div>
         </div>
       </div>
-      
-    </div>
-  
-  </div>
-  
-</section>
-
-<section>
-  <h2 class="text-primary text-center">Parceiros</h2>
-  
- <div class="container-fluid m-0 p-0">
-    <div class="row no-gutters">
-      <div class="col-md-12 ">
+       <div class="col-md-4">
         <div class="card border-0 text-white">
+          
           <img 
-          src="https://s3.amazonaws.com/jgdprod-blogs-us/blogs/wp-content/uploads/sites/116/2020/01/Unifametro.jpg" 
-          class="card-img rounded-0" style="height: 25em; object-fit: cover; " alt="...">
-          <div class="card-img-overlay d-flex text-center" style="background-color: rgba(40, 137, 69, 0.85);">
-            <div class="content align-self-center" style="padding: 0 60px !important;">
-              <img src="http://ccnmedianeiras.herokuapp.com/assets/logo_fametro-4ccfded58fdb8a25f15a0960db3ad2dd2b5dd5faa1368e646ddbb54e477672a7.png" alt=""
-              class="img-fluid text-center mb-4" style="background-color: rgba(255, 255, 255, 0.7); 
-              padding: 10px; border-radius: 8px;">
-              <p class="card-text ">
-                O Centro Universitário UNIFAMETRO atua no Centro Comunitário Nossa Senhora Medianeira oferecendo
-                capacitação, cuidados básicos com a saúde e estética, orientações profissionais e promovendo diversos 
-                eventos para a comunidade.
-              </p>
-              <p>
-                Faz parte da política da instituição em estar mais próxima e envolvida com os anseios da comunidade 
-                do entorno dos Campi.
-              </p>
-              <a href="" class="btn btn-outline-light">Todos os projetos</a>
-            </div>
+          src="https://scontent.ffor8-2.fna.fbcdn.net/v/t1.0-9/84724254_753982491677058_716250603369529344_n.jpg?_nc_cat=102&_nc_sid=110474&_nc_ohc=NjchjPF2Kz4AX-7Ojfr&_nc_ht=scontent.ffor8-2.fna&oh=1c1b809246885b9daec1143759046bc0&oe=5ED60BBC" 
+          class="card-img rounded-0 hello" style="height: 100%; object-fit: cover;" alt="...">
+        
+          <div class="card-img-overlay oi text-center " 
+          style="background-color: rgba(0, 123, 255, 0.6);">
+          
+            
+          </div>
+        </div>
+        
+        <div class="card rounded-0 d-absolute mx-4" style="margin-top: -50px;">
+          <div class="card-body">    
+          <div class="d-flex justify-content-between">
+          
+            <h4 class="text-dark mb-4 card-title title">Karatê</h4>
+            <h6 class="activity-link"><i class="fas fa-arrow-right mt-1 text-primary"></i></h6>
+          </div>    
+            <p class="text-dark font-weight-normal mb-2">
+              <small><i class="fas fa-user text-primary mr-2"></i></small>
+              Prof. José Juscelino
+            </p>
+            <small class="text-dark mb-2"><i class="far fa-calendar-alt text-primary mr-2"></i>Qua/Qui/Sex</small>
+            <small class="text-dark ml-3 mb-2"><i class="far fa-clock text-primary mr-2"></i>18:30 às 19:30</small>
+            
             
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+       
+      <div class="col-md-4">
+        <div class="card border-0 text-white"> 
+          <img 
+          src="https://scontent.ffor8-1.fna.fbcdn.net/v/t1.0-9/76605053_676670766074898_4277867128524111872_n.jpg?_nc_cat=110&_nc_sid=110474&_nc_ohc=H6yIa9ziunsAX-uDhL7&_nc_ht=scontent.ffor8-1.fna&oh=ddf5d61cd7da6f503f72b03fa0dc3a9e&oe=5ED3D432" 
+          class="card-img rounded-0 hello" style="height: 100%; object-fit: cover;" alt="...">
+        
+          <div class="card-img-overlay oi text-center " 
+          style="background-color: rgba(0, 123, 255, 0.6);">
+            
+          </div>
+        </div>
+         <div class="card rounded-0 d-absolute mx-4" style="margin-top: -50px;">
+          <div class="card-body">        
+            <h4 class="text-dark mb-4 card-title title">Muay Thai</h4>
+            <p class="text-dark font-weight-normal mb-2">
+              <small><i class="fas fa-user text-primary mr-2"></i></small>
+              Prof. José Brayner
+            </p>
+            <small class="text-dark mb-2"><i class="far fa-calendar-alt text-primary mr-2"></i>Ter/Qua/Qui/Sex</small>
+            <small class="text-dark ml-3 mb-2"><i class="far fa-clock text-primary mr-2"></i>20 às 21h</small>
+            
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center mt-4">
       
-        <h3 class="text-center">Atividades</h3>
-          <p>Contamos com um corpo de 
-          colaboradores profissionais e voluntários que procuram dar resposta à diversidade de situações dos que 
-          o procuram.</p>
-          <p>Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para 
-          o nosso público-alvo.</p>
-          <a href="" class="btn btn-warning">Ver todas</a>
+      <a href="" class="btn btn-outline-dark">Ver todas as atividades</a>
+      </div>
+      
+    </div>
+  
+  </div>
+  
+</section>
+
+
+
+
+      
       
 
       <section style="background-color: #007bff; padding: 50px 0px; margin: 40px 0;">
@@ -258,4 +332,26 @@
         
       </div>
       </section>
+
+      <section>
+  <h2 class="text-primary text-center">Parceiros</h2>
+  
+ <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-3 ">     
+        <img src="http://ccnmedianeiras.herokuapp.com/assets/logo_fametro-4ccfded58fdb8a25f15a0960db3ad2dd2b5dd5faa1368e646ddbb54e477672a7.png" alt=""
+        class="img-fluid text-center mb-4" style="background-color: rgba(220, 220, 220, 0.4); 
+        padding: 13px; border-radius: 8px;">           
+      </div>
+    </div>
+  </div>
+</section>
+
+      <script>
+$(document).ready(function() {
+  $('.oi').hover(function() {
+    $(this).toggleClass('activate');
+  })
+})
+</script>
       
