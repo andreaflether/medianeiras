@@ -1,3 +1,5 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0"></script>
 <div class="container">
 
   <div class="row align-items-center">
@@ -78,57 +80,77 @@
     </div>
   </div>
 </section>
+
+<section>
+
+  <div class="container-fluid m-0 p-0">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <div class="card border-0 text-white">
+          <img 
+          src="https://raw.githubusercontent.com/andreaflether/projeto_medianeiras/master/app/assets/images/ips_1.jpg" 
+          class="card-img rounded-0" alt="...">
+          <div class="card-img-overlay text-center " style="background-color: rgba(0, 123, 255, 0.6)">
+          
+            <h3 class="card-title text-light">Atividades</h3>
+            <p class="card-text">
+              Contamos com um corpo de colaboradores profissionais e voluntários que procuram dar resposta 
+              à diversidade de situações dos que o procuram.
+            </p>
+            <p>
+              Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para o nosso público-alvo.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card" style="border: none;">
-          <img class="card-img-top" 
-          src="https://raw.githubusercontent.com/andreaflether/projeto_medianeiras/master/app/assets/images/ips_1.jpg" alt="">
+  </div>
+  
+</section>
 
-          <div class="card-body">
-            <h4 class="card-title text-center">Atividades</h4>
-            <p class="card-text">Contamos com um corpo de 
-            colaboradores profissionais e voluntários que procuram dar resposta à diversidade de situações dos que 
-            o procuram.</p>
-            <a href="" class="btn btn-warning">Ver todas</a>
+<section>
+  <h2 class="text-primary text-center">Parceiros</h2>
+  
+ <div class="container-fluid m-0 p-0">
+    <div class="row no-gutters">
+      <div class="col-md-12 ">
+        <div class="card border-0 text-white">
+          <img 
+          src="https://s3.amazonaws.com/jgdprod-blogs-us/blogs/wp-content/uploads/sites/116/2020/01/Unifametro.jpg" 
+          class="card-img rounded-0" style="height: 25em; object-fit: cover; " alt="...">
+          <div class="card-img-overlay d-flex text-center" style="background-color: rgba(40, 137, 69, 0.85);">
+            <div class="content align-self-center" style="padding: 0 60px !important;">
+              <img src="http://ccnmedianeiras.herokuapp.com/assets/logo_fametro-4ccfded58fdb8a25f15a0960db3ad2dd2b5dd5faa1368e646ddbb54e477672a7.png" alt=""
+              class="img-fluid text-center mb-4" style="background-color: rgba(255, 255, 255, 0.7); 
+              padding: 10px; border-radius: 8px;">
+              <p class="card-text ">
+                O Centro Universitário UNIFAMETRO atua no Centro Comunitário Nossa Senhora Medianeira oferecendo
+                capacitação, cuidados básicos com a saúde e estética, orientações profissionais e promovendo diversos 
+                eventos para a comunidade.
+              </p>
+              <p>
+                Faz parte da política da instituição em estar mais próxima e envolvida com os anseios da comunidade 
+                do entorno dos Campi.
+              </p>
+              <a href="" class="btn btn-outline-light">Todos os projetos</a>
+            </div>
+            
           </div>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card" style="border: none;">
-          <img class="card-img-top" 
-          src="https://raw.githubusercontent.com/andreaflether/projeto_medianeiras/master/app/assets/images/ips_8.jpg" alt="">
-
-          <div class="card-body">
-            <h4 class="card-title text-center">Paróquia Nossa Senhora das Dores </h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk 
-            of the card's content.</p>
-            <a href="" class="btn btn-info">Ver mais</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card" style="border: none;">
-          <img class="card-img-top" 
-          src="https://raw.githubusercontent.com/andreaflether/projeto_medianeiras/master/app/assets/images/ips_6.jpg" alt="">
-
-          <div class="card-body">
-            <h4 class="card-title text-center">Projetos Unifametro</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk 
-            of the card's content.</p>
-            <a href="" class="btn btn-success">Ver todos os projetos</a>
-          </div>
-        </div>
-      </div>
-
+    </div>
+  </div>
+</section>
       
-      
-
-    </div> <!-- Row -->
-  </div> <!-- Container -->    
+        <h3 class="text-center">Atividades</h3>
+          <p>Contamos com um corpo de 
+          colaboradores profissionais e voluntários que procuram dar resposta à diversidade de situações dos que 
+          o procuram.</p>
+          <p>Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para 
+          o nosso público-alvo.</p>
+          <a href="" class="btn btn-warning">Ver todas</a>
       
 
       <section style="background-color: #007bff; padding: 50px 0px; margin: 40px 0;">
@@ -183,5 +205,57 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section style="padding: 35px 0px;">
+      <h2 class="text-center text-primary mb-4">Próximos eventos - <%= l(Date.today, format: "%B") %></h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card border-0 " style="background-color: #f2f2f2 ">
+              <div class="card-body">
+                <div class="row align-items-center">
+          
+                  <div class="col-md-1">
+                    <div class="bg-primary d-flex" style="width: 4em; height: 4em;">
+                      <h4 class="my-auto mx-auto text-light">04</h4>
+                    </div>
+                  </div>
+                  <div class="col-md-10 event-description">
+                    <p class="font-weight-bold mb-2 text-dark">Entrega da AP1 de Gestão de Projetos</p>
+                    <p class="text-muted mb-2" >
+                    Entregar esta porcaria deste trabalho que ainda não li absolutamente nenhum slide
+                    e não faço a menor ideia de como começar.</p>
+                    <span style="font-size: 0.9rem">
+                    <i class="far fa-clock mr-2"></i><span class="mr-4">Segunda - 19h às 23h</span>
+                    <i class="fas fa-map-marker-alt mr-2"></i> <span>Google Classroom</span>
+                    </span>
+                  </div>
+                  <div class="col-md-1">
+                    <a class="twitter-share-button" style="text-decoration: none;"
+                       target="_blank"
+                       href="https://twitter.com/intent/tweet?text=Hello%20world">
+                    <div class="d-flex text-light p-2" style="width: 2.2em; height: 2.2em; background-color: #00acee">
+                      <i class="fab fa-twitter my-auto mx-auto"></i>
+                    </div>
+                    </a>
+                     <div class="bg-primary d-flex mt-2 text-light p-2" style="width: 2.2em; height: 2.2em; background-color: 3b5998">
+                      <i class="fab fa-facebook my-auto mx-auto"></i>
+                    </div>
+                    
+                    
+                  </div>
+          
+                </div>
+       
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        </div>
+        
+        
+      </div>
       </section>
       

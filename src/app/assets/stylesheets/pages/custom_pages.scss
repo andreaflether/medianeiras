@@ -83,3 +83,11 @@ input[type="text"], input[type="password"], input[type="email"], select {
   margin: 8px auto 25px auto;
 }
 
+.event-description {
+  i {
+    color: #007bff;
+  }
+  span {
+    color: #6c757d !important;
+  }
+}
