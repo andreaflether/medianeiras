@@ -1,0 +1,381 @@
+$primary: #007bff;
+$light: #f8f9fa;
+
+section {
+  // margin-top: 40px;
+  padding: 40px 0;
+}
+
+section.main-activities {
+  margin-top: 20px;
+}
+
+// section.volunteering, section.events, section.partners {
+//   margin-top: 0;
+// }
+
+section.events {
+  padding-bottom: 0;
+}
+
+section.volunteering {
+  padding-bottom: 50px;
+}
+
+section > h2, h2 {
+  color: $primary;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+//--------------------------- INTRO ----------------------------------------// 
+@media screen and (max-width: 992px) {
+  section.main {
+    text-align: center;
+    justify-content: center;
+
+    .more-info {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .intro-text {  
+      text-align-last: center;
+      padding-right: 15px !important;
+    }
+  } 
+}
+
+section.main {
+  .intro-text {
+    padding-right: 3rem;
+
+    h2 {
+      text-align: left;
+    }
+  }
+
+  .more-info {
+    margin-top: 0.5rem;
+  }
+}
+
+//--------------------------- ACTIVITIES -----------------------------------//
+@media screen and (max-width: 992px) {
+  .activity-col {
+    margin-bottom: 2rem;
+  }
+
+  .all-activities {
+    margin-top: 0.25rem !important;
+  }
+}
+
+.activity-card {
+  border: 0;
+  color: #fff;
+}
+
+.activity-link {
+  transition: all .3s ease-in-out;
+
+  i {
+  
+    margin-top: 0.25rem;
+    color: $primary;
+  }
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(1,1); }
+  50% { transform: scale(1.2, 1.2); }
+  100% { transform: scale(1,1); }
+}
+
+.activity-link:hover {
+  animation: zoomInOut 1s infinite;
+}
+
+section.main-activities {
+  background-color: #f5f5f5;
+
+  h2, .description, .description-1 {
+    text-align: center;
+  }
+
+  .description {
+    margin-bottom: 2.25rem;
+  }
+
+  .activity-overlay {
+    display: flex;
+    text-align: center;
+    background-color: rgba(0, 123, 255, 0.7);
+  }
+
+  .activity-name:before {
+    position: absolute;
+    left: 20px;
+    top: 55px;
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: $primary;
+  }
+
+  .activity-overlay > a {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+
+    i {
+      padding: 1rem;
+      border: 1px solid $light;
+      border-radius: 50%;
+      color: $light !important;
+      transition: all .2s ease-in-out;
+    }
+  }
+
+  .activity-overlay > a > i:hover {
+    background-color: $light;
+    color: #404040 !important;
+  }
+
+  .activity-card-info {
+    display: absolute;
+    margin-top: -50px;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    border-radius: 0;
+    border: none;
+    
+    h4, p, small {
+      color: #343a40;
+    }
+
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    p > i {
+      color: $primary;
+      margin-right: 0.5rem;
+      font-size: 80%;
+    }
+
+    small > i {
+      color: $primary;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fa-clock {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.activity-overlay {
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.activity-overlay.activate {
+  opacity: 1;
+}
+
+//--------------------------- END ACTIVITIES -----------------------------------//
+
+//--------------------------- VOLUNTEERING  -----------------------------------//
+@media screen and (max-width: 992px) {
+  .volunteer-col {
+    margin-bottom: 2rem;
+  }
+  
+  .volunteer-col:last-of-type {
+    margin-bottom: 0;
+  }
+}
+section.volunteering {
+  background-color: $primary; 
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  h2, .donations {
+    color: $light;
+  }
+
+  .donations {
+    font-weight: normal;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+.volunteer {
+  transition: all .3s ease-in-out;
+}
+
+.volunteer.hoverEffect {
+  transform: scale(1.05);
+}
+
+.volunteer.card {
+  height: 100%;
+
+  .card-body {
+    text-align: center;
+  }
+
+  p {
+    margin: 20px auto;
+    color: #404040;
+  }
+
+  svg {
+    width: 4em;
+  }
+
+  h4 {
+    margin-top: 1rem;
+  }
+}
+
+.donations {
+  margin: 8px auto 25px auto;
+}
+
+//--------------------------- EVENTS -----------------------------------//
+
+@media screen and (max-width: 768px) {
+  .event-details {
+    text-align: center;
+    margin: 20px auto;
+  } 
+
+  .event-day {
+    margin: auto;  
+  }
+
+  .icon.facebook {
+    margin-left: 0.5rem;
+    margin-top: 0 !important;
+  }   
+}
+
+@media screen and (max-width: 726px) {
+  // .event-description {
+  //   margin: 1.5rem 0 3rem 0;
+  // }
+  .event-details > span,
+  .event-details > p {
+    margin-bottom: 1.2rem !important;
+  }
+}
+
+.event-card {
+  border: none;
+  background-color: #f2f2f2;
+  margin-bottom: 1rem;
+
+  .event-day {
+    background-color: $primary;
+    display: flex;
+    width: 4em; 
+    height: 4em;
+
+    h4 {
+      margin: auto;
+      color: $light;
+    }
+  }
+}
+
+.event-details {
+  i {
+    color: $primary;
+  }
+
+  span {
+    color: #5f666d !important;
+    font-size: 0.9rem;
+
+    i {
+      margin-right: 0.5rem;
+    }
+    
+    span { 
+      margin-right: 1.5rem; 
+    }
+  }
+
+  .event-title, .event-description {
+    margin-bottom: 0.5rem;
+  }
+
+  .event-title {
+    font-weight: bold;
+    color: #343a40;
+  }
+
+  .event-description {
+    color: #5f666d;  
+  }
+}
+
+.twitter-share-button {
+  text-decoration: none !important;
+}
+
+.icon {
+  display: flex;
+  color: $light;
+  padding: 0.5rem;
+  width: 2.2em;
+  height: 2.2em;
+
+  i {
+    margin: auto;
+  }
+}
+
+.icon {
+  transition: all .2s ease-in-out;
+}
+
+.icon.twitter {
+  background-color: #00acee;
+}
+
+.icon.facebook {
+  background-color: #3b5998;
+  margin-top: 0.5rem;  
+}
+
+.icon.facebook:hover {
+  background-color: darken($color: #3b5998, $amount: 7%);
+}
+
+.icon.twitter:hover {
+  background-color: darken($color: #00acee, $amount: 7%);
+}
+
+//--------------------------- END EVENTS -----------------------------------//
+
+//--------------------------- PARTNERS ------------------------------------// 
+.partner-logo {
+  text-align: center;
+  background-color: rgba(220, 220, 220, 0.4);
+  padding: 13px; 
+  border-radius: 8px;
+}
+
+
