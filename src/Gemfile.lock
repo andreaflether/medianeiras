@@ -190,6 +190,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -382,6 +384,7 @@ DEPENDENCIES
   httparty
   inline_svg
   jbuilder (~> 2.5)
+  non-stupid-digest-assets (~> 1.0, >= 1.0.8)
   puma (~> 3.12)
   rack-livereload
   rails (~> 5.2.4, >= 5.2.4.1)

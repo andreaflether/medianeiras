@@ -4,6 +4,7 @@
   "dependencies": {
     "acorn": "^7.1.1",
     "admin-lte": "^3.0.2",
+    "aos": "^3.0.0-beta.6",
     "jquery-datetimepicker": "^2.5.21",
     "jquery.autocomplete": "^1.2.0",
     "minimist": "^1.2.3"

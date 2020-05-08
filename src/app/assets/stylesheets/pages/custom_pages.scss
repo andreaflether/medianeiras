@@ -1,18 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 $primary: #007bff;
 
 * {
-  font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-p {
-  font-weight: 300;
+h2 {
+  font-size: 1.9rem;
+}
+
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: $primary;
+  content: " ";
+  width: 160px;
+  margin: 0 auto;
+  margin-top: 20px; 
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #555;
   font-weight: 700;
@@ -21,11 +31,83 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-  border-radius: 0;
-  font-weight: 600;
+  border-radius: 3px;
+  font-family: 'Roboto Slab';
+  font-size: 0.95rem;
+  font-weight: 500;
   height: 3em;
   line-height: 3em;
   padding: 0 1.5em;
+}
+
+.navbar {
+  box-shadow: 5px -5px 5px 10px rgba(0,0,0,.1);
+  transition: 0.4s;
+}
+
+.navbar #logo {
+  transition: 0.4s;
+}
+
+#scroll-to-top {
+  background-color: rgba(0, 123, 255, 0.5);
+  transition: background-color .2s ease;
+}
+
+#scroll-to-top:hover {
+  background-color: $primary;
+}
+
+.nav-link {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #707070;
+  text-transform: uppercase;
+}
+
+// .dropdown-toggle::after {
+//   display: none;
+// }
+
+.dropdown-item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  font-family: 'Roboto Slab', sans-serif !important;
+}
+
+.dropdown-menu {
+  // background-color: #3b3b3b;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  min-width: 12rem;
+  // margin: 0.5rem 0 !important;
+  border: 1px solid #e3e3e3;
+  
+  a:hover {
+    color: $primary;
+  }
+
+  .dropdown-item {
+    background-color: transparent;
+    // border-left: 2px solid transparent;
+    transition: all .3s ease;
+    font-family: 'Lato', sans-serif;
+    // padding: 0.75rem;
+    // margin: 0.75rem auto; 
+    color: #555;
+  }
+
+  .dropdown-item:not(:last-child) {
+    // border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  // .dropdown-item:hover {
+  //   border-left: 2px solid $primary;
+  // } 
 }
 
 input[type="text"], input[type="password"], input[type="email"], select, textarea {
@@ -61,3 +143,5 @@ input[type="text"], input[type="password"], input[type="email"], select {
 .formulario > form > label {
   font-weight: bold;
 }
+
+

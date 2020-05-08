@@ -1,18 +1,13 @@
 $primary: #007bff;
 $light: #f8f9fa;
 
+p {
+  color: #555;
+}
+
 section {
-  // margin-top: 40px;
   padding: 40px 0;
 }
-
-section.main-activities {
-  margin-top: 20px;
-}
-
-// section.volunteering, section.events, section.partners {
-//   margin-top: 0;
-// }
 
 section.events {
   padding-bottom: 0;
@@ -26,6 +21,50 @@ section > h2, h2 {
   color: $primary;
   text-align: center;
   margin-bottom: 1.5rem;
+}
+
+//--------------------------- NAVBAR ---------------------------------------// 
+// .nav-item {
+//   margin: auto 10px;
+// }
+
+// li.dropdown:hover>.dropdown-menu {
+//   display: block;
+// }
+
+.navbar .nav-item:not(:last-child) {
+  margin-right: 25px;
+}
+ 
+.dropdown-toggle::after {
+   transition: transform 0.15s linear; 
+   
+}
+
+[data-toggle="dropdown"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f107";
+}
+
+.show [data-toggle="dropdown"]:after {
+  content: "\f107";
+}
+
+.dropdown-toggle {
+  display: flex;
+}
+
+.dropdown-toggle:after {
+  border: none;
+}
+
+.show.dropdown .dropdown-toggle::after {
+  transform: translateY(3px);
+}
+
+.dropdown-menu {
+  margin-top: 0;
 }
 
 //--------------------------- INTRO ----------------------------------------// 
@@ -46,6 +85,13 @@ section > h2, h2 {
   } 
 }
 
+@media screen and (min-width: 992px) {
+.intro-text > h2:after {
+  margin: 0;
+  margin-top: 20px;
+}
+}
+
 section.main {
   .intro-text {
     padding-right: 3rem;
@@ -58,6 +104,8 @@ section.main {
   .more-info {
     margin-top: 0.5rem;
   }
+  
+  border-bottom: 1px solid #eaeaea;
 }
 
 //--------------------------- ACTIVITIES -----------------------------------//
@@ -97,7 +145,7 @@ section.main {
 }
 
 section.main-activities {
-  background-color: #f5f5f5;
+  background-color: #f2f2f2;
 
   h2, .description, .description-1 {
     text-align: center;
@@ -147,8 +195,10 @@ section.main-activities {
     margin-top: -50px;
     margin-right: 1.5rem;
     margin-left: 1.5rem;
-    border-radius: 0;
-    border: none;
+    // border-radius: 0;
+    // border: none;
+    // border: 1px dashed #ddd;
+    border: 1px solid #e3e3e3;
     
     h4, p, small {
       color: #343a40;
@@ -193,6 +243,10 @@ section.main-activities {
 //--------------------------- END ACTIVITIES -----------------------------------//
 
 //--------------------------- VOLUNTEERING  -----------------------------------//
+section.volunteering > h2:after {
+  background-color: #fff;
+}
+
 @media screen and (max-width: 992px) {
   .volunteer-col {
     margin-bottom: 2rem;
@@ -220,13 +274,13 @@ section.volunteering {
   }
 }
 
-.volunteer {
-  transition: all .3s ease-in-out;
-}
+// .volunteer {
+//   transition: all .3s ease-in-out;
+// }
 
-.volunteer.hoverEffect {
-  transform: scale(1.05);
-}
+// .volunteer.hoverEffect {
+//   transform: scale(1.05);
+// }
 
 .volunteer.card {
   height: 100%;
@@ -237,7 +291,8 @@ section.volunteering {
 
   p {
     margin: 20px auto;
-    color: #404040;
+    // color: #404040;
+    color: #909090;
   }
 
   svg {
@@ -246,6 +301,7 @@ section.volunteering {
 
   h4 {
     margin-top: 1rem;
+    font-size: 1.45rem;
   }
 }
 
@@ -282,7 +338,8 @@ section.volunteering {
 }
 
 .event-card {
-  border: none;
+  // border: none;
+  border: 1px solid #e3e3e3;
   background-color: #f2f2f2;
   margin-bottom: 1rem;
 
@@ -376,6 +433,26 @@ section.volunteering {
   background-color: rgba(220, 220, 220, 0.4);
   padding: 13px; 
   border-radius: 8px;
+  border: 1px solid #e3e3e3;
 }
+
+#scroll-to-top {
+  // background-color: $primary;
+  display: none;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 45px;
+  border-radius: 50%;
+  color: #fff;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 999;
+}
+
+
+
 
 
