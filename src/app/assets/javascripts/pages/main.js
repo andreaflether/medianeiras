@@ -63,4 +63,11 @@ $(document).ready(function() {
     $("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
   });
+
+  $('.nav-link').each(function () {
+    var curr_page = ($(this)).attr('href');
+    if (window.location.pathname == curr_page) {
+      $(this).closest('li').addClass('active')
+    }
+  });
 })

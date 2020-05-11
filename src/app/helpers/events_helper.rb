@@ -13,9 +13,15 @@ module EventsHelper
     date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
   end 
 
-  def event_time(starts_at, ends_at)
+  def event_time(starts_at, ends_at, type)
     start = starts_at.to_s(:time)
-    ends = ends_at.to_s(:time)
-    "#{start} às #{ends}"
-  end 
+    ending = ends_at.to_s(:time)
+    week_day = l(starts_at, format: "%A")
+    case type 
+    when 'start_end'
+      "#{start} às #{ending}"
+    when 'week_day_time'
+      "#{week_day} - #{start} às #{ending}"
+    end 
+  end  
 end

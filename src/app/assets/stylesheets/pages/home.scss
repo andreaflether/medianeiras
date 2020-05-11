@@ -1,20 +1,13 @@
 $primary: #007bff;
 $light: #f8f9fa;
 
-p {
-  color: #555;
-}
-
 section {
   padding: 40px 0;
 }
 
 section.events {
   padding-bottom: 0;
-}
-
-section.volunteering {
-  padding-bottom: 50px;
+  padding-top: 32px;
 }
 
 section > h2, h2 {
@@ -23,55 +16,15 @@ section > h2, h2 {
   margin-bottom: 1.5rem;
 }
 
-//--------------------------- NAVBAR ---------------------------------------// 
-// .nav-item {
-//   margin: auto 10px;
-// }
-
-// li.dropdown:hover>.dropdown-menu {
-//   display: block;
-// }
-
-.navbar .nav-item:not(:last-child) {
-  margin-right: 25px;
-}
- 
-.dropdown-toggle::after {
-   transition: transform 0.15s linear; 
-   
-}
-
-[data-toggle="dropdown"]:after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f107";
-}
-
-.show [data-toggle="dropdown"]:after {
-  content: "\f107";
-}
-
-.dropdown-toggle {
-  display: flex;
-}
-
-.dropdown-toggle:after {
-  border: none;
-}
-
-.show.dropdown .dropdown-toggle::after {
-  transform: translateY(3px);
-}
-
-.dropdown-menu {
-  margin-top: 0;
-}
-
 //--------------------------- INTRO ----------------------------------------// 
 @media screen and (max-width: 992px) {
   section.main {
     text-align: center;
     justify-content: center;
+
+    .embed-responsive {
+      margin-bottom: 0.75rem;
+    }
 
     .more-info {
       margin-top: 1rem;
@@ -86,13 +39,16 @@ section > h2, h2 {
 }
 
 @media screen and (min-width: 992px) {
-.intro-text > h2:after {
-  margin: 0;
-  margin-top: 20px;
-}
+  .intro-text > h2:after {
+    margin: 0;
+    margin-top: 20px;
+  }
 }
 
 section.main {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 50px;
+
   .intro-text {
     padding-right: 3rem;
 
@@ -104,9 +60,8 @@ section.main {
   .more-info {
     margin-top: 0.5rem;
   }
-  
-  border-bottom: 1px solid #eaeaea;
 }
+//--------------------------- END INTRO --------------------------------------// 
 
 //--------------------------- ACTIVITIES -----------------------------------//
 @media screen and (max-width: 992px) {
@@ -119,148 +74,104 @@ section.main {
   }
 }
 
-.activity-card {
-  border: 0;
-  color: #fff;
-}
-
-.activity-link {
-  transition: all .3s ease-in-out;
-
-  i {
-  
-    margin-top: 0.25rem;
-    color: $primary;
-  }
-}
-
-@keyframes zoomInOut {
-  0% { transform: scale(1,1); }
-  50% { transform: scale(1.2, 1.2); }
-  100% { transform: scale(1,1); }
-}
-
-.activity-link:hover {
-  animation: zoomInOut 1s infinite;
-}
-
 section.main-activities {
   background-color: #f2f2f2;
+
+  .container {
+    margin-bottom: 0.5rem;
+  }
 
   h2, .description, .description-1 {
     text-align: center;
   }
-
+  
+  .description1 {
+    margin-bottom: 0.5rem;
+  }
+  
   .description {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
   }
 
-  .activity-overlay {
+  .status {
     display: flex;
-    text-align: center;
-    background-color: rgba(0, 123, 255, 0.7);
-  }
-
-  .activity-name:before {
     position: absolute;
-    left: 20px;
-    top: 55px;
-    content: '';
-    width: 50px;
-    height: 2px;
-    background: $primary;
+    padding: 0.5rem;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 123, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 0.7rem;
   }
 
-  .activity-overlay > a {
-    margin-left: auto;
-    margin-right: auto;
-    align-self: center;
-
-    i {
-      padding: 1rem;
-      border: 1px solid $light;
-      border-radius: 50%;
-      color: $light !important;
-      transition: all .2s ease-in-out;
-    }
-  }
-
-  .activity-overlay > a > i:hover {
-    background-color: $light;
-    color: #404040 !important;
-  }
 
   .activity-card-info {
-    display: absolute;
-    margin-top: -50px;
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-    // border-radius: 0;
-    // border: none;
-    // border: 1px dashed #ddd;
-    border: 1px solid #e3e3e3;
-    
-    h4, p, small {
-      color: #343a40;
+
+    .activity-name {
+      font-size: 1.62rem;
+      &:after {
+        display: block;
+        margin-top: 15px; 
+        content: '';
+        width: 50px;
+        height: 2px;
+        background: $primary;
+      }
     }
 
-    h4 {
-      margin-bottom: 1.5rem;
-    }
-
-    p {
+    a, p {
       font-weight: normal;
-      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: rgb(120, 120, 120);
     }
 
-    p > i {
-      color: $primary;
-      margin-right: 0.5rem;
-      font-size: 80%;
+    .activity-description {
+      margin: 1rem 0;
     }
 
-    small > i {
-      color: $primary;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
+    .details {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      font-weight: bold;
+      margin-top: 1rem;
+      text-decoration: none !important;
 
-    .fa-clock {
-      margin-left: 0.5rem;
-    }
+      &:hover > i {
+        margin-left: 0.3rem !important;
+      }
+
+      i {
+        font-size: 0.8rem;
+        margin-left: 0.15rem;
+        transition: all .1s linear;
+      }
+    } 
   }
 }
 
-.activity-overlay {
-  opacity: 0;
-  transition: all .3s ease-in-out;
-}
-
-.activity-overlay.activate {
-  opacity: 1;
+.all-activities {
+  margin-top: 2rem;
 }
 
 //--------------------------- END ACTIVITIES -----------------------------------//
 
 //--------------------------- VOLUNTEERING  -----------------------------------//
-section.volunteering > h2:after {
-  background-color: #fff;
-}
-
 @media screen and (max-width: 992px) {
-  .volunteer-col {
+  .volunteer-col:not(:last-child) {
     margin-bottom: 2rem;
   }
-  
-  .volunteer-col:last-of-type {
-    margin-bottom: 0;
-  }
 }
+
 section.volunteering {
   background-color: $primary; 
+  padding-bottom: 60px;
 
   h2 {
     margin-bottom: 1rem;
+
+    &:after {
+      background-color: #fff;
+    }
   }
 
   h2, .donations {
@@ -274,14 +185,6 @@ section.volunteering {
   }
 }
 
-// .volunteer {
-//   transition: all .3s ease-in-out;
-// }
-
-// .volunteer.hoverEffect {
-//   transform: scale(1.05);
-// }
-
 .volunteer.card {
   height: 100%;
 
@@ -291,8 +194,8 @@ section.volunteering {
 
   p {
     margin: 20px auto;
-    // color: #404040;
-    color: #909090;
+    // color: #909090;
+    color: rgb(120, 120, 120);
   }
 
   svg {
@@ -310,7 +213,6 @@ section.volunteering {
 }
 
 //--------------------------- EVENTS -----------------------------------//
-
 @media screen and (max-width: 768px) {
   .event-details {
     text-align: center;
@@ -328,9 +230,6 @@ section.volunteering {
 }
 
 @media screen and (max-width: 726px) {
-  // .event-description {
-  //   margin: 1.5rem 0 3rem 0;
-  // }
   .event-details > span,
   .event-details > p {
     margin-bottom: 1.2rem !important;
@@ -338,7 +237,6 @@ section.volunteering {
 }
 
 .event-card {
-  // border: none;
   border: 1px solid #e3e3e3;
   background-color: #f2f2f2;
   margin-bottom: 1rem;
@@ -357,12 +255,15 @@ section.volunteering {
 }
 
 .event-details {
+  font-size: 0.9rem !important;
+
   i {
     color: $primary;
   }
 
   span {
     color: #5f666d !important;
+    // color: #555;
     font-size: 0.9rem;
 
     i {
@@ -380,11 +281,13 @@ section.volunteering {
 
   .event-title {
     font-weight: bold;
-    color: #343a40;
+    color: #444;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1.1rem;
   }
 
   .event-description {
-    color: #5f666d;  
+    color: #666;  
   }
 }
 
@@ -398,33 +301,36 @@ section.volunteering {
   padding: 0.5rem;
   width: 2.2em;
   height: 2.2em;
+  transition: all .2s ease-in-out;
 
   i {
     margin: auto;
   }
 }
 
-.icon {
-  transition: all .2s ease-in-out;
-}
-
 .icon.twitter {
   background-color: #00acee;
+
+  &:hover {
+    background-color: darken($color: #00acee, $amount: 7%);
+  }
 }
 
 .icon.facebook {
   background-color: #3b5998;
   margin-top: 0.5rem;  
+
+  &:hover {
+    background-color: darken($color: #3b5998, $amount: 7%);
+  }
 }
 
-.icon.facebook:hover {
-  background-color: darken($color: #3b5998, $amount: 7%);
+.no-events {
+  margin-top: 0.5rem;
+  color: #555;
+  font-weight: normal;
+  text-align: center;
 }
-
-.icon.twitter:hover {
-  background-color: darken($color: #00acee, $amount: 7%);
-}
-
 //--------------------------- END EVENTS -----------------------------------//
 
 //--------------------------- PARTNERS ------------------------------------// 
@@ -434,22 +340,6 @@ section.volunteering {
   padding: 13px; 
   border-radius: 8px;
   border: 1px solid #e3e3e3;
-}
-
-#scroll-to-top {
-  // background-color: $primary;
-  display: none;
-  width: 45px;
-  height: 45px;
-  text-align: center;
-  font-size: 0.9rem;
-  line-height: 45px;
-  border-radius: 50%;
-  color: #fff;
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  z-index: 999;
 }
 
 

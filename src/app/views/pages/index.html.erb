@@ -1,53 +1,9 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous" />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0"></script>
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
-  
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand py-0" href="#">
-    <%= inline_svg_tag("logo.svg", id: "logo", style: "cursor: pointer; width: 55%; height: auto") %>
-      <%# <img class="logo horizontal-logo" style="width: 40%; height: auto;"
-      src="https://github.com/andreaflether/projeto_medianeiras/blob/master/app/assets/images/logo.png?raw=true" alt="forecastr logo"> %>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link text-primary" href="#">Início</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sobre Nós</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Atividades</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Parceiros &nbsp;<!-- <ion-icon name="chevron-down-outline" ></ion-icon> -->
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <a class="dropdown-item" href="#">Unifametro</a>
-            <a class="dropdown-item" href="#">Paróquia N. Sª. das Dores</a>
-            
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Eventos</a>
-        </li>
-        <li class="nav-item">
-          <%# <a class="nav-link" href="#">Contato</a> %>
-          <%= link_to 'Contato', contact_page_url, class: "nav-link"%>
-        </li>
-        
-        
-      </ul>
-    </div>
-  </div>
-</nav>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -101,109 +57,55 @@
 </section>
 
 <section class="main-activities">
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>Principais atividades</h2>
-        <p class="description-1 text-dark">
-          <span class="font-weight-bold">Contamos com um corpo de colaboradores profissionais e voluntários que 
-          procuram dar resposta à diversidade de situações dos que o procuram. </span>
-        </p>
-        <p class="description">
-          Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para o nosso 
-          público-alvo.
-        </p>
-      </div>
-      
-      <div class="col-lg-4 col-md-12 activity-col">
-        <div class="card activity-card"> 
-          <img 
-          src="https://scontent.ffor8-2.fna.fbcdn.net/v/t1.0-9/89495429_772927179782589_5838308861185884160_n.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=C0Yv4HYW-HEAX_Iiuaz&_nc_ht=scontent.ffor8-2.fna&oh=85f9567e2bbb0f406cf9415a75051549&oe=5ED664F5" 
-          class="card-img rounded-0">
-              
-          <div class="card-img-overlay activity-overlay">
-            <a href=""><i class="fas fa-share-alt"></i></a>          
-          </div>
-        </div>
-       
-        <div class="card activity-card-info">
-          <div class="card-body">        
-            <div class="d-flex justify-content-between">
-              <h4 class="card-title activity-name">Balé</h4>
-              <h6 class="activity-link">
-                <a href=""><i class="fas fa-arrow-right"></i></a>
-              </h6>
-            </div> 
-            <p><i class="fas fa-user"></i>Prof. Patrícia Fernandes</p>
-            <small><i class="far fa-calendar-alt"></i>Sábado</small>
-            <small><i class="far fa-clock"></i>09 às 11h</small>
-          </div>
-        </div>
-      </div>
+        <h2 data-aos="fade-up" data-aos-delay="">Principais atividades</h2>
 
-      <div class="col-lg-4 col-md-12 activity-col">
-        <div class="card border-0 text-white"> 
-          <img 
-          src="https://scontent.ffor8-2.fna.fbcdn.net/v/t1.0-9/84724254_753982491677058_716250603369529344_n.jpg?_nc_cat=102&_nc_sid=110474&_nc_ohc=NjchjPF2Kz4AX-7Ojfr&_nc_ht=scontent.ffor8-2.fna&oh=1c1b809246885b9daec1143759046bc0&oe=5ED60BBC" 
-          class="card-img rounded-0">
-              
-          <div class="card-img-overlay activity-overlay">
-            <a href=""><i class="fas fa-share-alt"></i></a>          
-          </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <p class="description1 text-dark" >
+            <span class="font-weight-bold">Contamos com um corpo de colaboradores profissionais e voluntários que 
+            procuram dar resposta à diversidade de situações dos que o procuram. </span>
+          
+          <p class="description">
+            Juntamente a Paróquia Nossa Senhora das Dores, oferecemos diversos cursos e atividades para o nosso 
+            público-alvo.
+          </p>
+        
         </div>
-       
-        <div class="card activity-card-info">
-          <div class="card-body">        
-            <div class="d-flex justify-content-between">
-              <h4 class="card-title activity-name">Karatê</h4>
-              <h6 class="activity-link">
-                <a href=""><i class="fas fa-arrow-right"></i></a>
-              </h6>
-            </div> 
-            <p><i class="fas fa-user"></i>Prof. José Juscelino</p>
-            <small><i class="far fa-calendar-alt"></i>Qua/Qui/Sex</small>
-            <small><i class="far fa-clock"></i>18:30 às 19:30</small>
+      </div>  
+      <% @main_activities.each_with_index do |activity, i| %>
+      <div class="col-lg-4 col-md-12 activity-col" data-aos="fade-up" data-aos-delay="<%= i*150 %>">
+        <div class="card">
+          <span class="status badge badge-primary">Vagas abertas</span>  
+          <img src="https://via.placeholder.com/600x400" 
+          class="card-img-top" alt="...">
+        
+          <div class="card-body activity-card-info">            
+            <h3 class="card-title text-primary activity-name"><%= activity.name %></h3>        
+            <p class="card-text activity-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <%#= activity.description %>
+            </p> 
+            <a href="" class="text-primary details activity-link">
+              Mais detalhes <i class="fas fa-chevron-right"></i>
+            </a> 
           </div>
-        </div>
+        </div>  
       </div>
-
-      <div class="col-lg-4 col-md-12 activity-col">
-        <div class="card border-0 text-white"> 
-          <img 
-          src="https://scontent.ffor8-1.fna.fbcdn.net/v/t1.0-9/76605053_676670766074898_4277867128524111872_n.jpg?_nc_cat=110&_nc_sid=110474&_nc_ohc=H6yIa9ziunsAX-uDhL7&_nc_ht=scontent.ffor8-1.fna&oh=ddf5d61cd7da6f503f72b03fa0dc3a9e&oe=5ED3D432" 
-          class="card-img rounded-0">
-              
-          <div class="card-img-overlay activity-overlay">
-            <a href=""><i class="fas fa-share-alt"></i></a>          
-          </div>
-        </div>
-       
-        <div class="card activity-card-info">
-          <div class="card-body">        
-            <div class="d-flex justify-content-between">
-              <h4 class="card-title activity-name">Muay Thai</h4>
-              <h6 class="activity-link">
-                <a href=""><i class="fas fa-arrow-right"></i></a>
-              </h6>
-            </div> 
-            <p><i class="fas fa-user"></i>Prof. José Brayner</p>
-            <small><i class="far fa-calendar-alt"></i>Ter/Qua/Qui/Sex</small>
-            <small><i class="far fa-clock"></i>20 às 21h</small>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-12 all-activities text-center mt-5">
-        <a href="" class="btn btn-outline-dark">Ver todas as atividades</a>
-      </div>
+      <% end %>
       
+      <div class="col-md-12 text-center all-activities" data-aos="fade-up" data-aos-delay>
+        <div class="btn btn-outline-dark">Ver todas as atividades</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="volunteering">
-  <h2 class="aos-init aos-animate" data-aos="fade-right" data-aos-delay=""">Como você pode nos ajudar</h2>
-  <div class="container aos-init" data-aos="fade-up" data-aos-delay="100">
+  <h2 data-aos="fade-right" data-aos-delay="">Como você pode nos ajudar</h2>
+  <div class="container " data-aos="fade-up" data-aos-delay="">
     <div class="row ">
       <div class="col-md-12">  
         <p class="donations">O Centro Comunitário Nossa Senhora Medianeira recebe qualquer 
@@ -211,7 +113,7 @@
         móveis e eletrodomésticos. Estamos de portas abertas para receber você.</p>
       </div>
 
-      <div class="col-lg-4 col-md-12 volunteer-col aos-init" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-4 col-md-12 volunteer-col" data-aos="fade-up" data-aos-delay="100">
         <div class="card volunteer">
           <div class="card-body">
             <%= inline_svg_tag("help.svg", class: "img-fluid") %>
@@ -226,20 +128,19 @@
         </div>  
       </div>
 
-      <div class="col-lg-4 col-md-12 volunteer-col aos-init" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-4 col-md-12 volunteer-col" data-aos="fade-up" data-aos-delay="200">
         <div class="card volunteer">
           <div class="card-body">
             <%= inline_svg_tag("heart.svg", class: "img-fluid") %>
             <h4>Seja um parceiro</h4>
             <p>Sua ajuda é muito importante para possamos desenvolver um bom trabalho
             e alcançar muito mais crianças e famílias que precisam de nós.
-            Ajude-nos a continuar com as nossas atividades! 
-            Junte-se ao demais parceiros colaborando para que possamos expandir nosso trabalho.</p>
+            Ajude-nos se juntando ao demais parceiros colaborando para que possamos expandir nosso trabalho.</p>
             <a href="" class="btn btn-outline-primary">Realizar parceria</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-12 volunteer-col aos-init" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-lg-4 col-md-12 volunteer-col" data-aos="fade-up" data-aos-delay="300">
         <div class="card volunteer">
           <div class="card-body">
             <%= inline_svg_tag("money.svg", class: "img-fluid") %>
@@ -257,53 +158,63 @@
 </section>
 
 <section class="events">
-  <h2>Próximos eventos - <%= l(Date.today, format: "%B") %></h2>
+  <h2 data-aos="fade-up" data-aos-delay>Próximos eventos - <%= l(Date.today, format: "%B") %></h2>
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <div class="card event-card">
-          <div class="card-body">
-            <div class="row align-items-center">
-      
-              <div class="col-lg-1 col-md-auto">
-                <div class="event-day">
-                  <h4>04</h4>
+      <% if @next_events.blank? %>
+        <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+          <h4 class="no-events">Não há eventos agendados para este mês.</h4>
+        </div>
+      <% else %>
+        <% @next_events.each do |event |%>
+        <div class="col-12" data-aos="fade-left" data-aos-delay>
+          <div class="card event-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+        
+                <div class="col-lg-1 col-md-auto">
+                  <div class="event-day">
+                    <h4><%= event.start_date.day %></h4>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-lg-10 col-md-9 event-details">
-                <p class="event-title">Entrega da AP1 de Gestão de Projetos</p>
-                <p class="event-description">
-                  Entregar esta porcaria deste trabalho que ainda não li absolutamente nenhum slide
-                  e não faço a menor ideia de como começar.
-                </p>
-                <span>
-                  <i class="far fa-clock"></i><span>Segunda - 19h às 23h</span>
-                  <i class="fas fa-map-marker-alt"></i><span>Google Classroom</span>
-                </span>
-              </div>
+                <div class="col-lg-10 col-md-9 event-details">
+                  <p class="event-title"><%= event.title %></p>
+                  <p class="event-description">
+                    <%= event.description %>
+                  </p>
+                  <span>
+                    <i class="far fa-clock"></i>
+                    <span>
+                      <%= event_time(event.start_date, event.end_date, "week_day_time")%>
+                    </span>
+                    <i class="fas fa-map-marker-alt"></i><span><%= event.location %></span>
+                  </span>
+                </div>
 
-              <div class="col-lg-1 col-md-1">          
-                <div class="d-flex flex-wrap justify-content-center">       
-                  <a class="twitter-share-button"
-                     target="_blank"
-                     href="https://twitter.com/intent/tweet?text=Hello%20world">
-                    <div class="icon twitter">
-                      <i class="fab fa-twitter"></i>
-                    </div>
-                  </a>
-                  <a href="">
-                    <div class="icon facebook">
-                      <i class="fab fa-facebook"></i>
-                    </div>   
-                  </a>   
-                </div>      
-              </div>
+                <div class="col-lg-1 col-md-1">          
+                  <div class="d-flex flex-wrap justify-content-center">       
+                    <a class="twitter-share-button"
+                      target="_blank"
+                      href="https://twitter.com/intent/tweet?text=EVENTO - <%=event.title%>!">
+                      <div class="icon twitter">
+                        <i class="fab fa-twitter"></i>
+                      </div>
+                    </a>
+                    <a href="">
+                      <div class="icon facebook">
+                        <i class="fab fa-facebook"></i>
+                      </div>   
+                    </a>   
+                  </div>      
+                </div>
 
-            </div>
-          </div> <!-- End Card Body -->
-        </div> <!-- End Card -->
-      </div> <!-- End Col-md-12 -->    
+              </div>
+            </div> <!-- End Card Body -->
+          </div> <!-- End Card -->
+        </div> <!-- End Col-md-12 -->   
+        <% end %> 
+      <% end %>
     </div> <!-- End Row -->
   </div> <!-- End Container -->
 </section>
