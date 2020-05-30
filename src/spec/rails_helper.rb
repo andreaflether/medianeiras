@@ -33,6 +33,17 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+
+  Shoulda::Matchers.configure do |config| 
+    config.integrate do |with| 
+      # Test framework
+      with.test_framework :rspec
+      
+      # Libraries
+      with.library :rails
+    end 
+  end 
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -42,6 +53,7 @@ RSpec.configure do |config|
   # Add Devise modules
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Warden::Test::Helpers
 
   # FactoryBot config
   config.include FactoryBot::Syntax::Methods

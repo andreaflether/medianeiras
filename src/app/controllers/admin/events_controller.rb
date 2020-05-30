@@ -38,6 +38,7 @@ class Admin::EventsController < AdminController
         format.html { redirect_to @event, notice: 'Evento criado com sucesso!' }
         format.json { render :show, status: :created, location: @event }
       else    
+        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -50,6 +51,7 @@ class Admin::EventsController < AdminController
         format.html { redirect_to @event, notice: 'Evento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @event }
       else
+        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
