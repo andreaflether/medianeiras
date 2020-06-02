@@ -13,24 +13,25 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
   c.filter_sensitive_data('<API-URL>') { 'http://jsonplaceholder.typicode.com' }
   c.ignore_localhost = true
+  c.allow_http_connections_when_no_cassette = true
 end
 
 # Capybara Chrome Headless
 Capybara.default_max_wait_time = 5
 Capybara.raise_server_errors = false
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
 Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu window-size=1280,2000 no-sandbox) }
-  )
-
   Capybara::Selenium::Driver.new app,
     browser: :chrome,
-    desired_capabilities: capabilities
+    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome("goog:chromeOptions" => {
+      # Set launch flags similar to puppeteer's for best performance
+      "args" => [
+        "--force-color-profile=srgb",
+        "--headless",
+        "--no-sandbox",
+        "--window-size=1440,900"
+      ]
+    })
 end
 
 Capybara.javascript_driver = :headless_chrome

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do 
   # Campos obrigatórios: title, description, start_date, end_date e location
 
-  context 'validations' do 
+  context 'validações' do 
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:start_date) }
@@ -11,12 +11,12 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:location) }
   end 
 
-  context 'error messages' do 
-    it 'verifies ActiveRecord error message' do 
+  context 'mensagens de erro' do 
+    it 'verifica a mensagen de erro do ActiveRecord' do 
       expect { create(:event, title: nil) }.to raise_error(/não pode ficar em branco/)
     end 
-
-    it 'verifies the number of error messages with no information provided' do 
+    
+    it 'verifica o número de mensagens de erro com nenhum dos campos obrigatórios preenchidos' do 
       event = build(:event, title: nil, description: nil, start_date: nil, end_date: nil, location: nil)
       event.valid?
       expect(event.errors.count).to eq(5)   
@@ -25,34 +25,29 @@ RSpec.describe Event, type: :model do
   
   it { expect { create(:event) }.to change{ Event.all.size }.by(1) }
 
-  it 'is valid with title, description, start_date, end_date and location' do 
+  it 'é válido com título, descrição, data de início, data do término e local' do
     event = create(:event)
     expect(event).to be_valid
   end
 
-  context 'instance methods' do 
+  context 'métodos de instância' do 
     it '#is_today?' do 
       event = create(:event)
       expect(event.is_today?).to eq(true)
     end 
   end 
 
-  context 'this_month scope' do 
-    it 'should include events happening in the current month' do 
+  context 'escopo this_month' do 
+    it 'deve incluir eventos com data marcada para o mês atual' do   
       # events = create_list(:event, 8) 
       event = create(:event)
       expect(Event.this_month).to include(event)
     end 
-
-    it 'should not include event happening in the next month' do 
+    
+    it 'não deve incluir eventos marcados para o próximo mês' do 
       event = create(:event, start_date: Date.today.next_month(months = 1), 
                              end_date: Date.today.next_month(months = 1).advance(:days => rand(1..5)))
       expect(Event.this_month).not_to include(event)
     end 
   end
-
-  xit 'Usando o attributes_for' do 
-    attrs = attributes_for(:event)
-    puts attrs
-  end 
 end

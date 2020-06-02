@@ -58,7 +58,6 @@ gem 'tty-spinner'
 gem 'awesome_print'
 gem 'rails_db', '2.2.1'
 gem 'custom_error_message', '~> 1.1', '>= 1.1.1'
-gem 'simplecov', require: false, group: :test
 gem 'non-stupid-digest-assets', '~> 1.0', '>= 1.0.8'
 
 group :development, :test do
@@ -74,7 +73,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  gem 'simplecov', require: false
+  gem 'rspec-json_expectations'
 end
 
 group :development do
