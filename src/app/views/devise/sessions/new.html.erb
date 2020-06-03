@@ -1,35 +1,32 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <p class="login-box-msg">Entre para dar início a sessão</p>
-    <div class="input-group mb-3">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                                placeholder: "Email", class: "form-control" %>
-      <div class="input-group-append">
-        <div class="input-group-text">
-          <span class="fas fa-user"></span>
-        </div>
-      </div>
-    </div>
-    <div class="input-group mb-3">
-      <%= f.password_field :password, autofocus: true, autocomplete: "password", class: "form-control",
-                                      placeholder: "Senha" %>
-      <div class="input-group-append">
-        <div class="input-group-text">
-          <span class="fas fa-lock"></span>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-12 text-center">
-        <div class="icheck-primary">
+  <div class="input-group">
+    <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+    <%= f.text_field :email, class: "form-control", placeholder: "E-mail", autocomplete: "email" %>
+  </div>
+
+  <div class="input-group mb-0">
+    <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+    <%= f.text_field :password, class: "form-control", placeholder: "Senha", autocomplete: "password" %>
+  </div>
+
+  <div class="row ">
+    <div class="col-xs-12 text-center">
+      <div class="checkbox icheck my-3">
+        <label>
           <input type="checkbox" id="remember" name="user[remember_me]">
-          <%= label_tag :remember, 'Lembre-se de mim' %>
-        </div>
-      </div>
-      <div class="col-12">
-        <%= f.submit "Entrar", class: "btn btn-primary btn-block mt-3" %>
-      </div>
+          Lembre-se de mim   
+        </label>
+      </div> 
     </div>
 
-  <%= render 'devise/shared/links' %>
+    <div class="col-xs-12">
+      <%= f.submit "Entrar", class: "btn btn-primary btn-flat btn-block" %>
+    </div>
+  </div>
 <% end %>
+
+<div class="social-auth-links text-center">
+  <%= render 'devise/shared/links' %>
+</div>

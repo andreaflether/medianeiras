@@ -13,7 +13,7 @@ pt-BR:
               taken: "já está em uso."
               invalid: "inválido."
               confirmation: "não é igual a confirmação da senha."
-              too_short: "é muito curta. (mínimo: %{count} caracteres)"
+              too_short: "é muito curta. Mínimo: %{count} caracteres"
             password_confirmation:
               blank: "não pode ficar em branco."
               taken: "já está em uso."
@@ -22,7 +22,7 @@ pt-BR:
               blank: "não pode ficar em branco."
               taken: "já está em uso."
               invalid: "inválido."
-              too_short: "é muito curta. (mínimo: %{count} caracteres)"
+              too_short: "é muito curto. Mínimo: %{count} caracteres"
     attributes:
       user:
         confirmation_sent_at: Confirmação enviada em
