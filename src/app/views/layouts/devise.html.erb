@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
     <title>Centro Comunitário Nossa Senhora Medianeira | <%= devise_action(action_name, controller_name) %></title>
 
     <%= csrf_meta_tags %>
@@ -13,31 +13,30 @@
     <%= javascript_include_tag 'devise' %>
   </head>
 
-  <body class="hold-transition login-page">
+  <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <%= inline_svg_tag("logo.svg", class: "logotipo", style: "cursor: pointer;") %>
+        <%= inline_svg_tag("logo.svg", class: "logotipo") %>
       </div>
+
       <div class="login-box-body">
-        
         <%= yield %>
-
-        <script>
-          $(document).ready(function() {
-            <% resource.errors.full_messages.each do |message| %>
-              toastr.error('<%= message %>');  
-            <% end %>
-
-            <% if alert %>
-              toastr.error('<%= alert %>');   
-            <% end %>
-
-            <% if notice %>
-              toastr.success('<%= notice %>');
-            <% end %>
-          })
-        </script>
       </div>
     </div>
+    <script>
+      $(document).ready(function() {
+        <% resource.errors.full_messages.each do |message| %>
+          toastr.error('<%= message %>');  
+        <% end %>
+
+        <% if alert %>
+          toastr.error('<%= alert %>');   
+        <% end %>
+
+        <% if notice %>
+          toastr.success('<%= notice %>');
+        <% end %>
+      })
+    </script>
   </body>
 </html>

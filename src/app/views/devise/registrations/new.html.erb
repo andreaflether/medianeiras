@@ -8,22 +8,22 @@
 
   <div class="input-group">
     <div class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></div>
-    <%= f.text_field :last_name, class: "form-control", placeholder: "Sobrenome", autocomplete: "last_name" %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Sobrenome", autocomplete: "last-name" %>
   </div>
 
   <div class="input-group">
     <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-    <%= f.text_field :email, class: "form-control", placeholder: "E-mail", autocomplete: "email" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autocomplete: "email" %>
   </div>
 
   <div class="input-group">
     <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-    <%= f.text_field :password, class: "form-control", placeholder: "Senha", autocomplete: "password" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Senha", autocomplete: "password" %>
   </div>
 
   <div class="input-group">
     <div class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></div>
-    <%= f.text_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha", autocomplete: "password" %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha", autocomplete: "password" %>
   </div>
 
   <div class="row">
