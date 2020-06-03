@@ -20,6 +20,9 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'noreply@ccnmedianeiras.com'
 
+  # Layout config
+  Devise::Mailer.layout 'mailer'
+  Devise::Mailer.send(:include, Roadie::Rails::Automatic)
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

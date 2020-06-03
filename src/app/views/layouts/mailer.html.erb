@@ -2,8 +2,15 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag "mailers" %>
   </head>
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+           <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
