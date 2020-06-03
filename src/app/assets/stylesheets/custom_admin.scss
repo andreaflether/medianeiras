@@ -1,13 +1,39 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
 $grid-gutter-width: 70px !default;
 
-* {
-  font-family: 'Nunito Sans', sans-serif;
+.input-group {
+  margin-bottom: 15px;
 }
 
 .logotipo {
   width: 55%;
   height: auto;
+}
+
+body, .btn, input {
+  font-size: 1.6rem !important;
+}
+
+.form-control {
+  height: 38px !important;
+  line-height: 1.7 !important;
+}
+
+.icheckbox_square-blue {
+  margin-right: 4px !important;
+}
+
+.login-logo {
+  margin-bottom: 5px !important;
+}
+
+.social-auth-links {
+  margin-bottom: 0 !important;
+}
+
+.social-auth-links p:last-of-type {
+  margin-bottom: 0 !important;
 }
 
 .nav-sidebar > .nav-item .nav-icon.fa.fa-circle,

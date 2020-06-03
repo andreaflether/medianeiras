@@ -1,6 +1,22 @@
 //= require rails-ujs
-//= require jquery/dist/jquery
-//= require bootstrap/dist/js/bootstrap.bundle
-//= require admin-lte/dist/js/adminlte
-//= require toastr/toastr
-//= require jquery-validation/dist/jquery.validate
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require admin-lte/dist/js/adminlte.min
+//= require admin-lte/plugins/iCheck/icheck.min
+//= require toastr/build/toastr.min
+$(document).ready(function() {
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_square-blue',
+    radioClass: 'iradio_square-blue',
+    increaseArea: '20%' /* optional */,
+    cursor: true,
+    labelHover: true
+  });
+
+  toastr.options = {
+    "progressBar": true,
+    "preventDuplicates": true,
+    "timeOut": "7000",
+    "extendedTimeOut": "3000"
+  }
+})
