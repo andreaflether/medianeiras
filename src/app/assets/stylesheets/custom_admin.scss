@@ -2,10 +2,78 @@
 
 $grid-gutter-width: 70px !default;
 
-.input-group {
-  margin-bottom: 15px;
+abbr[title] {
+  text-decoration: none !important;
 }
 
+body, .btn, input {
+  font-size: 1.6rem !important;
+}
+
+.fa-graduation-cap {
+  margin-left: -3px !important;
+  margin-right: 4px;
+}
+
+.main-header .logo {
+  height: 52px !important;
+  line-height: 52px !important;
+}
+
+.navbar-nav>li>a {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.sidebar-menu {
+  font-size: 15px;
+}
+
+.btn-actions-group .btn {
+  font-size: 14px !important;
+  i {
+    font-size: 1.6rem !important;
+  }
+
+  i.fa-pencil, i.fa-plus {
+    font-size: 1.5rem !important;
+    margin-top: 1px;
+  }
+
+  i.fa-plus {
+    margin-top: 2px;
+  }
+}
+
+.fa-circle-o {
+  font-size: 1rem !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.breadcrumb-item:not(a) {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/*--------------------------------------- Events ---------------------------------------*/
+.event-info {
+  font-size: 1.7rem !important;
+  span.info-item {
+    display: block;
+    margin-bottom: 10px;
+
+    i {
+      color: #3c8dbc;
+      margin-right: 5px;
+      
+    }
+  }
+}
+/*------------------------------------- End Events -------------------------------------*/
+
+/*------------------------------------ Devise Pages ------------------------------------*/
 .login-page {
   align-items: center !important;
   display: flex !important;
@@ -26,21 +94,12 @@ $grid-gutter-width: 70px !default;
   cursor: pointer !important;
 }
 
-body, .btn, input {
-  font-size: 1.6rem !important;
-}
-
-.form-control {
-  height: 38px !important;
-  line-height: 1.7 !important;
+.login-logo {
+  margin-bottom: .7rem !important;
 }
 
 .icheckbox_square-blue {
   margin-right: 4px !important;
-}
-
-.login-logo {
-  margin-bottom: .7rem !important;
 }
 
 .social-auth-links {
@@ -51,95 +110,39 @@ body, .btn, input {
   margin-bottom: 0 !important;
 }
 
-.nav-sidebar > .nav-item .nav-icon.fa.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.fas.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.far.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.fab.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.glyphicon.fa-circle,
-.nav-sidebar > .nav-item .nav-icon.ion.fa-circle {
-  font-size: 0.7rem !important;
+/*------------------------------------ End Devise Pages --------------------------------*/
+
+/*------------------------------------- Input Related ------------------------------------*/
+.form-group {
+  margin-bottom: 1.5rem !important;
 }
 
-.nav-sidebar > .nav-item .nav-icon.fas.fa-venus {
-  font-size: 1.2rem !important;
+.input-group {
+  margin-bottom: 15px;
 }
 
-.medianeiras-logo {
-   margin-top: 7px !important;
+textarea {
+  resize: vertical;
 }
 
-.fc-today {
-  background-color: #fcf8e3 !important;
-  color: #212529 !important;
-  .fc-day-number {
-    font-weight: bold !important;
+.form-control:not(textarea) {
+  height: 38px !important;
+  line-height: 1.7 !important;
+}
+/*------------------------------------- End Input Related ------------------------------------*/
+
+/*---------------------------------------- DataTables ----------------------------------------*/
+.data-tables {
+  .form-control {
+    height: 34px !important;
+  }
+  .row {
+    margin-top: 7px; 
+    margin-bottom: 7px;
   }
 }
 
-#last-activities > tbody > tr > td {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+.dataTables_length select {
+  margin-right: 5px;
 }
-
-.breadcrumb-item + .breadcrumb-item::before {
-  color: rgba(0, 0, 0, 0.5) !important;
-}
-
-.breadcrumb-item:not(a) {
-  color: rgba(0, 0, 0, 0.7) !important;
-}
-
-[class*="sidebar-dark-"] {
-  background-color: #3a3b45 !important;
-}
-
-.content-wrapper {
-  background: #f8f9fc !important;
-}
-
-.custom-card {
-  box-shadow: none !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-.nav-icon {
-  color: rgba(255, 255, 255, 0.4) !important;
-  font-size: 1rem !important;
-}
-
-.nav-treeview > .nav-item > .nav-link.active > .nav-icon {
-  color: #3a3b45 !important;
-}
-
-.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active > .nav-icon {
-  color: #fff !important;
-}
-
-table.dataTable {
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
-}
-
-.form-group {
-  margin-bottom: 1.3rem !important;
-}
-
-.btn-actions-group > .btn{
-  margin-left: 5px;
-}
-
-abbr[title] {
-  text-decoration: none !important;
-}
-
-dt, dd {
-  margin-bottom: .8rem !important;
-}
-
-.text-secondary {
-  color: rgb(115, 115, 115) !important;
-}
-
-// .weeklist > .list-group-item {
-//   border: 1px solid rgba(115, 115, 115, 0.4) !important;
-// }
+/*-------------------------------------- End DataTables --------------------------------------*/

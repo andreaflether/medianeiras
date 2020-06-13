@@ -29,3 +29,41 @@
 <br>
 
 <%= link_to 'New Volunteer', new_volunteer_path %>
+
+<div class="card card-primary card-outline">
+  <div class="card-body p-0" style="diplay: block;">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Criado em</th>
+          
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @volunteers.each do |volunteer| %>
+          <tr>
+            <td><%= volunteer.person.name %></td>
+            <td><%= l volunteer.created_at, format: :short %></td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <%= link_to volunteer_path(volunteer), class: "btn btn-success" do %>
+                  <i class="fas fa-file-alt"></i>
+                <% end %>
+                <%= link_to edit_volunteer_path(volunteer), class: "btn btn-info" do %>
+                  <i class="fas fa-pen"></i>
+                <% end %>
+                <%= link_to volunteer_path(volunteer), class: "btn btn-danger", method: :delete,
+                data: { confirm: "Tem certeza que deseja apagar a ficha de #{volunteer.person.name.upcase}?"} do %>
+                  <i class="fas fas fa-trash"></i>
+                <% end %>
+              </div>  
+            </td>                   
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

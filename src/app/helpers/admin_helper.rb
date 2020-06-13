@@ -48,4 +48,8 @@ module AdminHelper
   def resource_name(resource)
     t(resource, scope: 'controllers').singularize
   end 
+
+  def member_since(created_at)
+    l(created_at, format: "%B de %Y")
+  end 
 end

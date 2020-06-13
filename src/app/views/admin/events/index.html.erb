@@ -1,33 +1,46 @@
 <%= search_form_for @q do |f| %>
 
-<div class="card collapsed-card">
-  <div class="card-header">
-    <h3 class="card-title">Filtros</h3>
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" 
-      title="Collapse"><i class="fas fa-plus"></i></button>  
-    </div> <!-- Tools -->
-  </div> <!-- Header -->
-  <div class="card-body" style="display: none;">
+<div class="box collapsed-box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Filtros de pesquisa</h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Minimizar">
+        <i class="fa fa-plus"></i></button>
+    </div>
+  </div>
+  <div class="box-body">
+    
     <div class="row">
       <div class="col-md-6">
-        <%= f.label :location_cont %>
-        <%= f.search_field :location_cont, class: "form-control" %>
-        <%= f.submit "Pesquisar", class: "btn btn-primary mt-3" %>
-      </div> <!-- Col-md-6 -->
-    </div> <!-- Row -->
-  </div> <!-- Card body -->
+        <div class="form-group">
+          <%= f.label :location_cont %>
+          <%= f.search_field :location_cont, class: "form-control" %>
+        </div>  
+      </div> <!-- /.col-md-6 -->
+    </div>
+  </div>
+  <!-- /.box-body -->
+
+  <div class="box-footer" style="">
+    <%= f.submit "Pesquisar", class: "btn btn-primary" %>
+  </div>
+  <!-- /.box-footer-->
 </div>
 
 <% end %>
 
-<div class="card card-primary card-outline">
-  <div class="card-body p-0" style="diplay: block;">
-    <table class="table table-bordered table-hover">
+<div class="box box-primary data-tables">
+  <div class="box-header with-border">
+    <h3 class="box-title">Eventos</h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-bordered table-hover table-striped dataTable">
       <thead>
         <tr>
           <th>Título</th>
           <th>Data</th>
+          <th>Horário</th>
           <th>Local</th>
           <th>Ações</th>
         </tr>
@@ -35,20 +48,24 @@
       <tbody>
         <% @events.each do |event| %>
           <tr>
-            <td><%= link_to event.title, event %></td>
-            <td><%= event_date(event.start_date, event.end_date)%></td>
-            <td><span class="badge badge-primary"><%= event.location %></span></td>
+            <td><%= event.title %></td>
+            <td><%= event_date(event.start_date)%></td>
+            <td><%= event_time(event.start_date, event.end_date) %></td>
+            <td><%= event.location %></td>
             <td>
-              <div class="btn-group btn-group-sm">
-                <%= link_to event_path(event), class: "btn btn-success" do %>
-                  <i class="fas fa-eye"></i>
+              <div class="btn-group">
+                <%= link_to event_path(event), class: "btn btn-success", title: "Visualizar evento", 
+                data: { toggle: 'tooltip', container: 'body' } do %>
+                  <i class="fa fa-eye"></i>
                 <% end %>
-                <%= link_to edit_event_path(event), class: "btn btn-info" do %>
-                  <i class="fas fa-pen"></i>
+                <%= link_to edit_event_path(event), class: "btn btn-primary", title: "Editar evento", 
+                data: { toggle: 'tooltip', container: 'body' } do %>
+                  <i class="fa fa-pencil"></i>
                 <% end %>
-                <%= link_to event_path(event), class: "btn btn-danger", method: :delete,
-                data: { confirm: "Tem certeza que deseja apagar o evento #{event.title.upcase}?"} do %>
-                  <i class="fas fas fa-trash"></i>
+                <%= link_to event_path(event), class: "btn btn-danger", method: :delete, title: "Excluir evento",
+                data: { confirm: "Tem certeza que deseja apagar o evento #{event.title.upcase}?", 
+                toggle: 'tooltip', container: 'body' } do %>
+                  <i class="fa fa-trash"></i>
                 <% end %>
               </div>  
             </td>                   

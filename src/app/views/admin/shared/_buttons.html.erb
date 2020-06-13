@@ -1,12 +1,12 @@
-<div class="btn-actions-group float-right mb-4">
+<div class="btn-actions-group">
   <%= link_to path(controller_name), method: :delete, data: { confirm: "Tem certeza?" }, 
-  class: "btn btn-danger btn-sm" do %>
-    <i class="fas fa-trash"></i> Apagar <%= resource_name(controller_name) %> 
+  class: "btn btn-social btn-danger btn-sm" do %>
+    <i class="fa fa-trash"></i> Apagar <%= resource_name(controller_name) %> 
   <% end %>
-  <%= link_to edit_event_path(@event), class: "btn btn-primary btn-sm" do %>
-    <i class="fas fa-pencil-alt"></i> Editar informações 
+  <%= link_to edit_event_path(@event), class: "btn btn-social btn-primary btn-sm" do %>
+    <i class="fa fa-pencil"></i> Editar informações 
   <% end %>
-  <%= link_to new_event_path, class: "btn btn-success btn-sm" do %>
-    <i class="fas fa-plus"></i> Cadastrar <%= resource_name(controller_name) %> 
+  <%= link_to new_event_path, class: "btn btn-social btn-success btn-sm" do %>
+    <i class="fa fa-plus"></i> Cadastrar <%= resource_name(controller_name) %> 
   <% end %>
 </div>

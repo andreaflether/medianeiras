@@ -1,11 +1,10 @@
 module EventsHelper
-  def event_date(start_date, end_date)
-    ending = end_date.to_s(:time)
-    l(start_date, format: "%-d de %B - %H:%M às #{ending}")
+  def event_date(start_date)
+    l(start_date, format: "%A, %-d de %B")
   end 
 
   def event_time(start_hour, end_hour)
-    ends_at = end_date.to_s(:time)
+    ends_at = end_hour.to_s(:time)
     l(start_hour, format: "%H:%M às #{ends_at}")
   end
 
@@ -13,7 +12,11 @@ module EventsHelper
     date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
   end 
 
-  def event_time(starts_at, ends_at, type)
+  def complete_date(start_date)
+    l(start_date, format: "%-d de %B de %Y")
+  end 
+
+  def event_time_format(starts_at, ends_at, type)
     start = starts_at.to_s(:time)
     ending = ends_at.to_s(:time)
     week_day = l(starts_at, format: "%A")
