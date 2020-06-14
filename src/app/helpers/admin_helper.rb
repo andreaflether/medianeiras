@@ -1,12 +1,15 @@
 module AdminHelper
   def actions(action)
     case action
-    when "new"
+    when "new" 
+    when "create"
       "Cadastrar"
     when "edit"
       "Editar"
     when "show"
       "Visualizar"
+    when ""
+      "Formulário"
     end  
   end 
 

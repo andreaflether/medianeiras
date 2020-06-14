@@ -1,6 +1,6 @@
 module EventsHelper
-  def event_date(start_date)
-    l(start_date, format: "%A, %-d de %B")
+  def complete_date(start_date)
+    l(start_date, format: "%A, %-d de %B de %Y")
   end 
 
   def event_time(start_hour, end_hour)
@@ -12,7 +12,7 @@ module EventsHelper
     date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
   end 
 
-  def complete_date(start_date)
+  def event_date(start_date)
     l(start_date, format: "%-d de %B de %Y")
   end 
 

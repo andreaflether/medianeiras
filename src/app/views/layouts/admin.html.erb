@@ -8,6 +8,7 @@
 
   <%= stylesheet_link_tag 'admin' %>
   <%= javascript_include_tag 'admin' %>
+  <%= custom_flash_messages %>
 </head>
 <body class="hold-transition fixed skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
 
@@ -127,7 +128,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Cadastrar atividade</a></li>
+            <li>
+              <%= link_to new_activity_path do %>
+                <i class="fa fa-circle-o"></i> Nova Atividade 
+              <% end %>
+            </li>
             <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Listar atividades</a></li>
           
           </ul>

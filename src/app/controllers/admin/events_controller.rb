@@ -1,7 +1,7 @@
 class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   autocomplete :event, :location, :limit => 10
-  add_breadcrumb "eventos", :events_path
+  add_breadcrumb "Eventos", :events_path
 
   def calendar 
   end 
@@ -21,13 +21,13 @@ class Admin::EventsController < AdminController
   end
 
   def new
-    add_breadcrumb "novo evento", new_event_path
+    add_breadcrumb "Novo Evento", new_event_path
     
     @event = Event.new  
   end
 
   def edit
-    add_breadcrumb "editar evento"
+    add_breadcrumb "Editar Evento"
   end
 
   def create
@@ -48,7 +48,8 @@ class Admin::EventsController < AdminController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Evento atualizado com sucesso.' }
+        flash[:info] = 'Evento atualizado com sucesso!'
+        format.html { redirect_to @event }
         format.json { render :show, status: :ok, location: @event }
       else
         flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."

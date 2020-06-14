@@ -4,26 +4,27 @@
       <div class="col-xs-12">
         <h2 class="page-header">
           <i class="fa fa-bullhorn"></i> <%= @event.title %>
-          <small class="pull-right"><%= time_ago_in_words(@event.start_date) %></small>
+          <small class="pull-right">
+            <% if @event.start_date.future? %>
+              <span class="text-muted"><i class="fa fa-clock-o"></i></span> Acontece em 
+            <% else %>
+              <span class="text-muted"><i class="fa a-calendar-check-o"></i></span> Ocorrido há
+            <% end %>
+            <%= time_ago_in_words(@event.start_date) %> 
+          </small>
         </h2>
       </div>
     </div>
     
     <div class="row">
-      <div class="col-md-6 col-sm-12">
+      <div class="col-md-6 col-sm-12 event-description">
+        <strong>Descrição do evento</strong>
         <p class="text-muted well well-sm no-shadow">
           <%= @event.description %>
         </p>
-
-        <address>
-          <strong>Local</strong><br>
-          <%= @event.location %>
-        </address>
       </div>
       
       <div class="col-md-6 col-sm-12">
-        
-
         <div class="table-responsive">
           <table class="table">
             <tbody><tr>
@@ -31,26 +32,22 @@
               <td><%= complete_date(@event.start_date) %></td>
             </tr>
             <tr>
-              <th>Dia da semana:</th>
-              <td><%= l(@event.start_date, format: '%A') %></td>
-            </tr>
-            <tr>
               <th>Horário:</th>
               <td><%= event_time(@event.start_date, @event.end_date)%></td>
+            </tr>
+            <tr>
+              <th>Local:</th>
+              <td><%= @event.location %></td>
             </tr>
           </tbody></table>
         </div>
       </div>
       
-      <div class="row pull-right">
+      <div class="pull-right">
         <div class="col-xs-12">
           <%= render 'admin/shared/buttons'%>
         </div>
-     </div>
-
+      </div>
     </div>
-   
-
-    
   </section>
 </div>

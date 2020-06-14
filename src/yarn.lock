@@ -1248,7 +1248,7 @@ timers-browserify@^1.0.1:
   dependencies:
     process "~0.11.0"
 
-toastr@^2.1.4:
+toastr@2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.4.tgz#8b43be64fb9d0c414871446f2db8e8ca4e95f181"
   integrity sha1-i0O+ZPudDEFIcURvLbjoyk6V8YE=

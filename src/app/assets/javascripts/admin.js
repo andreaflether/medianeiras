@@ -8,5 +8,7 @@
 //= require pace/pace
 //= require slimscroll/lib/slimscroll
 //= require fastclick/lib/fastclick
+//= require toastr/toastr
+//= require admin/events
 //= require admin/overall
 

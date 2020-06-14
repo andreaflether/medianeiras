@@ -30,7 +30,6 @@ body, .btn, input {
 }
 
 .btn-actions-group .btn {
-  font-size: 14px !important;
   i {
     font-size: 1.6rem !important;
   }
@@ -43,6 +42,10 @@ body, .btn, input {
   i.fa-plus {
     margin-top: 2px;
   }
+}
+
+.btn-actions-group .btn, .drp-buttons .btn{
+  font-size: 14px !important;
 }
 
 .fa-circle-o {
@@ -70,6 +73,10 @@ body, .btn, input {
       
     }
   }
+}
+
+.event-description .well {
+  margin-top: 10px;
 }
 /*------------------------------------- End Events -------------------------------------*/
 
@@ -123,6 +130,7 @@ body, .btn, input {
 
 textarea {
   resize: vertical;
+  font-size: 1.6rem !important;
 }
 
 .form-control:not(textarea) {
@@ -146,3 +154,15 @@ textarea {
   margin-right: 5px;
 }
 /*-------------------------------------- End DataTables --------------------------------------*/
+.toast-top-right, .toast-top-right > div:hover {
+  box-shadow: none !important;
+}
+
+.toast-error {
+  background-color: #dd4b39 !important;
+  border: 1px solid #d73925 !important;
+}
+
+.invoice {
+  margin: 10px 15px !important;
+}

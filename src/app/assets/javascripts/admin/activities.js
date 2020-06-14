@@ -26,7 +26,7 @@ $(document).ready(function() {
   $('#activity_ends_at, #activity_starts_at').datetimepicker({
     format: 'LT',
     stepping: 15,
-    useCurrent: false
+    // useCurrent: false
   });
 
   // Changes min time to be selected on ends_at based on starts_at

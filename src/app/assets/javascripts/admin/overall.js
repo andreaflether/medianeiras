@@ -5,6 +5,14 @@ $(document).ready(function() {
     'data-container': "body",
   });
 
+  // Toastr config
+  toastr.options = {
+    closeButton: true,
+    progressBar: true,
+    timeOut: 6000,
+    extendedTimeOut: 3000,
+  }
+
   // DataTables
   $('.dataTable').DataTable({
       'paging'      : true,
@@ -19,10 +27,7 @@ $(document).ready(function() {
     },
   });
 
-  
-
   // Add active class to sidebar
-
   $("ul.sidebar-menu li a[href='"+document.location.pathname+"']").parents('li').addClass('active');
   // Toastr options
   toastr.options.timeOut = 6000; // How long the toast will display without user interaction
