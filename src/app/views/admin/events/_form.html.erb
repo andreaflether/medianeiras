@@ -1,49 +1,30 @@
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <div class="box box-primary">
   <div class="box-header with-border">
     <%= actions(action_name) %>
   </div>
-
-  <%= form_with(model: @event, local: true) do |f| %>
+ 
   <div class="box-body">
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control", placeholder: "Título do evento" %>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <%= f.label :start_date %>
-        <div class="form-group">
-          <%= f.text_field :start_date, value: date_format(@event.start_date), id: "start_date", 
-          class: "form-control" %>
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.input :title %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :start_date, input_html: { id: "start_date", value: date_format(@event.start_date) }, as: :string %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :end_date, input_html: { id: "end_date", value: date_format(@event.end_date) }, as: :string %>
         </div>
       </div>
-
-      <div class="col-md-6">
-        <%= f.label :end_date %>
-        <div class="form-group">
-          <%= f.text_field :end_date, id: "end_date", value: date_format(@event.end_date), 
-          class: "form-control" %>
-        </div>
-      </div>
+      <%= f.input :location %>
+      <%= f.input :description %>
     </div>
-
-    <div class="form-group">
-      <%= f.label :location %>
-      <%= f.autocomplete_field :location, autocomplete_event_location_events_path, class: "form-control" %>
-    </div>
-  
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control", rows: 3 %>
-    </div>
-  </div>
 
     <div class="box-footer">
       <%= link_to 'Voltar', :back, class: "btn btn-default" %>
       <%= f.submit class: "btn btn-primary pull-right" %>
     </div>
-  
-<% end %>
-
+  <% end %>
 </div>

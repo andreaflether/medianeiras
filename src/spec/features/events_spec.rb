@@ -12,12 +12,12 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
         visit(new_event_path)
       end 
 
-      scenario 'cadastra um evento válido' do 
+      scenario 'cadastra um evento válido ao preencher todos os campos' do 
         fill_in('Nome', with: Faker::Lorem.sentence)
-        fill_in('Descrição', with: Faker::Lorem.paragraph)
+        fill_in('Descrição', with: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4))
         fill_in('start_date', with: DateTime.now)
         fill_in('end_date', with: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 6))
-        fill_in('Local', with: Faker::Lorem.sentence(word_count: 2))
+        fill_in('Local', with: Faker::Lorem.sentence(word_count: rand(3..6)))
         
         click_button('Criar Evento')
     
@@ -42,10 +42,10 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       end 
     
       scenario 'lista todos os eventos cadastrados' do 
-        events = create_list(:event, 10)
+        events = create_list(:event, 5)
         visit events_path 
     
-        expect(page).to have_content(events.first.title, events.second.location)
+        expect(page).to have_content("#{Event.all.count} registros")
       end 
     end
 
@@ -53,7 +53,7 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       event = create(:event)
       visit events_path
 
-      first('.btn-info').click
+      first('.btn-primary').click
       fill_in('Nome', with: Faker::Lorem.sentence)
       click_button('Atualizar Evento')
 
@@ -62,6 +62,7 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
     end
     
     scenario 'exclusão' do 
+      event = create(:event)
       visit(events_path)
       first('.btn-danger').click  
       page.driver.browser.switch_to.alert.accept
@@ -71,11 +72,11 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
     end 
   end 
   
-  scenario 'input possui a classe is-invalid quando o evento é inválido' do 
+  scenario 'input possui classe has-error quando o evento é inválido' do 
     visit(new_event_path)
     click_button('Criar Evento')
     
-    expect(page).to have_css('.is-invalid')
+    expect(page).to have_css('.has-error')
   end
 
   describe 'botões' do   
