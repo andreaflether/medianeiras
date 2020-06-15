@@ -9,6 +9,11 @@
 //= require slimscroll/lib/slimscroll
 //= require fastclick/lib/fastclick
 //= require toastr/toastr
+//= require daterangepicker/moment.min
+//= require daterangepicker/daterangepicker
+//= require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
+//= require admin-lte/bower_components/fullcalendar/dist/locale/pt-br.js
 //= require admin/events
+//= require admin/calendar
 //= require admin/overall
 

@@ -5,10 +5,10 @@
         <h2 class="page-header">
           <i class="fa fa-bullhorn"></i> <%= @event.title %>
           <small class="pull-right">
-            <% if @event.start_date.future? %>
+            <% if @event.end_date.future? %>
               <span class="text-muted"><i class="fa fa-clock-o"></i></span> Acontece em 
             <% else %>
-              <span class="text-muted"><i class="fa a-calendar-check-o"></i></span> Ocorrido há
+              <span class="text-muted"><i class="fa fa-calendar-check-o"></i></span> Ocorrido há
             <% end %>
             <%= time_ago_in_words(@event.start_date) %> 
           </small>

@@ -171,12 +171,12 @@
           </ul>
         </li>
         <li>
-          <a href="../calendar.html">
+          <%= link_to calendar_path do %>
             <i class="fa fa-calendar"></i> <span>Calendário</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-primary">3</small>
+              <small class="label pull-right bg-primary"><%= events_count %></small>
             </span>
-          </a>
+          <% end %>
         </li>
         
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentação</span></a></li>

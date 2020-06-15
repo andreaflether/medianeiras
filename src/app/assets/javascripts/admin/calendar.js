@@ -1,32 +1,50 @@
-/* initialize the calendar
- -----------------------------------------------------------------*/
-$(document).ready(function() {
+$(document).ready(function () {
+
+  /* initialize the external events
+   -----------------------------------------------------------------*/
+  function init_events(ele) {
+    ele.each(function () {
+
+      // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+      // it doesn't need to have a start or end
+      var eventObject = {
+        title: $.trim($(this).text()) // use the element's text as the event title
+      }
+
+      // store the Event Object in the DOM element so we can get to it later
+      $(this).data('eventObject', eventObject)
+
+
+    })
+  }
+
+  init_events($('#external-events div.external-event'))
+
+  /* initialize the calendar
+   -----------------------------------------------------------------*/
+  //Date for the calendar events (dummy data)
   var date = new Date()
   var d    = date.getDate(),
       m    = date.getMonth(),
       y    = date.getFullYear()
 
-  var Calendar = FullCalendar.Calendar;
-  var calendarEl = $('#calendar');
-
-  // initialize the external events
-  // -----------------------------------------------------------------
-  var calendar = new Calendar(calendarEl[0], {
-    plugins: [ 'bootstrap', 'dayGrid', 'timeGrid' ],
-    timeZone: 'UTC',
+  $('#calendar').fullCalendar({
     header    : {
       left  : 'prev,next today',
       center: 'title',
-      right : 'dayGridMonth,timeGridWeek,timeGridDay'
+      right : 'month,agendaWeek,agendaDay'
     },
-    'themeSystem': 'bootstrap',
     locale: 'pt-br',
-    //Random default events
+    buttonText: {
+      today: 'Hoje',
+      month: 'Mês',
+      week : 'Semana',
+      day  : 'Dia'
+    },
+    // Random default events
     events    : '/admin/events.json',
     editable  : false,
     droppable : false, // this allows things to be dropped onto the calendar !!!
-  });
-
-  calendar.render();
-  });
-  // $('#calendar').fullCalendar()
+    
+  })
+})

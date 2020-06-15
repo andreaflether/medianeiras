@@ -25,7 +25,7 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
         page.save_screenshot('evento_valido.png')
       end 
     
-      scenario 'não cadastra um cliente ao deixar campos em branco' do 
+      scenario 'não cadastra um evento ao deixar campos em branco' do 
         click_button('Criar Evento')
 
         expect(page).to have_content(/Há erros/)
@@ -67,6 +67,7 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       first('.btn-danger').click  
       page.driver.browser.switch_to.alert.accept
 
+      sleep 4
       expect(page).to have_content (/excluído com sucesso/)
       page.save_screenshot('evento_excluido.png')
     end 
@@ -100,6 +101,30 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
         first('.btn-danger').click 
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content (/excluído com sucesso/)
+      end 
+    end 
+  end 
+
+  describe 'calendário' do
+    scenario 'widget' do 
+      visit calendar_path
+      expect(page.has_css?('.fc-view-container')).to eq true
+    end 
+
+    context 'registros no calendário' do 
+      before(:each) do 
+        @event = create(:event)
+        visit calendar_path 
+      end
+
+      scenario 'evento aparece normalmente' do
+        expect(page).to have_content (@event.title)
+      end 
+      
+      scenario 'evento redireciona para sua respectiva página de visualização' do         
+        page.save_screenshot('calendario.png')
+        page.find_link(nil, href: /#{@event.id}.html/).click 
+        expect(current_path).to eq("#{event_path(@event.id)}.html")
       end 
     end 
   end 

@@ -12,7 +12,10 @@ module AdminHelper
       "Formulário"
     end  
   end 
-
+  
+  def events_count 
+    Event.all.this_month.count
+  end 
   def title
     actions(action_name) + " " + t(controller_name, scope: 'controllers').singularize
   end 

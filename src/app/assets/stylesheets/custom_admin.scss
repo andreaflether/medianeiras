@@ -78,6 +78,14 @@ body, .btn, input {
 .event-description .well {
   margin-top: 10px;
 }
+
+.fc button .fc-icon {
+  top: 0 !important;
+}
+
+.fc-today {
+  background: rgba(255,255,153, 0.45) !important;
+}
 /*------------------------------------- End Events -------------------------------------*/
 
 /*------------------------------------ Devise Pages ------------------------------------*/
