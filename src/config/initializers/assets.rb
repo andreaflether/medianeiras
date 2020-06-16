@@ -14,4 +14,4 @@ Rails.application.config.assets.precompile += %w( admin.js admin.css )      # Ad
 Rails.application.config.assets.precompile += %w( devise.js devise.css )    # Devise Pages
 Rails.application.config.assets.precompile += %w( doublearrow.png )
 Rails.application.config.assets.precompile += %w( mailers.css )
-# Rails.application.config.assets.precompile += %w( pages.js pages.css )      #Pages 
+Rails.application.config.assets.precompile += %w( pages.js pages.css )      #Pages 
