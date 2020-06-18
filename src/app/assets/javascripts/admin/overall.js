@@ -5,12 +5,21 @@ $(document).ready(function() {
     'data-container': "body",
   });
 
+  // Initialize Select2 elements
+  $('.select2').select2();
+
+ // Timepicker
+  $('.timepicker').timepicker({
+    showInputs: false,
+    showMeridian: false,
+  })
+
   // Toastr config
   toastr.options = {
     closeButton: true,
-    progressBar: true,
-    timeOut: 6000,
-    extendedTimeOut: 3000,
+    progressBar: true,        // Visually indicate how long before a toast expires.
+    timeOut: 6000,            // How long the toast will display without user interaction
+    extendedTimeOut: 3000,    // How long the toast will display after a user hovers over it
   }
 
   // DataTables
@@ -29,8 +38,4 @@ $(document).ready(function() {
 
   // Add active class to sidebar
   $("ul.sidebar-menu li a[href='"+document.location.pathname+"']").parents('li').addClass('active');
-  // Toastr options
-  toastr.options.timeOut = 6000; // How long the toast will display without user interaction
-  toastr.options.progressBar = true; // Visually indicate how long before a toast expires.
-  toastr.options.extendedTimeOut = 3000; // How long the toast will display after a user hovers over it
 })

@@ -1,8 +1,8 @@
 module AdminHelper
   def actions(action)
     case action
-    when "new" 
-    when "create"
+    when "new" || "create"
+    
       "Cadastrar"
     when "edit"
       "Editar"
@@ -16,6 +16,7 @@ module AdminHelper
   def events_count 
     Event.all.this_month.count
   end 
+
   def title
     actions(action_name) + " " + t(controller_name, scope: 'controllers').singularize
   end 
