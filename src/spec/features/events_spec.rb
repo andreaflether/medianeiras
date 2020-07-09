@@ -49,17 +49,30 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       end 
     end
 
-    scenario 'atualização' do 
-      event = create(:event)
-      visit events_path
+    context 'atualização' do 
+      before(:each) do 
+        event = create(:event)
+        visit events_path
+  
+        first('.btn-primary').click
+      end 
 
-      first('.btn-primary').click
-      fill_in('Nome', with: Faker::Lorem.sentence)
-      click_button('Atualizar Evento')
+      scenario 'com campos válidos' do 
+        fill_in('Nome', with: Faker::Lorem.sentence)
+        click_button('Atualizar Evento')
+  
+        expect(page).to have_content(/atualizado com sucesso/)
+        page.save_screenshot('evento_atualizado.png')
+      end
 
-      expect(page).to have_content(/atualizado com sucesso/)
-      page.save_screenshot('evento_atualizado.png')
-    end
+      scenario 'com campos deixados em branco' do 
+        fill_in('Nome', with: '')
+        click_button('Atualizar Evento')
+
+        expect(page).to have_content(/Há erros/)
+      end 
+    end 
+    
     
     scenario 'exclusão' do 
       event = create(:event)
@@ -71,7 +84,7 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       expect(page).to have_content (/excluído com sucesso/)
       page.save_screenshot('evento_excluido.png')
     end 
-  end 
+  end
   
   scenario 'input possui classe has-error quando o evento é inválido' do 
     visit(new_event_path)
@@ -126,6 +139,29 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
         page.find_link(nil, href: /#{@event.id}.html/).click 
         expect(current_path).to eq("#{event_path(@event.id)}.html")
       end 
+    end 
+  end
+
+  context 'links da sidebar' do 
+    before(:each) do 
+      visit admin_index_path
+    end 
+
+    scenario 'criar evento' do 
+      click_link('Eventos')
+      click_link('Novo Evento')
+      expect(page).to have_content(/Cadastrar/)
+    end 
+    
+    scenario 'listar eventos' do 
+      click_link('Eventos')
+      click_link('Listar Eventos')
+      expect(page).to have_content(/Filtros de pesquisa/)
+    end 
+
+    scenario 'calendário' do 
+      click_link('Calendário')
+      expect(page).to have_content(/#{I18n.t('date.month_names')[Date.today.month]}/)
     end 
   end 
 end

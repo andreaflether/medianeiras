@@ -6,11 +6,6 @@ class Admin::EventsController < AdminController
   def calendar 
   end 
 
-  def next_events 
-    @events = Event.this_month
-    add_breadcrumb "próximos eventos"
-  end 
-
   def index
     @q = Event.ransack(params[:q])
     @events = @q.result

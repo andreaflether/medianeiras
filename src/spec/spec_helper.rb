@@ -4,7 +4,12 @@ require 'vcr'
 require 'capybara'
 require 'selenium/webdriver'
 
-SimpleCov.start
+SimpleCov.start do 
+  add_group 'Models', 'app/models'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
+  add_filter 'spec/'
+end 
 
 # VCR
 VCR.configure do |c|
