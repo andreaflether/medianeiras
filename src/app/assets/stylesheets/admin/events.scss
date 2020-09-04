@@ -1,3 +1,21 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.event-info {
+  font-size: 1.7rem !important;
+  span.info-item {
+    display: block;
+    margin-bottom: 10px;
+
+    i {
+      color: #3c8dbc;
+      margin-right: 5px;
+    }
+  }
+}
+
+.event-description .well { margin-top: 10px; }
+
+.fc button .fc-icon { top: 0 !important; }
+
+.fc-unthemed td.fc-today {
+  background: #FFFFBE !important;
+  .fc-day-number { font-weight: bold !important; }
+}

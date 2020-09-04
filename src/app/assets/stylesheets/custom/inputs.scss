@@ -1,0 +1,21 @@
+.form-group {
+  margin-bottom: 1.5rem !important;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.no-mb {
+  margin-bottom: 0 !important;
+}
+
+textarea {
+  resize: vertical;
+  font-size: 1.6rem !important;
+}
+
+.form-control:not(textarea) {
+  height: 38px !important;
+  line-height: 1.7 !important;
+}

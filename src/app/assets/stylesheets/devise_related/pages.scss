@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+.login-page {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh !important;
+}
+
+.login-box {
+  padding: 3rem 0; 
+  display: flex !important; 
+  flex-direction: column !important; 
+  margin: auto !important; 
+}
+
+.logotipo {
+  width: 55%;
+  // height: auto;
+  cursor: pointer !important;
+}
+
+.login-logo { margin-bottom: .7rem !important; }
+
+.icheckbox_square-blue { margin-right: 4px !important; }
+
+.social-auth-links, 
+.social-auth-links p:last-of-type { margin-bottom: 0 !important; }

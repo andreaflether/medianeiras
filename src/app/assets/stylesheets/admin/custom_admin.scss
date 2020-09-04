@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+$grid-gutter-width: 70px !default;
+
+abbr[title] { text-decoration: none !important; }
+
+body, .btn, input { font-size: 1.6rem !important; }
+
+.fa-graduation-cap {
+  margin-left: -3px !important;
+  margin-right: 4px;
+}
+
+.main-header .logo {
+  height: 52px !important;
+  line-height: 52px !important;
+}
+
+.navbar-nav > li > a {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.sidebar-menu { font-size: 15px; }
+
+.btn-actions-group .btn, .drp-buttons .btn {
+  font-size: 14px !important;
+}
+
+.btn-actions-group .btn {
+  i { font-size: 1.6rem !important; }
+
+  i.fa-pencil, i.fa-plus {
+    font-size: 1.5rem !important;
+    margin-top: 1px;
+  }
+
+  i.fa-plus { margin-top: 2px; }
+}
+
+.fa-circle-o { font-size: 1rem !important; }
+
+.content-header > .breadcrumb > li > a { color: #3c8dbc !important; }
+
+.breadcrumb > li+li:before { color: #aaa !important; }
+
+/*------------------------------------- Custom components ------------------------------------*/
+// Select2
+.select2-container .select2-selection--multiple { min-height: 38px !important; }
+
+// DataTables
+.data-tables {
+  .form-control { height: 34px !important; }
+  .row {
+    margin-top: 7px; 
+    margin-bottom: 7px;
+  }
+}
+
+.dataTables_length select { margin-right: 5px; }
+
+// Toastr
+.toast-top-right, .toast-top-right > div:hover { box-shadow: none !important; }
+
+.toast-error {
+  background-color: #dd4b39 !important;
+  border: 1px solid #d73925 !important;
+}
+
+.invoice { margin: 10px 15px !important; }
+/*----------------------------------- End custom components  -----------------------------------*/

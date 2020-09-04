@@ -1,7 +1,8 @@
 /*
  *= require_self
- *= require custom_admin
- *= require custom_boostrap
+ *= require devise_related/pages
+ *= require custom/inputs
+ *= require custom/custom_boostrap
  *= require admin-lte/bower_components/bootstrap/dist/css/bootstrap.min
  *= require admin-lte/bower_components/font-awesome/css/font-awesome.min
  *= require ionicons/dist/css/ionicons.min
