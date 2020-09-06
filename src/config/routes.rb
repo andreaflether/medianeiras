@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   get 'admin/index'
   root 'pages#index'
   get '/contato', to: 'pages#contact'
+  get '/eventos', to: 'pages#events'
 
-  scope module: "admin" do
-    resources :people, path: 'admin/people'
+  # Admin main route
+  get 'admin/', to: 'admin#index'
+  
+  scope module: 'admin' do
+    get 'zip_code', to: 'zip_code#show'
+    resources :people, path: 'admin/people' 
     resources :students, path: 'admin/students'
     resources :volunteers, path: 'admin/volunteers'
     resources :activities, path: 'admin/activities'
@@ -20,5 +25,4 @@ Rails.application.routes.draw do
     end 
     resources :users, path: 'admin/users'
   end 
- 
 end

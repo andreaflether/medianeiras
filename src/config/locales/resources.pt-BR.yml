@@ -30,8 +30,10 @@ pt-BR:
         title: Nome
         description: Descrição
         start_date: Data/hora de início
-        end_date: Data/hora do término
+        end_date: Data/hora de término
         location: Local
+        ransack:
+          location: Pesquisar por Local
       activity:
         name: Nome
         description: Descrição
@@ -60,7 +62,6 @@ pt-BR:
         speciality: Especialização
       location:
         description: Local
-
   controllers:
     users: Usuários
     events: Eventos
@@ -69,3 +70,5 @@ pt-BR:
     activities: Atividades
     admin: Início
     people: Pessoas
+  custom_actions:
+    calendar: Calendário
