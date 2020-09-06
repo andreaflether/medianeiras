@@ -1,7 +1,7 @@
 <html style="height: auto; min-height: 100%;"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Medianeiras Admin</title>
+  <title>Medianeiras Admin | <%= title(action_name, controller_name)%></title>
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -17,12 +17,13 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <%= link_to admin_path, class: 'logo' do %>
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><%= image_tag "https://github.com/andreaflether/projeto_medianeiras/blob/master/app/assets/images/favicon.png?raw=true"%></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Medianeiras <b>Admin</b></span>
-    </a>
+    <% end %>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -35,11 +36,6 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          
-          <!-- Notifications: style can be found in dropdown.less -->
-          
-          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -103,8 +99,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Cadastrar Aluno</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Listar alunos</a></li>
+            <li>
+              <%= link_to new_student_path do  %>
+                <i class="fa fa-circle-o"></i> Cadastrar aluno
+              <% end %>  
+            </li>
+            <li>
+              <%= link_to students_path do %>
+              <i class="fa fa-circle-o"></i> Listar Alunos
+              <% end %>
+            </li>
           </ul>
         </li>
         <li class="treeview">
@@ -115,7 +119,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Novo cadastro</a></li>
+            <li>
+              <%= link_to '' do  %>
+                <i class="fa fa-circle-o"></i> Novo cadastro
+              <% end %>
+            </li>
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Listar participantes</a></li>
           </ul>
         </li>
@@ -133,7 +141,11 @@
                 <i class="fa fa-circle-o"></i> Nova Atividade 
               <% end %>
             </li>
-            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Listar atividades</a></li>
+            <li>
+              <%= link_to activities_path do %>
+                <i class="fa fa-circle-o"></i> Listar atividades
+              <% end %>
+            </li>
           
           </ul>
         </li>
@@ -183,10 +195,9 @@
         <% if current_user.superadmin? %>
         <li class="header">SUPERADMIN</li>
         <li>
-          <a href="../widgets.html">
+          <%= link_to users_path do %>
             <i class="fa fa-user"></i> <span>Gerenciar Usuários</span>
-            
-          </a>
+            <% end %>
         </li>
         <% end %>
       </ul>

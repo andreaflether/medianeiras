@@ -1,14 +1,14 @@
 class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  autocomplete :event, :location, :limit => 10
-  add_breadcrumb "Eventos", :events_path
+  add_breadcrumb 'Eventos', :events_path
 
-  def calendar 
+  def calendar
+    add_breadcrumb 'Calendário'
   end 
 
   def index
-    @q = Event.ransack(params[:q])
-    @events = @q.result
+    @query = Event.ransack(params[:query])
+    @events = @query.result
   end
 
   def show
@@ -16,16 +16,17 @@ class Admin::EventsController < AdminController
   end
 
   def new
-    add_breadcrumb "Novo Evento", new_event_path
+    add_breadcrumb 'Cadastrar Evento', new_event_path
     
     @event = Event.new  
   end
 
   def edit
-    add_breadcrumb "Editar Evento"
+    add_breadcrumb 'Editar Evento'
   end
 
   def create
+    add_breadcrumb 'Cadastrar Evento'
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -33,7 +34,7 @@ class Admin::EventsController < AdminController
         format.html { redirect_to @event, notice: 'Evento criado com sucesso!' }
         format.json { render :show, status: :created, location: @event }
       else    
-        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
+        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -41,13 +42,14 @@ class Admin::EventsController < AdminController
   end
 
   def update
+    add_breadcrumb 'Editar Evento'
     respond_to do |format|
       if @event.update(event_params)
         flash[:info] = 'Evento atualizado com sucesso!'
         format.html { redirect_to @event }
         format.json { render :show, status: :ok, location: @event }
       else
-        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
+        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

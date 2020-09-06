@@ -10,7 +10,7 @@
             <% else %>
               <span class="text-muted"><i class="fa fa-calendar-check-o"></i></span> Ocorreu há
             <% end %>
-            <%= time_ago_in_words(@event.start_date) %> 
+            <%= distance_of_time_in_words(DateTime.now, @event.start_date) %> 
           </small>
         </h2>
       </div>

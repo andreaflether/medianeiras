@@ -8,23 +8,27 @@
       <%= f.input :title %>
       <div class="row">
         <div class="col-xs-6">
-          <%= f.input :start_date, as: :string, label: "Inicia às" do %>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <%= f.input_field :start_date, id: "start_date", value: date_format(@event.start_date), as: :string %> 
+          <%= f.input :start_date, wrapper: :prepend do %>
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
             </div>
-          <% end %>   
+            <%= f.input_field :start_date, 
+              as: :string, 
+              id: 'start_date',
+              value: date_format(@event.start_date) 
+            %>
+          <% end %>
         </div>
         <div class="col-xs-6">
-          <%= f.input :end_date, as: :string, label: "Termina às" do %>
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-              </div>
-              <%= f.input_field :end_date, id: "end_date", value: date_format(@event.end_date), as: :string %> 
+          <%= f.input :end_date, wrapper: :prepend do %>
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
             </div>
+              <%= f.input_field :end_date, 
+                as: :string,
+                id: 'end_date', 
+                value: date_format(@event.end_date)
+              %> 
           <% end %>   
         </div>
       </div>
@@ -33,8 +37,8 @@
     </div>
 
     <div class="box-footer">
-      <%= link_to 'Voltar', :back, class: "btn btn-default" %>
-      <%= f.submit class: "btn btn-primary pull-right" %>
+      <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+      <%= f.submit class: 'btn btn-primary pull-right' %>
     </div>
   <% end %>
 </div>

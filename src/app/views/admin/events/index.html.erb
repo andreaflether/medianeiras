@@ -1,4 +1,4 @@
-<%= search_form_for @q do |f| %>
+<%= search_form_for @query do |f| %>
 
 <div class="box collapsed-box">
   <div class="box-header with-border">
@@ -14,18 +14,16 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <%= f.label :location_cont %>
+          <%= f.label t('activerecord.attributes.event.ransack.location') %>
           <%= f.search_field :location_cont, class: "form-control" %>
         </div>  
-      </div> <!-- /.col-md-6 -->
+      </div> 
     </div>
   </div>
-  <!-- /.box-body -->
 
   <div class="box-footer" style="">
     <%= f.submit "Pesquisar", class: "btn btn-primary" %>
   </div>
-  <!-- /.box-footer-->
 </div>
 
 <% end %>
@@ -53,21 +51,26 @@
             <td><%= event_time(event.start_date, event.end_date) %></td>
             <td><%= event.location %></td>
             <td>
-              <div class="btn-group">
-                <%= link_to event_path(event), class: "btn btn-success", title: "Visualizar evento", 
+              <%= link_to event_path(event), 
+              class: 'btn btn-success', 
+              title: 'Visualizar evento', 
+              data: { toggle: 'tooltip', container: 'body' } do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+              <%= link_to edit_event_path(event), 
+                class: 'btn btn-primary', 
+                title: 'Editar evento', 
                 data: { toggle: 'tooltip', container: 'body' } do %>
-                  <i class="fa fa-eye"></i>
-                <% end %>
-                <%= link_to edit_event_path(event), class: "btn btn-primary", title: "Editar evento", 
-                data: { toggle: 'tooltip', container: 'body' } do %>
-                  <i class="fa fa-pencil"></i>
-                <% end %>
-                <%= link_to event_path(event), class: "btn btn-danger", method: :delete, title: "Excluir evento",
+                <i class="fa fa-pencil"></i>
+              <% end %>
+              <%= link_to event_path(event), 
+                class: 'btn btn-danger', 
+                method: :delete, 
+                title: 'Excluir evento',
                 data: { confirm: "Tem certeza que deseja apagar o evento #{event.title.upcase}?", 
                 toggle: 'tooltip', container: 'body' } do %>
-                  <i class="fa fa-trash"></i>
-                <% end %>
-              </div>  
+                <i class="fa fa-trash"></i>
+              <% end %>
             </td>                   
           </tr>
         <% end %>
@@ -75,3 +78,9 @@
     </table>
   </div>
 </div>
+
+<%= link_to new_event_path, class: 'btn btn-primary btn-info btn-hover' do %>
+  <i class="fa fa-fw fa-calendar-plus-o"></i><span>&nbsp; Cadastrar evento</span>
+<% end %>
+<%# <button class="btn btn-primary btn-info btn-hover">
+  <i class="fa fa-fw fa-calendar-plus-o"></i><span>&nbsp; Cadastrar evento</span></button> %>
