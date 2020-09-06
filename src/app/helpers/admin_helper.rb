@@ -1,15 +1,14 @@
 module AdminHelper
   def actions(action)
     case action
-    when "new" || "create"
-    
-      "Cadastrar"
-    when "edit"
-      "Editar"
-    when "show"
-      "Visualizar"
-    when ""
-      "Formulário"
+    when 'new', 'create'
+      'Cadastrar'
+    when 'edit', 'update'
+      'Editar'
+    when 'show'
+      'Visualizar'
+    when ''
+      'Formulário'
     end  
   end 
   
@@ -17,32 +16,39 @@ module AdminHelper
     Event.all.this_month.count
   end 
 
-  def title
-    actions(action_name) + " " + t(controller_name, scope: 'controllers').singularize
+  def title(action_name, controller_name)
+    case action_name 
+    when 'new', 'create', 'edit', 'update', 'show'
+      actions(action_name) + " " + t(controller_name, scope: 'controllers').singularize
+    when 'index' 
+      t(controller_name, scope: 'controllers')
+    else 
+      t(action_name, scope: 'custom_actions')
+    end 
   end 
 
   def devise_action(action, controller)
     case action
-    when "new"
+    when 'new'
       case controller
-      when "passwords"
-        "Recuperar senha"
-      when "registrations"
-        "Criar conta"
-      when "sessions"
-        "Entrar"
+      when 'passwords'
+        'Recuperar senha'
+      when 'registrations'
+        'Criar conta'
+      when 'sessions'
+        'Entrar'
       end
-    when "edit"
+    when 'edit'
       case controller
-      when "registrations"
-        "Editar informações de conta"
-      when "passwords"
-        "Mudar senha"
+      when 'registrations'
+        'Editar informações de conta'
+      when 'passwords'
+        'Mudar senha'
       end
-    when "create"
+    when 'create'
       case controller
-      when "registrations"
-        "Criar Conta"
+      when 'registrations'
+        'Criar Conta'
       end
     end
   end
