@@ -39,14 +39,19 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="https://avatars1.githubusercontent.com/u/50052646?s=460&u=263b2a06edea0362ab6eeb5a67b600b949db5610&v=4" class="user-image" alt="User Image">
-              <span class="hidden-xs"><%= current_user.first_name %></span>
+              <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), 
+                alt: 'Avatar de usuário', 
+                class: 'user-image')
+              %>
+              <span class="hidden-xs"><%= current_user.full_name %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="https://avatars1.githubusercontent.com/u/50052646?s=460&u=263b2a06edea0362ab6eeb5a67b600b949db5610&v=4" class="img-circle" alt="User Image">
-
+                <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), 
+                  alt: 'Avatar de usuário', 
+                  class: 'img-circle')
+                %>
                 <p>
                   <%= current_user.full_name %>
                   <small>Membro desde <%= member_since(current_user.created_at) %></small>
@@ -55,7 +60,9 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="text-center">
-                  <a href="#" class="btn btn-default btn-flat">Preferências de usuário</a>
+                  <%= link_to 'Preferências de Usuário', edit_user_registration_path,
+                  class: 'btn btn-default btn-flat' %>
+                  <%# <a href="#" class="btn btn-default btn-flat">Preferências de usuário</a> %>
                 </div>
               </li>
             </ul>
