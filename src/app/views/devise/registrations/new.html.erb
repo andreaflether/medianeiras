@@ -1,34 +1,51 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <h3 class="text-center login-box-msg">Criar conta</h3>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
-    <%= f.text_field :first_name, class: "form-control", placeholder: "Nome", autocomplete: "name" %>
-  </div>
+  <%= render 'devise/shared/error_messages' %>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></div>
-    <%= f.text_field :last_name, class: "form-control", placeholder: "Sobrenome", autocomplete: "last-name" %>
-  </div>
+  <%= f.input :full_name, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-user"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :full_name, placeholder: 'Nome completo' %>
+      <%= f.label :full_name %>
+    </span>
+  <% end %>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-    <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autocomplete: "email" %>
-  </div>
+  <%= f.input :email, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-envelope"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
+      <%= f.label :email %>
+    </span>
+  <% end %>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-    <%= f.password_field :password, class: "form-control", placeholder: "Senha", autocomplete: "password" %>
-  </div>
+  <%= f.input :password, label: false, wrapper: :prepend, hint: 'Mínimo: 6 caracteres'  do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-lock"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :password, placeholder: 'Senha' %>
+      <%= f.label :password%>
+    </span>
+  <% end %>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></div>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha", autocomplete: "password" %>
-  </div>
-
+  <%= f.input :password_confirmation, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-log-in"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :password_confirmation, placeholder: 'Digite a senha novamente' %>
+      <%= f.label :password_confirmation %>
+    </span>
+  <% end %>
+  
   <div class="row">
     <div class="col-xs-12">
-      <%= f.submit "Cadastrar", class: "btn btn-primary btn-flat btn-block" %>
+      <%= f.button :submit, "Cadastrar", class: "btn btn-primary btn-flat btn-block" %>
     </div>
   </div>
 <% end %>

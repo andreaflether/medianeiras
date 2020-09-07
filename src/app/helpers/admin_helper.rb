@@ -43,7 +43,7 @@ module AdminHelper
       when 'registrations'
         'Editar informações de conta'
       when 'passwords'
-        'Mudar senha'
+        'Alterar senha'
       end
     when 'create'
       case controller

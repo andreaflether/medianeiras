@@ -38,7 +38,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     
     b.use :label_input
-    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block hint' }
     b.use :full_error, wrap_with: { tag: 'span', class: 'help-block has-error' }
   end
 
@@ -52,7 +52,7 @@ SimpleForm.setup do |config|
         append.use :input, class: 'form-control'
       end
       ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
-      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block hint' }
     end
   end
 
@@ -61,12 +61,12 @@ SimpleForm.setup do |config|
     b.use :placeholder
     b.use :label
     b.wrapper tag: 'div', class: 'controls' do |input|
-      input.wrapper tag: 'div', class: 'input-group no-mb' do |prepend|
+      input.wrapper tag: 'div', class: 'input-group col-sm-12 no-mb' do |prepend|
     # prepend.use :label , class: 'input-group-addon' ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
         prepend.use :input
       end
-      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
       input.use :full_error, wrap_with: { tag: 'span', class: 'help-block has-error' }
+      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block hint' }
     end
   end
  
@@ -76,7 +76,7 @@ SimpleForm.setup do |config|
     b.wrapper tag: 'div', class: 'controls' do |input|
       input.wrapper tag: 'div', class: 'input-group' do |prepend|
         prepend.use :input
-    prepend.use :label , class: 'input-group-addon' ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
+        prepend.use :label , class: 'input-group-addon' ###Please note setting class here fro the label does not currently work (let me know if you know a workaround as this is the final hurdle)
       end
       input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
       input.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }

@@ -1,61 +1,92 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <h3 class="text-center mb-3">Editar informações</h3>
-  <div class="input-group mb-3"> <!-- Nome -->
-    <%= f.text_field :name, autofocus: true, autocomplete: "name",
-    placeholder: "Nome", class: "form-control", required: true %>
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-user"></span>
-      </div>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <h3 class="text-center login-box-msg">Editar informações</h3>
+  <%= render 'devise/shared/error_messages' %>
+  
+  <%= f.input :full_name, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-user"></i>
     </div>
-  </div>
-  <div class="input-group mb-3"> <!-- Email -->
-    <%= f.email_field :email, autocomplete: "email",
-    placeholder: "Email", class: "form-control", required: false %>
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-envelope"></span>
-      </div>
+    <span class="has-float-label">
+      <%= f.input_field :full_name, placeholder: 'Nome completo' %>
+      <%= f.label :full_name %>
+    </span>
+  <% end %>
+
+  <%= f.input :email, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-envelope"></i>
     </div>
-  </div>
-  <div class="input-group mb-3"> <!-- Nova senha -->
-    <%= f.password_field :password, autocomplete: "password", class: "form-control",
-    placeholder: "Nova senha", required: false %>
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-lock"></span>
-      </div>
+    <span class="has-float-label">
+      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
+      <%= f.label :email %>
+    </span>
+  <% end %>
+
+  <hr />
+  <small>Preencha os campos abaixo <b>apenas se quiser mudar sua senha atual.</b></small> <br /> <br />
+  <%= f.input :password, label: false, wrapper: :prepend, hint: 'Mínimo: 6 caracteres'  do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-lock"></i>
     </div>
-  </div>
-  <div class="input-group mb-3"> <!-- Confirmação da nova senha -->
-    <%= f.password_field :password_confirmation, autocomplete: "password", class: "form-control",
-    placeholder: "Confirmação da nova senha", required: false %>
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-lock"></span>
-      </div>
+    <span class="has-float-label">
+      <%= f.input_field :password, placeholder: 'Senha' %>
+      <%= f.label :password%>
+    </span>
+  <% end %>
+
+  <%= f.input :password_confirmation, 
+    label: false, 
+    wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-log-in"></i>
     </div>
-  </div>
-  <div class="input-group mb-3"> <!-- Senha atual  -->
-    <%= f.password_field :current_password, autocomplete: "password", class: "form-control",
-    placeholder: "Senha atual", required: false %>
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <span class="fas fa-lock"></span>
-      </div>
+    <span class="has-float-label">
+      <%= f.input_field :password_confirmation, placeholder: 'Digite a senha novamente' %>
+      <%= f.label :password_confirmation %>
+    </span>
+  <% end %>
+  <hr />
+  <small class="current-password-info text-primary"><i class="fa fa-fw fa-info-circle"></i> Precisamos da sua senha atual para efetuar as mudanças.</small>
+  <%= f.input :current_password, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="fa fa-fw fa-unlock"></i>
     </div>
-    <small class="mt-2">Precisamos da sua senha atual para efetuar as mudanças.</small>
-  </div>
+    <span class="has-float-label">
+      <%= f.input_field :current_password, placeholder: 'Digite a senha novamente' %>
+      <%= f.label :current_password %>
+    </span>
+  <% end %>
+
   <div class="row">
-    <div class="col-12">
-      <%= f.submit "Salvar", class: "btn btn-primary btn-block" %>
+    <div class="col-xs-12">
+      <%= f.button :submit, 'Salvar', class: 'btn btn-primary btn-flat btn-block' %>
     </div>
   </div>
 <% end %>
 
-<div class="callout callout-danger mt-3"> <!-- Cancelar Conta -->
-  <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" },
-  method: :delete, class: "d-block text-dark" %>
-  <small>Essa ação é permanente e não poderá ser desfeita.</small>
+<br />
+
+<div class="panel box box-danger">
+  <div class="box-header with-border">
+    <h5 class="box-title">
+      <a data-toggle="collapse" 
+        data-parent="#accordion" 
+        href="#collapseTwo" 
+        class="collapsed text-danger" 
+        aria-expanded="false"
+      >
+        Cancelar conta
+      </a>
+    </h5>
+  </div>
+  <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+    <div class="box-body">
+      <p>Caso não esteja satisfeito(a), pode cancelar sua conta. </p>
+      <p>Tenha em mente que <b>essa ação é permanente e não poderá ser desfeita. </b></p>
+      <%= link_to 'Cancelar minha conta', 
+        registration_path(resource_name), 
+        data: { confirm: 'Tem certeza?' },
+        method: :delete, class: 'btn btn-danger btn-flat' %>
+    </div>
+  </div>
 </div>
-<%= link_to "Voltar", :back, class: "d-block text-center" %>

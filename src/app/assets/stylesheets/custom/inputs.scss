@@ -1,14 +1,7 @@
-.form-group {
-  margin-bottom: 1.5rem !important;
-}
+.form-group { margin-bottom: 2rem !important; }
 
-.input-group {
-  margin-bottom: 15px;
-}
-
-.no-mb {
-  margin-bottom: 0 !important;
-}
+.pb-0 { padding-bottom: 0 !important; }
+.no-mb { margin-bottom: 0 !important; }
 
 textarea {
   resize: vertical;
@@ -19,3 +12,13 @@ textarea {
   height: 38px !important;
   line-height: 1.7 !important;
 }
+
+abbr[title] { text-decoration: none !important; }
+
+.icheckbox_square-blue { margin-right: 0.6rem !important; }
+
+.hint { color: #737373 !important; }
+
+span.help-block { display: inline-flex !important; }
+
+.help-block.hint { float: right; }

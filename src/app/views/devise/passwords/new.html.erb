@@ -1,15 +1,22 @@
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), method: :post) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <h4 class="text-center"><b>Esqueceu sua senha?</b></h4>
+
   <p class="text-center login-box-msg">Recupere-a informando abaixo o e-mail que você usou para criar sua conta.</p>
-  
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-    <%= f.email_field :email, class: "form-control", placeholder: "E-mail", autocomplete: "email" %>
-  </div>
+  <%= render 'devise/shared/error_messages' %>
+
+  <%= f.input :email, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-envelope"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
+      <%= f.label :email %>
+    </span>
+  <% end %>
   
   <div class="row">
     <div class="col-xs-12">
-      <%= f.submit "Enviar instruções", class: "btn btn-primary btn-block btn-flat" %>
+      <%= f.button :submit, "Enviar instruções", class: "btn btn-primary btn-block btn-flat" %>
     </div>
   </div>
 <% end %>

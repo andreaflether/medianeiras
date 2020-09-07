@@ -1,24 +1,34 @@
-<h3 class="login-box-msg">Mudar senha</h3>
+<h3 class="login-box-msg">Alterar senha</h3>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-    <%= f.text_field :password, class: "form-control", placeholder: "Nova senha", autocomplete: "password" %>
-  </div>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render 'devise/shared/error_messages' %>
+  <%= f.input :password, label: false, wrapper: :prepend, hint: 'Mínimo: 6 caracteres'  do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-lock"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :password, placeholder: 'Nova senha' %>
+      <%= f.label 'Nova senha' %>
+    </span>
+  <% end %>
 
-  <div class="input-group">
-    <div class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></div>
-    <%= f.text_field :password_confirmation, class: "form-control", placeholder: "Confirmação da senha", autocomplete: "password" %>
-  </div>
+  <%= f.input :password_confirmation, label: false, wrapper: :prepend do %>
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-log-in"></i>
+    </div>
+    <span class="has-float-label">
+      <%= f.input_field :password_confirmation, placeholder: 'Confirme a sua nova senha' %>
+      <%= f.label :password_confirmation %>
+    </span>
+  <% end %>
 
   <div class="row">
     <div class="col-xs-12">
-      <%= f.submit "Confirmar alterações", class: "btn btn-primary btn-block btn-flat" %>
+      <%= f.button :submit, 'Confirmar alterações', class: 'btn btn-primary btn-block btn-flat' %>
     </div>
   </div>
 <% end %>
 
 <div class="social-auth-links text-center">
-  <p>- OU -</p>
   <%= render 'devise/shared/links' %>
 </div>

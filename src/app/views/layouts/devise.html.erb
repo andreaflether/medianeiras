@@ -11,32 +11,18 @@
 
     <%= stylesheet_link_tag 'devise' %>
     <%= javascript_include_tag 'devise' %>
+    <%= custom_flash_messages %>
   </head>
 
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <%= inline_svg_tag("logo.svg", class: "logotipo") %>
+        <%= inline_svg_tag('logo.svg', class: 'logotipo') %>
       </div>
 
       <div class="login-box-body">
         <%= yield %>
       </div>
     </div>
-    <script>
-      $(document).ready(function() {
-        <% resource.errors.full_messages.each do |message| %>
-          toastr.error('<%= message %>');  
-        <% end %>
-
-        <% if alert %>
-          toastr.error('<%= alert %>');   
-        <% end %>
-
-        <% if notice %>
-          toastr.success('<%= notice %>');
-        <% end %>
-      })
-    </script>
   </body>
 </html>

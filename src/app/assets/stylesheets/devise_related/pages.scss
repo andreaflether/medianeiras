@@ -12,10 +12,11 @@
   display: flex !important; 
   flex-direction: column !important; 
   margin: auto !important; 
+  width: 400px !important;
 }
 
 .logotipo {
-  width: 55%;
+  width: 200px;
   // height: auto;
   cursor: pointer !important;
 }
@@ -26,3 +27,22 @@
 
 .social-auth-links, 
 .social-auth-links p:last-of-type { margin-bottom: 0 !important; }
+
+.help-block {
+  margin-bottom: 0px !important; 
+  padding-bottom: 1.5rem;
+}
+
+.form-group.has-error { margin-bottom: 1rem !important; }
+
+ul { margin-bottom: 0px !important; }
+
+.current-password-info { 
+  font-weight: bold; 
+  display: inline-block;
+  margin-bottom: 1rem !important;
+}
+
+hr {
+  border-color: #eee !important;
+}
