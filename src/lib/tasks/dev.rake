@@ -21,7 +21,7 @@ namespace :dev do
   desc "Adiciona um superadministrador padrão"
   task add_default_superadmin: :environment do 
     User.create!(
-      first_name: "Admin",
+      full_name: "Admin",
       email: 'admin@admin.com',
       password: DEFAULT_ADMIN_PASSWORD,
       password_confirmation: DEFAULT_ADMIN_PASSWORD,
@@ -32,7 +32,7 @@ namespace :dev do
   desc "Adiciona um usuário padrão"
   task add_default_user: :environment do
     User.create!(
-      first_name: "User",
+      full_name: "User",
       email: 'user@user.com',
       password: DEFAULT_USER_PASSWORD,
       password_confirmation: DEFAULT_USER_PASSWORD,
