@@ -25,6 +25,9 @@ pt-BR:
       volunteer:
         one: Voluntário
         other: Voluntários
+      location:
+        one: Local
+        other: Locais
     attributes:
       event:
         title: Nome
@@ -33,6 +36,7 @@ pt-BR:
         end_date: Data/hora de término
         location: Local
         ransack:
+          title: Pesquisar por Nome
           location: Pesquisar por Local
       activity:
         name: Nome
@@ -61,7 +65,8 @@ pt-BR:
         cpf: CPF
         speciality: Especialização
       location:
-        description: Local
+        description: Descrição
+        address: Endereço
   controllers:
     users: Usuários
     events: Eventos
