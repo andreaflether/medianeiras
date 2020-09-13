@@ -186,9 +186,9 @@
                   <span>
                     <i class="far fa-clock"></i>
                     <span>
-                      <%= event_time(event.start_date, event.end_date, "week_day_time")%>
+                      <%= event.start_date.strftime("%H:%M") %>  – <%= event.end_date.strftime("%H:%M") %>
                     </span>
-                    <i class="fas fa-map-marker-alt"></i><span><%= event.location %></span>
+                    <i class="fas fa-map-marker-alt"></i><span><%= event.location.description %></span>
                   </span>
                 </div>
 
@@ -217,6 +217,46 @@
       <% end %>
     </div> <!-- End Row -->
   </div> <!-- End Container -->
+</section>
+
+<style>
+.overlay-div {
+  height:100%;
+   width: 100%;
+   position:absolute;
+   background-color:#000;
+   opacity:.8;
+}
+</style>
+<section class="newsletter">
+  <div class="card">
+    
+    <img style="width: auto; height: 400px; object-fit: cover; object-position: 0% 40%;"
+      src="https://scontent.ffor8-1.fna.fbcdn.net/v/t1.0-9/69881233_634893086919333_579919974798196736_o.jpg?_nc_cat=111&_nc_sid=730e14&_nc_ohc=r71SpQ42OFIAX-OKxwa&_nc_ht=scontent.ffor8-1.fna&oh=b4c56a6c4e6c5e0e6a7f0c93e9a9fe67&oe=5F0EE929" class="card-img teste" alt="...">
+    <div class="overlay-div"></div>
+    <div class="card-img-overlay mx-auto w-50 text-center justify-content-center d-flex flex-column">
+      
+        <h2 class="card-title">Receba nossa newsletter</h2>
+        <p class="card-text text-light">Ao se inscrever na newsletter, você passará a receber por
+        e-mail todas as informações sobre os eventos que irão acontecer no Centro Comunitário.</p>
+
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Seu e-mail" 
+          aria-label="Seu e-mail" aria-describedby="button-addon2"
+          style="height: auto !important; line-height: auto !important; padding: auto !important;
+          border-color: #007bff !important;">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="button-addon2">Realizar inscrição</button>
+          </div>
+        </div>
+    
+      
+      
+    </div>
+  </div>
+    
+  
+  
 </section>
 
 <section class="partners">

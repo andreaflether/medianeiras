@@ -7,8 +7,8 @@ class Admin::EventsController < AdminController
   end 
 
   def index
-    @query = Event.ransack(params[:query])
-    @events = @query.result
+    @q = Event.ransack(params[:q])
+    @events = @q.result.includes([:location])
   end
 
   def show
@@ -71,6 +71,6 @@ class Admin::EventsController < AdminController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date, :location)
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :location_id)
   end
 end

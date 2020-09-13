@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  belongs_to :location
+  accepts_nested_attributes_for :location
   validates_presence_of :title, :start_date, :end_date, :description, :location
 
   scope :this_month, lambda {

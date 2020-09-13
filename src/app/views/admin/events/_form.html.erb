@@ -32,8 +32,11 @@
           <% end %>   
         </div>
       </div>
-      <%= f.input :location %>
-      <%= f.input :description %>
+      <%= f.association :location, 
+        label_method: :description, value_method: :id,
+        prompt: 'Selecione um local'
+      %>
+      <%= f.input :description, input_html: { rows: 4 } %>
     </div>
 
     <div class="box-footer">
@@ -42,3 +45,4 @@
     </div>
   <% end %>
 </div>
+<%= render 'admin/shared/locations_modal' %>

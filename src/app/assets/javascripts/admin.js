@@ -30,9 +30,10 @@
 //= require inputmask/dist/inputmask/jquery.inputmask
 // require inputmask/dist/inputmask/inputmask.date.extensions
 // require inputmask/dist/inputmask/bindings/inputmask.binding
-
 //= require admin/events
 //= require admin/calendar
 //= require admin/overall
 //= require admin/people
+//= require selectize
+//= require admin/selectize-modal
 

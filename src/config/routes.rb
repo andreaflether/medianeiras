@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get '/contato', to: 'pages#contact'
   get '/eventos', to: 'pages#events'
-
+  
   # Admin main route
   get 'admin/', to: 'admin#index'
   
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :events, path: 'admin/events' do 
       get :autocomplete_event_location, :on => :collection
     end 
+    resources :locations
     resources :users, path: 'admin/users'
   end 
 end

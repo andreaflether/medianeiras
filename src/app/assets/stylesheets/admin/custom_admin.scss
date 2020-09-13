@@ -4,7 +4,7 @@ $grid-gutter-width: 70px !default;
 
 abbr[title] { text-decoration: none !important; }
 
-body, .btn, input { font-size: 1.6rem !important; }
+body, .btn, input, select { font-size: 1.6rem !important; }
 
 .fa-graduation-cap {
   margin-left: -3px !important;
@@ -20,6 +20,9 @@ body, .btn, input { font-size: 1.6rem !important; }
   padding-top: 16px !important;
   padding-bottom: 16px !important;
 }
+
+.btn-actions-group a,
+.drp-buttons button { font-size: 1.4rem !important; }
 
 .sidebar-menu { font-size: 15px; }
 
@@ -52,9 +55,15 @@ body, .btn, input { font-size: 1.6rem !important; }
   .navbar-nav > .user-menu .user-image { margin-top: 0 !important; }
 }
 
+.invoice { margin: 10px 15px !important; }
+
 /*------------------------------------- Custom components ------------------------------------*/
 // Select2
 .select2-container .select2-selection--multiple { min-height: 38px !important; }
+
+.select2 { width: 100% !important; }
+
+.select2-search__field::placeholder { padding-left: 1rem !important; }
 
 // DataTables
 .data-tables {
@@ -67,7 +76,9 @@ body, .btn, input { font-size: 1.6rem !important; }
 
 .d-flex,
 .dataTables_paginate { display: flex !important; }
+
 .dataTables_paginate { justify-content: center !important; }
+
 .dataTables_info { 
   white-space: nowrap; 
   overflow: hidden; 
@@ -112,5 +123,36 @@ body, .btn, input { font-size: 1.6rem !important; }
   &:hover { opacity: 1 !important; }
 }
 
-.invoice { margin: 10px 15px !important; }
+// Selectize
+.selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
+  padding: 5px 8px !important;
+}
+
+.selectize-dropdown-content > .active {
+  background-color: #367FA8 !important;
+  color: #fff !important;
+}
+
+.selectize-input { 
+  border: 1px solid #d2d6de !important;
+  border-radius: 0 !important;
+  color: #555 !important;
+  min-height: 38px !important;
+  line-height: 1.7 !important;
+  &:focus {
+    border-color: #3c8dbc !important;
+    box-shadow: none !important;
+  }
+}
+
+.selectize-input.focus {
+  box-shadow: none !important;
+  border-color: #3c8dbc !important;
+}
+
+.selectize-input > input[placeholder] { width: 100% !important; }
+
+.selectize-control.single .selectize-input:after { 
+  border-color: #555 transparent transparent transparent !important;
+}
 /*----------------------------------- End custom components  -----------------------------------*/

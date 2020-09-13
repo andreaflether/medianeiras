@@ -19,7 +19,7 @@ $(document).ready(function() {
 		...dateRangePickerOptions,
 		autoUpdateInput: false,
 		minDate : moment(),
-		startDate: moment().endOf('hour').add(1, 'm'),
+		// startDate: moment().endOf('hour').add(1, 'm'),
 	});
 
 	// Preenche inputs ao preencher data
@@ -35,7 +35,7 @@ $(document).ready(function() {
 		...dateRangePickerOptions,
 		autoUpdateInput: false,
 		minDate : moment(),
-		startDate: moment().endOf('hour').add(1, 'm'),
+		// startDate: moment().endOf('hour').add(1, 'm'),
 	});
 	
 	// Troca valores mínimos da data final a partir das seleções em data de inínio

@@ -1,5 +1,6 @@
 /*
  *= require_self
+ *= require selectize.bootstrap3
  *= require admin/custom_admin
  *= require admin/events
  *= require custom/inputs
@@ -14,4 +15,5 @@
  *= require toastr/toastr
  *= require daterangepicker/daterangepicker
  *= require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
+ * require selectize
 */

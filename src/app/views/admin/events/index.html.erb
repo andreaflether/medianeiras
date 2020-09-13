@@ -1,4 +1,4 @@
-<%= search_form_for @query do |f| %>
+<%= search_form_for @q do |f| %>
 
 <div class="box collapsed-box">
   <div class="box-header with-border">
@@ -10,12 +10,26 @@
     </div>
   </div>
   <div class="box-body">
-    
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <%= f.label t('activerecord.attributes.event.ransack.location') %>
-          <%= f.search_field :location_cont, class: "form-control" %>
+          <%= f.label t('activerecord.attributes.event.ransack.title') %>
+          <%= f.search_field :title_cont, class: 'form-control' %>
+        </div>  
+      </div> 
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label t('activerecord.attributes.event.ransack.location') %> <br />
+          <%= f.select :location_id_in, 
+            options_for_select(Location.all.collect { |l| [ l.description, l.id ] }, 
+            params.dig(:q, :location_id_in)),
+            { include_hidden: false }, 
+            { 
+              class: 'form-control select2', 
+              multiple: true, 
+              data: { placeholder: 'Selecione um ou mais locais'} 
+            } 
+          %>
         </div>  
       </div> 
     </div>
@@ -49,22 +63,22 @@
             <td><%= event.title %></td>
             <td><%= event_date(event.start_date)%></td>
             <td><%= event_time(event.start_date, event.end_date) %></td>
-            <td><%= event.location %></td>
+            <td><%= event.location.description %></td>
             <td>
               <%= link_to event_path(event), 
-              class: 'btn btn-success', 
+              class: 'btn btn-success btn-sm', 
               title: 'Visualizar evento', 
               data: { toggle: 'tooltip', container: 'body' } do %>
                 <i class="fa fa-eye"></i>
               <% end %>
               <%= link_to edit_event_path(event), 
-                class: 'btn btn-primary', 
+                class: 'btn btn-primary btn-sm', 
                 title: 'Editar evento', 
                 data: { toggle: 'tooltip', container: 'body' } do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
               <%= link_to event_path(event), 
-                class: 'btn btn-danger', 
+                class: 'btn btn-danger btn-sm', 
                 method: :delete, 
                 title: 'Excluir evento',
                 data: { confirm: "Tem certeza que deseja apagar o evento #{event.title.upcase}?", 
