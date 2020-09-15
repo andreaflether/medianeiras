@@ -16,8 +16,6 @@
 
 //= require admin-lte/dist/js/adminlte.min
 //= require bootstrap-timepicker/js/bootstrap-timepicker.min
-// require pace/pace
-// require slimscroll/lib/slimscroll
 //= require fastclick/lib/fastclick
 //= require toastr/toastr
 //= require daterangepicker/moment.min
@@ -28,12 +26,12 @@
 //= require inputmask/dist/inputmask/inputmask
 //= require inputmask/dist/inputmask/inputmask.extensions
 //= require inputmask/dist/inputmask/jquery.inputmask
-// require inputmask/dist/inputmask/inputmask.date.extensions
-// require inputmask/dist/inputmask/bindings/inputmask.binding
+//= require admin/activities
 //= require admin/events
 //= require admin/calendar
 //= require admin/overall
 //= require admin/people
 //= require selectize
 //= require admin/selectize-modal
+//= require bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox
 

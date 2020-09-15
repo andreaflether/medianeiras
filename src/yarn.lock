@@ -177,6 +177,11 @@ bootstrap-daterangepicker@^2.1.25:
     jquery ">=1.10"
     moment "^2.9.0"
 
+bootstrap-duallistbox@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/bootstrap-duallistbox/-/bootstrap-duallistbox-3.0.9.tgz#43c65f35aa4cfd492ff0afd848106832e8cb5bb0"
+  integrity sha512-PaGSklYaWDsptvFsngqxMIFrwj1BnRsn7f/QKbHjCpN0jRyZIhRreCV9JRuj7U3ZmCYDn3oXnURzFSnOOuTwgw==
+
 bootstrap-slider@^9.10.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-9.10.0.tgz#1103d6bc00cfbfa8cfc9a2599ab518c55643da3f"

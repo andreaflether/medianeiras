@@ -9,8 +9,8 @@ $(document).ready(function() {
       selectizeCallback();
       selectizeCallback = null;
     }
-    inputGroup.find('.invalid-feedback').remove();
-    input.removeClass('is-invalid')
+    inputGroup.find('.help-block').remove();
+    inputGroup.removeClass('has-error')
     $('.location').trigger('reset');
     var selectors = [Rails.linkDisableSelector, Rails.formEnableSelector].join(', ');
     $(selectors).each(function() {
@@ -43,8 +43,8 @@ $(document).ready(function() {
       }
     });
   });
-  $('#event_location_id').removeClass('form-control');
-  $('#event_location_id, .selectize').selectize({
+  $('.location-input').removeClass('form-control');
+  $('.location-input, .selectize').selectize({
     placeholder: 'Selecione um local',
     render: {
       option_create: function(data, escape) {

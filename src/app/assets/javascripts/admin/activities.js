@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // Initialize Select2 Elements
   $('#activity_week_day_ids').select2({
     theme: 'bootstrap4',
@@ -13,13 +12,22 @@ $(document).ready(function() {
     dropdownAutoWidth : true,
     width: 'auto',
     placeholder: "Selecione um ou mais responsáveis pela atividade"
-  })
+  });
 
   // Initialize multiselect for Students on New Activity page
-  $('.activity_multiselect').lwMultiSelect({
-    addAllText: "Selecionar todos",
-    removeAllText: "Remover todos",
-    selectedLabel: "Alunos selecionados"
+  $('.activity_multiselect').bootstrapDualListbox({
+    selectorMinimalHeight: 300,
+    filterTextClear: 'Mostrar todos(as)',
+    filterPlaceHolder: 'Pesquisar Aluno(a)',
+    moveSelectedLabel: 'Mover selecionados(as)',
+    moveAllLabel: 'Mover todos os alunos',
+    removeSelectedLabel: 'Remover aluno(a) selecionado(a)',
+    removeAllLabel: 'Remover todos(as)',
+    moveOnSelect: false,
+    infoTextEmpty: 'Nenhum resultado',
+    infoText: 'Mostrando todos os alunos ({0})',
+    infoTextFiltered: '<span class="label label-primary">Filtrando</span> {0} resultados (de {1})',
+    infoTextEmpty: 'Lista vazia'
   });
     
   // Initialize datetime picker for activity
@@ -32,7 +40,7 @@ $(document).ready(function() {
   // Changes min time to be selected on ends_at based on starts_at
   $("#activity_starts_at").on("change.datetimepicker", function (e) {
     $('#activity_ends_at').datetimepicker('minDate', e.date);
-  // });
+  });
 
   // Hide datetime picker when clicked outside the container
   $(document).on('mouseup touchend', function (e) {
@@ -41,4 +49,4 @@ $(document).ready(function() {
       container.parent().datetimepicker('hide');
     }
   });
-});
+})
