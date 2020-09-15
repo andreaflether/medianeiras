@@ -9,7 +9,9 @@ end
 
 50.times do 
   student = Person.create(
-    name: Faker::Name.name_with_middle
+    name: Faker::Name.name_with_middle,
+    birthday: Faker::Date.birthday(min_age: 7, max_age: 25),
+    start_date: Date.today
   )
   Student.create(
     person: student
@@ -43,10 +45,11 @@ def generate_student
   students
 end 
 
+ccnsm = Location.create! description: 'Centro Comunitário Nossa Senhora Medianeira', address: 'Rua Clarindo de Queiroz, 2018'
 activities = Activity.create!([
   {
     name: "Balé",
-    location: "Centro Comunitário Nossa Senhora Medianeira",
+    location: ccnsm,
     description: Faker::Lorem.paragraph_by_chars(number: 180, supplemental: false),
     max_capacity: rand(20..50),
     starts_at: Time.parse("09:00"),
@@ -57,7 +60,7 @@ activities = Activity.create!([
   },
   {
     name: "Jiu Jitsu",
-    location: "Centro Comunitário Nossa Senhora Medianeira",
+    location: ccnsm,
     description: Faker::Lorem.paragraph_by_chars(number: 180, supplemental: false),
     max_capacity: rand(20..50),
     starts_at: Time.parse("18:00"),
@@ -68,7 +71,7 @@ activities = Activity.create!([
   },
   {
     name: "Muai Thay", 
-    location: "Centro Comunitário Nossa Senhora Medianeira",
+    location: ccnsm,
     description: Faker::Lorem.paragraph_by_chars(number: 180, supplemental: false),
     max_capacity: rand(20..50),
     starts_at: Time.parse('19:00'),
@@ -79,7 +82,7 @@ activities = Activity.create!([
   },
   {
     name: "Reforço Escolar", 
-    location: "Centro Comunitário Nossa Senhora Medianeira",
+    location: ccnsm,
     description: Faker::Lorem.paragraph_by_chars(number: 180, supplemental: false),
     max_capacity: rand(20..50),
     starts_at: Time.parse('15:00'),

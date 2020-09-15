@@ -5,7 +5,7 @@ pt-BR:
         activity:
           attributes:
             students:
-              max_length: Capacidade máxima de alunos atingida!
+              max_length: "Capacidade máxima de alunos atingida! (%{max})"
     models:
       user:
         one: Usuário

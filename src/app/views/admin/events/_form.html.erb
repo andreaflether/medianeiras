@@ -33,8 +33,10 @@
         </div>
       </div>
       <%= f.association :location, 
-        label_method: :description, value_method: :id,
-        prompt: 'Selecione um local'
+        label_method: :description, 
+        value_method: :id,
+        prompt: 'Selecione um local',
+        input_html: { class: 'location-input' }
       %>
       <%= f.input :description, input_html: { rows: 4 } %>
     </div>

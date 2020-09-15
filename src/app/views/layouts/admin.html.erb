@@ -19,7 +19,9 @@
     <!-- Logo -->
     <%= link_to admin_path, class: 'logo' do %>
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><%= image_tag "https://github.com/andreaflether/projeto_medianeiras/blob/master/app/assets/images/favicon.png?raw=true"%></span>
+      <span class="logo-mini">
+        <%= image_tag "https://github.com/andreaflether/projeto_medianeiras/blob/master/app/assets/images/favicon.png?raw=true"%>
+        </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Medianeiras <b>Admin</b></span>
     <% end %>
@@ -87,7 +89,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="https://avatars1.githubusercontent.com/u/50052646?s=460&u=263b2a06edea0362ab6eeb5a67b600b949db5610&v=4" class="img-circle" alt="User Image">
+          <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), 
+                  alt: 'Avatar de usuário', 
+                  class: 'img-circle')
+                %>
         </div>
         <div class="pull-left info">
           <p><%= current_user.full_name %></p>
