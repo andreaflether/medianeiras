@@ -1,1 +1,10 @@
+.activity-table.table > tbody > tr > td, 
+.activity-table.table > tbody > tr > th, 
+.activity-table.table > tfoot > tr > td, 
+.activity-table.table > tfoot > tr > th, 
+.activity-table.table > thead > tr > td, 
+.activity-table.table > thead > tr > th {
+  padding: 12px;
+}
 
+.activity-table.table > tbody > tr > th { padding-left: 0 !important; }

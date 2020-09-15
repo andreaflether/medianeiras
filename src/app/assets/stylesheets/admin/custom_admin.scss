@@ -134,7 +134,7 @@ body, .btn, input, select { font-size: 1.6rem !important; }
 }
 
 .selectize-input { 
-  border: 1px solid #d2d6de !important;
+  // border: 1px solid #d2d6de;
   border-radius: 0 !important;
   color: #555 !important;
   min-height: 38px !important;
@@ -155,4 +155,18 @@ body, .btn, input, select { font-size: 1.6rem !important; }
 .selectize-control.single .selectize-input:after { 
   border-color: #555 transparent transparent transparent !important;
 }
+
+.has-error .selectize-input { border-color: #dd4b39 !important; }
 /*----------------------------------- End custom components  -----------------------------------*/
+.btn-group { display: inline-flex !important; }
+
+.bootstrap-duallistbox-container .info {
+  font-size: 1.3rem !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0.5rem !important;  
+}
+
+span.info-container {
+  vertical-align: middle !important;
+}
+

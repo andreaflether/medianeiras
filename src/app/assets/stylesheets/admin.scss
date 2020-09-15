@@ -1,19 +1,21 @@
 /*
  *= require_self
  *= require selectize.bootstrap3
- *= require admin/custom_admin
- *= require admin/events
- *= require custom/inputs
  *= require admin-lte/bower_components/bootstrap/dist/css/bootstrap.min
  *= require admin-lte/bower_components/font-awesome/css/font-awesome.min
+ *= require bootstrap-duallistbox/dist/bootstrap-duallistbox
+ *= require admin/custom_admin
+ *= require custom/bootstrap_utilities
+ *= require admin/activities
+ *= require admin/events
+ *= require custom/inputs
  *= require select2/dist/css/select2.min
- *= require bootstrap-timepicker/css/bootstrap-timepicker.min
  *= require admin-lte/dist/css/AdminLTE.min
+ *= require bootstrap-timepicker/css/bootstrap-timepicker.min
  *= require admin-lte/dist/css/skins/skin-blue.min
  *= require admin-lte/plugins/pace/pace.min
  *= require datatables.net-bs/css/dataTables.bootstrap.min
  *= require toastr/toastr
  *= require daterangepicker/daterangepicker
  *= require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
- * require selectize
 */

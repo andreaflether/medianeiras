@@ -1,6 +1,5 @@
 .form-group { margin-bottom: 2rem !important; }
 
-.pb-0 { padding-bottom: 0 !important; }
 .no-mb { margin-bottom: 0 !important; }
 
 textarea {
@@ -9,7 +8,7 @@ textarea {
 }
 
 .form-control:not(textarea) {
-  height: 38px !important;
+  height: 38px;
   line-height: 1.7 !important;
 }
 

@@ -2,11 +2,11 @@ module ActivitiesHelper
   def find_color(percentage)
     case percentage
     when 0..60
-      "success"
+      "green"
     when 61..84
-      "warning"
+      "yellow"
     when 85..100
-      "danger"
+      "red"
     end 
   end
 

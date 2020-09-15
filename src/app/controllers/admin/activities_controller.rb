@@ -1,7 +1,5 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  autocomplete :event, :location, :limit => 10
-  before_action :counter, only: [:index]
   add_breadcrumb "Atividades", :activities_path
   before_action :find_resources, only: [:new, :create, :edit, :update]
 
@@ -85,7 +83,7 @@ class Admin::ActivitiesController < AdminController
 
   # Only allow a list of trusted parameters through.
   def activity_params
-    params.require(:activity).permit(:name, :description, :location, :max_capacity, :starts_at, 
+    params.require(:activity).permit(:name, :description, :location_id, :max_capacity, :starts_at, 
                                      :ends_at, week_day_ids: [], student_ids: [], volunteer_ids: [])
   end
 end

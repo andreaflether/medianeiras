@@ -1,0 +1,91 @@
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $spacers {
+    .#{$abbrev}t-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+    .#{$abbrev}r-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}b-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+    .#{$abbrev}l-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+  }
+}
+
+.text-secondary { color: rgb(115, 115, 115) !important; }
+
+.list-group {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: .25rem;
+  flex-direction: column;
+}
+
+.list-group-horizontal {
+  -ms-flex-direction: row;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+  &:last-child {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+    margin-bottom: -1px;
+  }
+}
+
+.list-group-item + .list-group-item { border-top-width: 0; }
+
+.list-group-horizontal > {
+  .list-group-item {
+    &:first-child {
+      border-bottom-left-radius: .25rem;
+      border-top-right-radius: 0;
+    }
+    &:last-child {
+      border-top-right-radius: .25rem;
+      border-bottom-left-radius: 0;
+    }
+  }
+  .list-group-item + {
+    .list-group-item { 
+      border-top-width: 1px;
+      border-left-width: 0;
+    }
+  }
+}
+
+.align-middle { vertical-align: middle !important; }
+
