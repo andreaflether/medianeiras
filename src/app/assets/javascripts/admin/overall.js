@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   // Activate tooltip on the whole application
   $('[data-toggle="tooltip"]').tooltip({
     trigger : 'hover',
@@ -6,7 +6,10 @@ $(document).ready(function() {
   });
 
   // Initialize Select2 elements
-  $('.select2').select2();
+  $('select.select2').select2({
+    width             : 'auto',
+    dropdownAutoWidth : true
+  });
 
  // Timepicker
   $('.timepicker').timepicker({

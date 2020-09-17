@@ -1,9 +1,23 @@
 //= require rails-ujs
 //= require activestorage
+//= require turbolinks
 //= require admin-lte/bower_components/jquery/dist/jquery.min
 //= require admin-lte/bower_components/bootstrap/dist/js/bootstrap.min
+//= require admin-lte/dist/js/adminlte.min
+//= require fastclick/lib/fastclick
+//= require toastr/toastr
+//= require bootstrap-timepicker/js/bootstrap-timepicker.min
+//= require daterangepicker/moment.min
+//= require daterangepicker/daterangepicker
+//= require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
+//= require admin-lte/bower_components/fullcalendar/dist/locale/pt-br.js
+//= require admin-lte/bower_components/select2/dist/js/select2.full.min
+//= require inputmask/dist/inputmask/inputmask
+//= require inputmask/dist/inputmask/inputmask.extensions
+//= require inputmask/dist/inputmask/jquery.inputmask
+//= require bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox
 
-// DataTables related
+/* DataTables related */
 //= require datatables.net/js/jquery.dataTables.min 
 //= require datatables.net-bs/js/dataTables.bootstrap.min
 //= require jszip/dist/jszip
@@ -14,24 +28,14 @@
 //= require datatables.net-buttons/js/buttons.html5
 //= require datatables.net-buttons/js/buttons.print
 
-//= require admin-lte/dist/js/adminlte.min
-//= require bootstrap-timepicker/js/bootstrap-timepicker.min
-//= require fastclick/lib/fastclick
-//= require toastr/toastr
-//= require daterangepicker/moment.min
-//= require daterangepicker/daterangepicker
-//= require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
-//= require admin-lte/bower_components/fullcalendar/dist/locale/pt-br.js
-//= require admin-lte/bower_components/select2/dist/js/select2.full.min
-//= require inputmask/dist/inputmask/inputmask
-//= require inputmask/dist/inputmask/inputmask.extensions
-//= require inputmask/dist/inputmask/jquery.inputmask
+/* Custom components */
+//= require admin/overall
 //= require admin/activities
 //= require admin/events
 //= require admin/calendar
-//= require admin/overall
-//= require admin/people
-//= require selectize
 //= require admin/selectize-modal
-//= require bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox
+
+/* Gems JS */
+//= require selectize
+//= require data-confirm-modal
 

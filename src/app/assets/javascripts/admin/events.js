@@ -1,24 +1,24 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 	moment.locale('pt-br', {
 		weekdaysMin : 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
 	});
 
 	const dateRangePickerOptions = {
-		singleDatePicker: true,		
-		timePicker: true,
-		timePicker24Hour: true,
-		timePickerIncrement: 15,
+		singleDatePicker    : true,		
+		timePicker          : true,
+		timePicker24Hour    : true,
+		timePickerIncrement : 15,
 		locale: {
-			format: 'DD/MM/YYYY HH:mm',
-			applyLabel: 'Salvar',
-      cancelLabel: 'Cancelar'
+			format      : 'DD/MM/YYYY HH:mm',
+			applyLabel  : 'Salvar',
+      cancelLabel : 'Cancelar'
 		}
 	}
 	
 	$('#start_date').daterangepicker({
 		...dateRangePickerOptions,
-		autoUpdateInput: false,
-		minDate : moment(),
+		autoUpdateInput : false,
+		minDate         : moment(),
 		// startDate: moment().endOf('hour').add(1, 'm'),
 	});
 

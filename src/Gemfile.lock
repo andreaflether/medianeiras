@@ -87,6 +87,8 @@ GEM
     css_parser (1.7.1)
       addressable
     custom_error_message (1.1.1)
+    data-confirm-modal (1.6.3)
+      railties (>= 3.0)
     database_cleaner (1.8.5)
     dependent-fields-rails (0.4.2)
       coffee-rails
@@ -389,6 +391,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   custom_error_message (~> 1.1, >= 1.1.1)
+  data-confirm-modal
   database_cleaner (~> 1.7)
   dependent-fields-rails
   devise

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   var selectizeCallback = null;
   
   const input = $('#location_address')

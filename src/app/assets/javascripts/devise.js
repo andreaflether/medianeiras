@@ -7,17 +7,17 @@
 
 $(document).ready(function() {
   $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue',
-    increaseArea: '20%' /* optional */,
-    cursor: true,
-    labelHover: true
+    checkboxClass : 'icheckbox_square-blue',
+    cursor        : true,
+    increaseArea  : '20%' /* optional */,
+    labelHover    : true,
+    radioClass    : 'iradio_square-blue',
   });
 
   toastr.options = {
-    "progressBar": true,
-    "preventDuplicates": true,
-    "timeOut": "7000",
-    "extendedTimeOut": "3000"
+    extendedTimeOut   : 3000,
+    preventDuplicates : true,
+    progressBar       : true,
+    timeOut           : 7000,
   }
 })
