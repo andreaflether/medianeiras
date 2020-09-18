@@ -57,6 +57,8 @@ body, .btn, input, select { font-size: 1.6rem !important; }
 
 .invoice { margin: 10px 15px !important; }
 
+.modal-title { font-size: 2rem !important; }
+
 /*------------------------------------- Custom components ------------------------------------*/
 // Select2
 .select2-container .select2-selection--multiple { min-height: 38px !important; }
@@ -134,9 +136,10 @@ body, .btn, input, select { font-size: 1.6rem !important; }
 }
 
 .selectize-input { 
-  // border: 1px solid #d2d6de;
+  border: 1px solid #d2d6de;
   border-radius: 0 !important;
   color: #555 !important;
+  height: 38px !important;
   min-height: 38px !important;
   line-height: 1.7 !important;
   &:focus {

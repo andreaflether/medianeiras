@@ -27,6 +27,11 @@ $(document).on('turbolinks:load', function() {
     timeOut         : 6000,    // How long the toast will display without user interaction
   }
   
+  dataConfirmModal.setDefaults({
+    commit: 'Confirmar',
+    cancel: 'Cancelar'
+  });
+
   // Don't show a certain column when table is exported to a specific format
   const customizeColumns = { 
     exportOptions: {
