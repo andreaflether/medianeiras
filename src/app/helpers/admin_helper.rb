@@ -16,50 +16,38 @@ module AdminHelper
     Event.all.this_month.count
   end 
 
-  def title(action_name, controller_name)
+  def title
     case action_name 
     when 'new', 'create', 'edit', 'update', 'show'
-      actions(action_name) + " " + t(controller_name, scope: 'controllers').singularize
+      "#{actions(action_name)} #{translated_resource_name}"
     when 'index' 
-      t(controller_name, scope: 'controllers')
+      translated_resource_name.pluralize
     else 
       t(action_name, scope: 'custom_actions')
     end 
   end 
 
-  def devise_action(action, controller)
-    case action
-    when 'new'
-      case controller
-      when 'passwords'
-        'Recuperar senha'
-      when 'registrations'
-        'Criar conta'
-      when 'sessions'
-        'Entrar'
-      end
-    when 'edit'
-      case controller
-      when 'registrations'
-        'Editar informações de conta'
-      when 'passwords'
-        'Alterar senha'
-      end
-    when 'create'
-      case controller
-      when 'registrations'
-        'Criar Conta'
-      end
-    end
+  def devise_action
+    t("#{controller_name}.#{action_name}", scope: 'controllers.devise')
   end
 
-  def path(controller)
-    resource = controller.singularize
-    eval("#{resource}_path(@#{resource})")
+  def resource_name 
+    controller_name.singularize
+  end
+
+  def translated_resource_name
+    t(controller_name, scope: 'controllers').singularize
   end 
 
-  def resource_name(resource)
-    t(resource, scope: 'controllers').singularize
+  def resource_path(action)
+    case action 
+    when 'new'
+      eval("new_#{resource_name}_path")
+    when 'edit'
+      eval("edit_#{resource_name}_path(@#{(resource_name)})")
+    when 'destroy', 'index'
+      eval("#{resource_name}_path(@#{resource_name})")
+    end
   end 
 
   def member_since(created_at)

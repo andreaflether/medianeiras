@@ -12,6 +12,10 @@ module EventsHelper
     date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
   end 
 
+  def hour_format(hour)
+    hour.nil? ? "" : hour.strftime("%H:%M")
+  end
+
   def event_date(start_date)
     l(start_date, format: "%-d de %B de %Y")
   end 

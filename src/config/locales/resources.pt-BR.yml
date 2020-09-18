@@ -75,5 +75,15 @@ pt-BR:
     activities: Atividades
     admin: Início
     people: Pessoas
+    devise:
+      registrations:
+        create: Criar conta
+        new: Criar conta
+        edit: Editar informações de conta
+      passwords:
+        new: Recuperar senha
+        edit: Alterar senha
+      sessions:
+        new: Entrar
   custom_actions:
     calendar: Calendário
