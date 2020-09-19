@@ -54,7 +54,13 @@
           </tr>
         </tbody></table>
       </div>
-    <%= render 'admin/shared/buttons' %>
+    <%= render 'admin/shared/buttons', 
+      confirm_data: '<h4 class="text-red">Tem certeza? Essa ação não poderá ser desfeita. </h4>
+      <p>Ao apagar uma atividade, a matrícula dos alunos cadastrados na mesma também serão apagadas. 
+      Portanto, não será mais possível consultar os alunos que já foram matriculados nesta atividade. </p> 
+      <p>Caso queira guardar
+      um histórico de quais alunos participaram desta atividade, é recomendado apenas mudar
+      o status da mesma para <b>"Inativa"</b>. Clique aqui para realizar esta ação.</p>' %>
     </div>
     <div class="col-xs-12 col-md-6 col-sm-12">
       <p class="mb-3"><b>Imagem de exibição</b></p>
@@ -70,6 +76,7 @@
           <th>Nome</th>
           <th>Idade</th>
           <th>Tempo de matrícula</th>
+          <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -78,6 +85,28 @@
           <td><%= student.person.name %></td>
           <td><%= age(student.person.birthday) %></td>
           <td><%= time_ago_in_words(student.person.start_date)%></td>
+          <td><%= link_to student_path(student), 
+              class: 'btn btn-success btn-sm', 
+              title: 'Visualizar ficha de aluno', 
+              data: { toggle: 'tooltip', container: 'body' } do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+              <%= link_to edit_student_path(student), 
+                class: 'btn btn-primary btn-sm', 
+                title: 'Editar informações de aluno', 
+                data: { toggle: 'tooltip', container: 'body' } do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+              <%= link_to student_path(student), 
+                class: 'btn btn-danger btn-sm', 
+                method: :delete, 
+                title: "Remover aluno de #{@activity.name}",
+                data: { 
+                  confirm: "Tem certeza que deseja remover #{student.person.name.upcase} de #{@activity.name}?", 
+                  toggle: 'tooltip', container: 'body' 
+                } do %>
+                <i class="fa fa-trash"></i>
+              <% end %></td>
         </tr>
         <% end %>
         </tbody>
@@ -87,7 +116,7 @@
 
   <div class="row no-print">
     <div class="col-xs-12">
-      <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+      <a href="1.html" target="_blank" class="btn btn-default tst"><i class="fa fa-print"></i> Print</a>
     </div>
   </div>
 </section>

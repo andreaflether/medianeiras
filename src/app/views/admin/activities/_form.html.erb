@@ -16,7 +16,12 @@
                 <div class="input-group-addon">
                   <i class="fa fa-clock-o"></i>
                 </div>
-                <%= f.input_field :starts_at, as: :string, class: 'timepicker' %> 
+                <%= f.input_field :starts_at, 
+                  as: :string, 
+                  value: hour_format(@activity.starts_at),
+                  class: 'timepicker',
+                  autocomplete: 'off' 
+                %> 
               </div>
             <% end %>
           </div>
@@ -26,7 +31,11 @@
                 <div class="input-group-addon">
                   <i class="fa fa-clock-o"></i>
                 </div>
-                <%= f.input_field :ends_at, as: :string, class: 'timepicker 2' %> 
+                <%= f.input_field :ends_at, 
+                  as: :string,
+                  value: hour_format(@activity.ends_at),
+                  class: 'timepicker' 
+                %> 
               </div>
             <% end %>
           </div>
@@ -42,8 +51,11 @@
             %>
           </div>
           <div class="col-md-4">
-            <%= f.association :week_days, :collection => @days, :label_method => :description,
-            :value_method => :id, input_html: { multiple: true, class: 'select2' } %>
+            <%= f.association :week_days, 
+              collection: @days, 
+              label_method: :description,
+              value_method: :id, 
+              input_html: { multiple: true, class: 'select2', placeholder: 'Selecione um ou mais dias' } %>
           </div>
           
         </div>
@@ -55,10 +67,27 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-             <%= f.association :volunteers, :collection => @volunteers, 
-            :label_method => :person_name, :value_method => :id, 
-            input_html: { multiple: true, class: 'select2' } %>
+             <%= f.association :volunteers, 
+              collection: @volunteers, 
+              label_method: :person_name, 
+              value_method: :id, 
+              input_html: { multiple: true, class: 'select2', placeholder: 'Selecione um ou mais responsáveis pela atividade' } %>
           </div>  
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= label_tag "Imagem de exibição" %>
+              
+              <input type="file" class="custom-file-input" id="customFile" lang="pt-br" 
+              aria-describedby="customFile">
+              <p class="custom-file-label text-muted" for="customFile">Teste</p>
+            
+            </div>
+            <%= label_tag "Prévia da Foto" %>
+            <%= image_tag "http://rufforosa.com.br/wp-content/uploads/2016/02/placeholder-9.jpg", 
+              class: "img-responsive",
+              id: "img-preview" %>
+            <p id="status"></p>
+          </div>
         </div>  
         <%= f.association :students, 
           label: 'Alunos', 
@@ -79,3 +108,24 @@
 </div>
 
 <%= render 'admin/shared/locations_modal' %>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    const output = document.getElementById('img-preview');
+    if (window.FileList && window.File && window.FileReader) {
+      document.getElementById('customFile').addEventListener('change', event => {
+        output.src = '';
+        status.textContent = '';
+        const file = event.target.files[0];
+        
+        const reader = new FileReader();
+        reader.addEventListener('load', event => {
+          output.src = event.target.result;
+        });
+        reader.readAsDataURL(file);
+
+        $('.custom-file-label').html(file.name);
+      }); 
+    }
+  })
+</script>
