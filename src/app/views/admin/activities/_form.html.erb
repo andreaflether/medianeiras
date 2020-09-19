@@ -75,10 +75,14 @@
           </div>  
           <div class="col-md-6">
             <div class="form-group">
-              <%= label_tag "Imagem de exibição" %>
-              
-              <input type="file" class="custom-file-input" id="customFile" lang="pt-br" 
-              aria-describedby="customFile">
+              <%#= label_tag "Imagem de exibição" %>
+              <%= f.input :display_image, input_html: { 
+                id: 'customFile', 
+                lang: 'pt-br', 
+                'aria-describedby': 'customFile'}
+              %>
+              <%# <input type="file" class="custom-file-input" id="customFile" lang="pt-br" 
+              aria-describedby="customFile"> %>
               <p class="custom-file-label text-muted" for="customFile">Teste</p>
             
             </div>

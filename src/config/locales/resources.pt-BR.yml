@@ -1,11 +1,14 @@
 pt-BR:
+  display:
+    students_count:
+      zero: Nenhum aluno matriculado
+      one: '%{count} aluno matriculado'
+      other: '%{count} alunos matriculados'
+    availability:
+      zero: Não há vagas disponíveis
+      one: '%{count} vaga disponível'
+      other: '%{count} vagas disponíveis'  
   activerecord:
-    errors:
-      models:
-        activity:
-          attributes:
-            students:
-              max_length: "Capacidade máxima de alunos atingida! (%{max})"
     models:
       user:
         one: Usuário
@@ -67,6 +70,12 @@ pt-BR:
       location:
         description: Descrição
         address: Endereço
+    errors:
+      models:
+        activity:
+          attributes:
+            students:
+              # max_length: "Capacidade máxima de alunos atingida! (%{max})"
   controllers:
     users: Usuários
     events: Eventos

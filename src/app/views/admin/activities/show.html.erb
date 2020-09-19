@@ -19,40 +19,45 @@
 
       <div class="table-responsive">
         <table class="table activity-table">
-          <tbody><tr>
-            <th>Lotação</th>
-            <td><%= @activity.students_count %> alunos matriculados</b> (de um total de <%= @activity.max_capacity%> vagas)</td>
-          </tr>
-          <tr>
-            <th>Status</th>
-            <td class="align-middle">
-              <span class="label bg-<%= find_color(@activity.percent_of) %>"><%= vacancy(@activity.available) %>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <th>Professor(es)</th>
-            <td>
-              <%= @activity.volunteers.map{ |v| link_to(v.person.name,volunteer_path(v))}.join(", ").html_safe %>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">Dia(s)</th>
-            <td><ul class="list-group list-group-horizontal weeklist">            
-                <% @activity.week_days.each do |day| %>
-                  <li class="list-group-item py-2 px-4"><%= day.description %></li>
-                <% end %>
-              </ul></td>
-          </tr>
-          <tr>
-            <th>Horário</th>
-            <td><%= event_time(@activity.starts_at, @activity.ends_at) %></td>
-          </tr>
-          <tr>
-            <th>Local</th>
-            <td><%= @activity.location.description %></td>
-          </tr>
-        </tbody></table>
+          <tbody>
+            <tr>
+              <th>Lotação</th>
+              <td><%= t('display.students_count', count: @activity.students_count) %></td>
+            </tr>
+            <tr>
+            <tr>
+              <th>Disponibilidade</th>
+              <td>
+                <span class="label bg-<%= find_color(@activity.percent_of) %>">
+                  <%= t('display.availability', count: available(@activity)) %> 
+                </span>&nbsp; (de um total de <b><%= @activity.max_capacity %></b>)
+                </td>
+            </tr>
+            
+            <tr>
+              <th>Professor(es)</th>
+              <td>
+                <%= @activity.volunteers.map{ |v| link_to(v.person.name,volunteer_path(v))}.join(", ").html_safe %>
+              </td>
+            </tr>
+            <tr>
+              <th class="align-middle">Dia(s)</th>
+              <td><ul class="list-group list-group-horizontal weeklist">            
+                  <% @activity.week_days.each do |day| %>
+                    <li class="list-group-item py-2 px-4"><%= day.description %></li>
+                  <% end %>
+                </ul></td>
+            </tr>
+            <tr>
+              <th>Horário</th>
+              <td><%= event_time(@activity.starts_at, @activity.ends_at) %></td>
+            </tr>
+            <tr>
+              <th>Local</th>
+              <td><%= @activity.location.description %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     <%= render 'admin/shared/buttons', 
       confirm_data: '<h4 class="text-red">Tem certeza? Essa ação não poderá ser desfeita. </h4>
@@ -64,7 +69,11 @@
     </div>
     <div class="col-xs-12 col-md-6 col-sm-12">
       <p class="mb-3"><b>Imagem de exibição</b></p>
-      <img class="img-responsive" src="https://via.placeholder.com/500x300"> 
+      <% if @activity.display_image.attached? %>
+        <%= image_tag @activity.display_image, class: 'img-responsive' %>
+      <% else %>
+        <%= image_tag 'https://via.placeholder.com/500x300', class: 'img-responsive' %>
+      <% end %>
     </div>
   </div>
   <br />

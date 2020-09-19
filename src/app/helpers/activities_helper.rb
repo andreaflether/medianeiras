@@ -2,13 +2,17 @@ module ActivitiesHelper
   def find_color(percentage)
     case percentage
     when 0..60
-      "green"
+      'green'
     when 61..84
-      "yellow"
+      'yellow'
     when 85..100
-      "red"
+      'red'
     end 
   end
+
+  def available(activity)
+    activity.max_capacity - activity.students_count
+  end 
 
   def vacancy(total_students)
     if (total_students == 0)

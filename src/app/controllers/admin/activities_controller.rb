@@ -84,6 +84,8 @@ class Admin::ActivitiesController < AdminController
   # Only allow a list of trusted parameters through.
   def activity_params
     params.require(:activity).permit(:name, :description, :location_id, :max_capacity, :starts_at, 
-                                     :ends_at, week_day_ids: [], student_ids: [], volunteer_ids: [])
+                                     :ends_at, :display_image, 
+                                     week_day_ids: [], student_ids: [], volunteer_ids: [],
+                                     )
   end
 end

@@ -3,15 +3,12 @@ class Activity < ApplicationRecord
   has_and_belongs_to_many :volunteers
   has_and_belongs_to_many :students
   belongs_to :location
+  has_one_attached :display_image
 
-  validate :number_of_students
+  validate :verify_availability
   validates :max_capacity, numericality: { greater_than_or_equal_to: 1, allow_blank: true }
   validates_presence_of :name, :description, :starts_at, :ends_at
-
-  def available
-    self.max_capacity - students_count
-  end 
-
+  
   def students_count
     self.students.count
   end 
@@ -22,10 +19,10 @@ class Activity < ApplicationRecord
 
   private
 
-  def number_of_students
+  def verify_availability
     unless self.max_capacity == nil
       errors.add(:students, :max_length, max: self.max_capacity,
-      :message => "^Capacidade máxima de alunos atingida.") if self.students.count > self.max_capacity
+      :message => "Capacidade máxima de alunos atingida.") if self.students.count > self.max_capacity
     end 
   end
 end
