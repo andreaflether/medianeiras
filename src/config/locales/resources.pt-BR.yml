@@ -42,15 +42,16 @@ pt-BR:
           title: Pesquisar por Nome
           location: Pesquisar por Local
       activity:
-        name: Nome
         description: Descrição
-        week_days: Dias
-        starts_at: Inicia às
+        display_image: Imagem de exibição
         ends_at: Termina às
-        max_capacity: Quantidade máxima de alunos
         location: Local
+        max_capacity: Quantidade máxima de alunos
+        name: Nome
+        starts_at: Inicia às
         students: ""
         volunteers: Professor(a)/Responsável
+        week_days: Dias
       person:
         name: Nome
         birthday: Data de nascimento
@@ -70,12 +71,6 @@ pt-BR:
       location:
         description: Descrição
         address: Endereço
-    errors:
-      models:
-        activity:
-          attributes:
-            students:
-              # max_length: "Capacidade máxima de alunos atingida! (%{max})"
   controllers:
     users: Usuários
     events: Eventos

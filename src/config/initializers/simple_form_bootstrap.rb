@@ -83,8 +83,22 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :checkbox, tag: :div, class: "checkbox", error_class: "has-error" do |b|
+  config.wrappers :custom_file, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :minlength
+    b.optional :readonly
+    # b.use :label
+    b.wrapper :custom_file_wrapper, tag: 'div', class: 'custom-file' do |ba|
+      ba.use :input, class: 'custom-file-input', error_class: 'has-error'
+      ba.use :label, class: 'custom-file-label'
+      ba.use :full_error, wrap_with: { tag: 'div', class: 'help-block has-error' }
+    end
+    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  end
 
+  config.wrappers :checkbox, tag: :div, class: "checkbox", error_class: "has-error" do |b|
     # Form extensions
     b.use :html5
 

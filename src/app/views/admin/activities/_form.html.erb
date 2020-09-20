@@ -1,6 +1,6 @@
 <div class="box box-primary">
   <div class="box-header with-border">
-    <%= actions(action_name) %>
+    <h4 class="box-title"><%= actions(action_name) %></h4>
   </div>
  
   <div class="box-body">
@@ -56,14 +56,12 @@
               label_method: :description,
               value_method: :id, 
               input_html: { multiple: true, class: 'select2', placeholder: 'Selecione um ou mais dias' } %>
-          </div>
-          
+          </div> 
         </div>
         <div class="row">
           <div class="col-md-12">
             <%= f.input :description, input_html: { rows: 3 } %>
-          </div>
-          
+          </div> 
         </div>
         <div class="row">
           <div class="col-md-6">
@@ -75,22 +73,22 @@
           </div>  
           <div class="col-md-6">
             <div class="form-group">
-              <%#= label_tag "Imagem de exibição" %>
-              <%= f.input :display_image, input_html: { 
-                id: 'customFile', 
-                lang: 'pt-br', 
-                'aria-describedby': 'customFile'}
+              <%= f.label :display_image %>
+              <%= f.input :display_image, 
+                wrapper: :custom_file,
+                input_html: { 
+                  id: 'customFile', 
+                  lang: 'pt-br', 
+                  'aria-describedby': 'customFile'
+                },
+                label: image_filename(@activity, f)
               %>
-              <%# <input type="file" class="custom-file-input" id="customFile" lang="pt-br" 
-              aria-describedby="customFile"> %>
-              <p class="custom-file-label text-muted" for="customFile">Teste</p>
-            
+
+              <div id="preview_actions" class=<%= "hidden" if !has_image(@activity) %>>
+                <%= button_tag 'Remover foto', type: 'button', class: 'btn btn-xs btn-danger', id: 'remove_photo' %>   
+                <%= button_tag 'Exibir prévia da foto', type: 'button', class: 'btn btn-xs btn-primary', id: 'preview' %>   
+              </div>
             </div>
-            <%= label_tag "Prévia da Foto" %>
-            <%= image_tag "http://rufforosa.com.br/wp-content/uploads/2016/02/placeholder-9.jpg", 
-              class: "img-responsive",
-              id: "img-preview" %>
-            <p id="status"></p>
           </div>
         </div>  
         <%= f.association :students, 
@@ -111,25 +109,5 @@
   <% end %>
 </div>
 
+<%= render 'display_photo_preview' %>
 <%= render 'admin/shared/locations_modal' %>
-
-<script>
-  $(document).on('turbolinks:load', function() {
-    const output = document.getElementById('img-preview');
-    if (window.FileList && window.File && window.FileReader) {
-      document.getElementById('customFile').addEventListener('change', event => {
-        output.src = '';
-        status.textContent = '';
-        const file = event.target.files[0];
-        
-        const reader = new FileReader();
-        reader.addEventListener('load', event => {
-          output.src = event.target.result;
-        });
-        reader.readAsDataURL(file);
-
-        $('.custom-file-label').html(file.name);
-      }); 
-    }
-  })
-</script>

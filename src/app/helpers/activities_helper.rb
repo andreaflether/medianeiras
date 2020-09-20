@@ -14,6 +14,14 @@ module ActivitiesHelper
     activity.max_capacity - activity.students_count
   end 
 
+  def has_image(activity)
+    activity.display_image.attached?
+  end
+
+  def image_filename(activity, f)
+    has_image(activity) ? f.object.display_image.blob.filename.to_s : 'Nenhuma imagem selecionada'
+  end
+
   def vacancy(total_students)
     if (total_students == 0)
       'Não há vagas disponíveis'

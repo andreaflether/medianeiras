@@ -89,3 +89,83 @@ $spacers: map-merge(
 
 .align-middle { vertical-align: middle !important; }
 
+.custom-file {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  margin-bottom: 0;
+}
+
+.custom-file-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: 38px;
+  padding: .375rem .75rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0 .25rem .25rem 0;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: 36px;
+    padding: .375rem .75rem;
+    line-height: 1.7;
+    color: #444;
+    content: "Selecionar arquivo";
+    background-color: #f4f4f4;
+    border-left: inherit;
+    border-color: rgb(221, 221, 221);
+    border-radius: 0 .25rem .25rem 0;
+  }
+}
+
+.custom-file-input {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  margin: 0;
+  opacity: 0;
+}
+
+.form-group > .custom-file:not(:last-child) .custom-file-label, 
+.form-group > .custom-file:not(:last-child) .custom-file-label::after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.custom-control-label::before, 
+.custom-file-label, .custom-select {
+  transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.custom-file-input:lang(pt-br) ~ .custom-file-label::after { content: "Selecionar arquivo"; }
+
+.form-group > .custom-file {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.input-group > .custom-file, 
+.input-group > .custom-select {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}

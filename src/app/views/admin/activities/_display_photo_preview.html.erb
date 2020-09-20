@@ -1,0 +1,20 @@
+<div class="modal" id="preview-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">Prévia da foto</h4>
+      </div>
+      <div class="modal-body">
+        <%= image_tag has_image(@activity) ? @activity.display_image : 'img_placeholder', 
+          class: 'img-responsive',
+          id: 'img-preview' 
+        %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
