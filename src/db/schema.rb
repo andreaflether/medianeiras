@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 2020_09_19_135428) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
+    t.integer "status", default: 0
     t.text "description"
-    t.integer "location_id"
+    t.date "closure_date"
+    t.integer "max_capacity"
     t.time "starts_at"
     t.time "ends_at"
-    t.integer "max_capacity"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_activities_on_location_id"
