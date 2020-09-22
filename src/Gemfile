@@ -36,6 +36,7 @@ gem 'ransack'
 gem 'roadie-rails', '~> 2.1'
 gem 'selectize-rails'
 gem 'simple_form'
+gem 'translate_enum'
 gem 'tty-spinner'
 gem 'via_cep'
 

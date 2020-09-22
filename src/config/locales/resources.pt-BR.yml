@@ -46,12 +46,16 @@ pt-BR:
         display_image: Imagem de exibição
         ends_at: Termina às
         location: Local
-        max_capacity: Quantidade máxima de alunos
+        max_capacity: Lotação
         name: Nome
         starts_at: Inicia às
         students: ""
         volunteers: Professor(a)/Responsável
         week_days: Dias
+        closure_date: Data de encerramento
+        status_list:
+          active: Ativa
+          closed: Encerrada
       person:
         name: Nome
         birthday: Data de nascimento

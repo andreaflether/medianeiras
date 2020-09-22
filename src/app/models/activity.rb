@@ -1,9 +1,14 @@
 class Activity < ApplicationRecord
+  include TranslateEnum
+
   has_and_belongs_to_many :week_days
   has_and_belongs_to_many :volunteers
   has_and_belongs_to_many :students
   belongs_to :location
   has_one_attached :display_image
+  
+  enum status: [ :active, :closed ]
+  translate_enum :status
 
   validate :verify_availability
   validates :max_capacity, numericality: { greater_than_or_equal_to: 1, allow_blank: true }
