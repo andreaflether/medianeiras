@@ -7,9 +7,38 @@
     <%= simple_form_for(@activity) do |f| %>
       <div class="form-inputs">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-6">
             <%= f.input :name %>
           </div>
+          <div class="col-md-2">
+            
+            <div class="form-group">
+              <%= f.label 'Status da atividade', style: 'display: block' %>
+              <div class="btn-group" id="status" data-toggle="buttons">
+                <label class="btn btn-default btn-on btn-sm active">
+                <input type="radio" value="active" name="activity[status]">Ativa</label>
+                <label class="btn btn-default btn-off btn-sm ">
+                <input type="radio" value="closed" name="activity[status]">Encerrada</label>
+              </div>
+            
+            </div> 
+            <%#= f.input :status, as: :radio_buttons, collection: [['Ativa', 'active'], ['Encerrada', 'closed']]%>
+            </div>
+            <div class="col-md-4">
+              <%= f.input :closure_date, wrapper: :prepend do %>
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <%= f.input_field :closure_date, 
+                  as: :string, 
+                  id: 'closure_date',
+                  class: 'datepicker',
+                  value: date_format(@activity.closure_date) 
+                %>
+              <% end %>
+            
+          </div>
+          
           <div class="col-md-2">
             <%= f.input :starts_at, as: :string, label: "Inicia às" do %>
               <div class="input-group">

@@ -11,6 +11,18 @@ $(document).on('turbolinks:load', function() {
     dropdownAutoWidth : true
   });
 
+  // Datepicker
+  $('.datepicker').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    locale: {
+			format      : 'DD/MM/YYYY',
+			applyLabel  : 'Salvar',
+      cancelLabel : 'Cancelar'
+    },
+    autoApply : true,
+  })
+
  // Timepicker
   $('.timepicker').timepicker({
     defaultTime  : false,

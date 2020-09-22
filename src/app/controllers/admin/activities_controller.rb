@@ -1,6 +1,6 @@
 class Admin::ActivitiesController < AdminController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Atividades", :activities_path
+  add_breadcrumb 'Atividades', :activities_path
   before_action :find_resources, only: [:new, :create, :edit, :update]
 
   # GET /activities
@@ -17,7 +17,7 @@ class Admin::ActivitiesController < AdminController
 
   # GET /activities/new
   def new
-    add_breadcrumb "Nova atividade", new_activity_path
+    add_breadcrumb 'Nova atividade', new_activity_path
     @activity = Activity.new
   end
 
@@ -43,7 +43,7 @@ class Admin::ActivitiesController < AdminController
         format.html { redirect_to @activity, notice: 'Atividade criada com sucesso!' }
         format.json { render :show, status: :created, location: @activity }
       else  
-        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
+        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
         format.html { render :new }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
@@ -55,10 +55,10 @@ class Admin::ActivitiesController < AdminController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, flash: { info: "Atividade atualizada com sucesso." } }
+        format.html { redirect_to @activity, flash: { info: 'Atividade atualizada com sucesso.' } }
         format.json { render :show, status: :ok, location: @activity }
       else
-        flash.now[:error] = "Há erros no formulário. Verifique-os e tente novamente."
+        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
         format.html { render :edit }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
@@ -84,7 +84,7 @@ class Admin::ActivitiesController < AdminController
   # Only allow a list of trusted parameters through.
   def activity_params
     params.require(:activity).permit(:name, :description, :location_id, :max_capacity, :starts_at, 
-                                     :ends_at, :display_image, 
+                                     :ends_at, :display_image, :status, :closure_date,
                                      week_day_ids: [], student_ids: [], volunteer_ids: [],
                                      )
   end

@@ -8,9 +8,13 @@ module EventsHelper
     l(start_hour, format: "%H:%M às #{ends_at}")
   end
 
-  def date_format(date)
-    date.nil? ? "" : date.strftime("%d/%m/%Y %H:%M")
+  def datetime_format(datetime)
+    datetime.nil? ? "" : datetime.strftime("%d/%m/%Y %H:%M")
   end 
+
+  def date_format(date)
+    date.nil? ? "" : date.strftime("%d/%m/%Y")
+  end
 
   def hour_format(hour)
     hour.nil? ? "" : hour.strftime("%H:%M")

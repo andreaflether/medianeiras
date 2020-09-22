@@ -20,9 +20,7 @@ Rails.application.routes.draw do
     resources :activities, path: 'admin/activities'
     get 'admin/events/calendar', as: :calendar, to: 'events#calendar'
     get 'admin/events/next_events', as: :next_events, to: 'events#next_events'
-    resources :events, path: 'admin/events' do 
-      get :autocomplete_event_location, :on => :collection
-    end 
+    resources :events, path: 'admin/events' 
     resources :locations
     resources :users, path: 'admin/users'
   end 
