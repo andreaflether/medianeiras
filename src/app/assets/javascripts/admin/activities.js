@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   // Initialize multiselect for Students on Activity form pages
   $('.activity_multiselect').bootstrapDualListbox({
     filterPlaceHolder     : 'Pesquisar Aluno(a)',

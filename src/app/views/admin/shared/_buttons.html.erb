@@ -5,17 +5,16 @@
     data: { 
       toggle: 'tooltip', 
       title: 'Confirmação', 
-      turbolinks: false, 
       confirm: params[:confirm_data].present? ? confirm_data : 'Tem certeza? Esta ação não poderá ser desfeita.' ,
     }, 
     class: "btn btn-danger btn-sm" do %>
     <i class="fa fa-trash"></i>&nbsp; Apagar <%= translated_resource_name %> 
   <% end %>
-  <%= link_to resource_path('edit'), data: { turbolinks: false }, 
+  <%= link_to resource_path('edit'), 
     class: 'btn btn-primary btn-sm' do %>
     <i class="fa fa-pencil"></i>&nbsp; Editar informações 
   <% end %>
-  <%= link_to resource_path('new'), class: 'btn btn-success btn-sm', data: { turbolinks: false } do %>
+  <%= link_to resource_path('new'), class: 'btn btn-success btn-sm' do %>
     <i class="fa fa-plus"></i>&nbsp; Cadastrar <%= translated_resource_name %> 
   <% end %>
 </div>

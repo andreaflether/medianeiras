@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   // Activate tooltip on the whole application
   $('[data-toggle="tooltip"]').tooltip({
     trigger : 'hover',
