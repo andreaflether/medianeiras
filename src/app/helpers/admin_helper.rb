@@ -13,7 +13,7 @@ module AdminHelper
   end 
   
   def events_count 
-    Event.all.this_month.count
+    Event.all.happening_this_month.count
   end 
 
   def title

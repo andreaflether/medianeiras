@@ -13,12 +13,13 @@ RSpec.feature "Manter Eventos", type: :feature, js: true do
       end 
 
       scenario 'cadastra um evento válido ao preencher todos os campos' do 
-        fill_in('Nome', with: Faker::Lorem.sentence)
+        fill_in('Título', with: Faker::Lorem.sentence)
         fill_in('Descrição', with: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4))
         fill_in('start_date', with: DateTime.now)
         fill_in('end_date', with: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 6))
         fill_in('Local', with: Faker::Lorem.sentence(word_count: rand(3..6)))
         
+        page.save_screenshot('the helllll.png')
         click_button('Criar Evento')
     
         expect(page).to have_content(/Evento criado com sucesso/) 
