@@ -54,9 +54,11 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'so_many_devices'
   gem 'vcr'
   gem 'webdrivers'
   gem 'webmock'
+  gem 'yomu'
 end
 
 group :development do

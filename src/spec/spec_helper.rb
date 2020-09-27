@@ -17,7 +17,6 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.configure_rspec_metadata!
-  c.filter_sensitive_data('<API-URL>') { 'http://jsonplaceholder.typicode.com' }
   c.ignore_localhost = true
   c.allow_http_connections_when_no_cassette = true
 end
@@ -27,17 +26,15 @@ Capybara.default_max_wait_time = 5
 Capybara.raise_server_errors = false
 
 Capybara.register_driver :headless_chrome do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << '--headless' << '--window-size=1440,900' << '--disable-site-isolation-trials' << '--no-sandbox'
+  end
+  browser_options.add_preference(:download, prompt_for_download: false, default_directory: SoManyDevices::DownloadsHelper::PATH.to_s)
+  browser_options.add_preference(:browser, set_download_behavior: { behavior: 'allow' })
+
   Capybara::Selenium::Driver.new app,
     browser: :chrome,
-    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome("goog:chromeOptions" => {
-      # Set launch flags similar to puppeteer's for best performance
-      "args" => [
-        "--force-color-profile=srgb",
-        "--headless",
-        "--no-sandbox",
-        "--window-size=1440,900"
-      ]
-    })
+    options: browser_options
 end
 
 Capybara.javascript_driver = :headless_chrome
