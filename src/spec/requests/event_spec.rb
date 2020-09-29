@@ -12,7 +12,7 @@ RSpec.describe 'Eventos - JSON', type: :request do
       expect(response).to have_http_status(200)
     end
 
-    it 'retorna evento(s) com o formato esperado' do 
+    it 'retorna evento(s) com o schema esperado' do 
       create_list(:event, 3)
       get events_path, as: :json
       expect(response).to match_json_schema('events/index')

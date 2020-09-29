@@ -22,7 +22,7 @@ VCR.configure do |c|
 end
 
 # Capybara Chrome Headless
-Capybara.default_max_wait_time = 5
+Capybara.default_max_wait_time = 10
 Capybara.raise_server_errors = false
 
 Capybara.register_driver :headless_chrome do |app|
