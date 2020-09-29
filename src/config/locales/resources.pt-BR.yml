@@ -33,13 +33,13 @@ pt-BR:
         other: Locais
     attributes:
       event:
-        title: Nome
+        title: Título
         description: Descrição
         start_date: Data/hora de início
         end_date: Data/hora de término
         location: Local
         ransack:
-          title: Pesquisar por Nome
+          title: Pesquisar por Título
           location: Pesquisar por Local
       activity:
         description: Descrição

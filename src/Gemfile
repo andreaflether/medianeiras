@@ -42,11 +42,15 @@ gem 'via_cep'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
+  gem 'httparty'
+  gem 'yomu'
+end
+
+group :test do 
   gem 'capybara'
   gem 'database_cleaner', '~> 1.7'
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'faker'
-  gem 'httparty'
   gem 'json_matchers'
   gem 'rails-controller-testing'
   gem 'rspec-json_expectations'
@@ -58,7 +62,6 @@ group :development, :test do
   gem 'vcr'
   gem 'webdrivers'
   gem 'webmock'
-  gem 'yomu'
 end
 
 group :development do
