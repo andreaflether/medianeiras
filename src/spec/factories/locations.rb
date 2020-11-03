@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :location do
-    description { "Centro Comunitário Nossa Senhora Medianeira" }
-    address { "Rua Clarindo de Queiroz, 2018 - Farias Brito" }
+    description { Faker::Lorem.sentence(word_count: 3) }
+    address { "#{Faker::Address.street_address} - #{Faker::Address.street_name}" }
   end
 end
