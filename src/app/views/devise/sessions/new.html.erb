@@ -1,42 +1,25 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <p class="login-box-msg">Entre para dar início a sessão</p>
 
-  <%= f.input :email, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-envelope"></i>
+<div class="login-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <%= inline_svg_tag('logo.svg', class: 'logo') %>
     </div>
-    <span class="has-float-label">
-      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
-      <%= f.label :email %>
-    </span>
-  <% end %>
+    <div class="card-body">
+      <p class="login-box-msg">Entre com sua conta para iniciar a sessão</p>
+      <%= f.input :email, wrapper: :floating_labels_form, input_html: { placeholder: 'Seu e-mail' } %>
+    
+      <%= f.input :password, wrapper: :floating_labels_form, input_html: { placeholder: 'Senha' } %>
+      
+      <div class="text-center">
+        <%= f.input :remember_me, as: :boolean, wrapper: :custom_boolean, label_html: { class: 'font-weight-normal'} %>
+      </div>
 
-  <%= f.input :password, 
-    label: false, 
-    wrapper: :prepend, 
-    wrapper_html: { class: 'mb-0' } do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-lock"></i>
+      <%= f.button :submit, 'Entrar', class: 'btn btn-primary btn-block' %>
     </div>
-    <span class="has-float-label">
-      <%= f.input_field :password, placeholder: 'Senha' %>
-      <%= f.label :password %>
-    </span>
-  <% end %>
-
-  <div class="row">
-    <div class="col-xs-12 text-center">
-      <div class="checkbox icheck my-3">
-        <%= f.input :remember_me, as: :boolean %>
-      </div> 
-    </div>
-
-    <div class="col-xs-12">
-      <%= f.button :submit, 'Entrar', class: 'btn btn-primary btn-flat btn-block' %>
+    <div class="card-footer text-center">
+      <%= render 'devise/shared/links' %>
     </div>
   </div>
-<% end %>
-
-<div class="social-auth-links text-center">
-  <%= render 'devise/shared/links' %>
 </div>
+<% end %>

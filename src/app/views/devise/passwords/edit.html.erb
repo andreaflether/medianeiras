@@ -1,34 +1,22 @@
-<h3 class="login-box-msg">Alterar senha</h3>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render 'devise/shared/error_messages' %>
-  <%= f.input :password, label: false, wrapper: :prepend, hint: 'Mínimo: 6 caracteres'  do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-lock"></i>
-    </div>
-    <span class="has-float-label">
-      <%= f.input_field :password, placeholder: 'Nova senha' %>
-      <%= f.label 'Nova senha' %>
-    </span>
-  <% end %>
-
-  <%= f.input :password_confirmation, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-log-in"></i>
-    </div>
-    <span class="has-float-label">
-      <%= f.input_field :password_confirmation, placeholder: 'Confirme a sua nova senha' %>
-      <%= f.label :password_confirmation %>
-    </span>
-  <% end %>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <%= f.button :submit, 'Confirmar alterações', class: 'btn btn-primary btn-block btn-flat' %>
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), 
+  html: { method: :put }, wrapper: :floating_labels_form) do |f| %>
+  <div class="login-box">
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <%= inline_svg_tag('logo.svg', class: 'logo') %>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Preencha os campos abaixo com uma nova senha de sua preferência.</p>
+        <%= f.input :password, required: true, 
+          input_html: { placeholder: 'Nova senha' } %>
+        <%= f.input :password_confirmation, required: true, 
+          input_html: { placeholder: 'Confirmação da nova senha' } %>
+    
+        <%= f.button :submit, 'Confirmar alterações', class: 'btn btn-primary btn-block' %>
+      </div>
+      <div class="card-footer text-center">
+        <%= render 'devise/shared/links' %>
+      </div>
     </div>
   </div>
 <% end %>
-
-<div class="social-auth-links text-center">
-  <%= render 'devise/shared/links' %>
-</div>

@@ -1,26 +1,22 @@
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <h4 class="text-center"><b>Esqueceu sua senha?</b></h4>
 
-  <p class="text-center login-box-msg">Recupere-a informando abaixo o e-mail que você usou para criar sua conta.</p>
-  <%= render 'devise/shared/error_messages' %>
-
-  <%= f.input :email, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-envelope"></i>
-    </div>
-    <span class="has-float-label">
-      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
-      <%= f.label :email %>
-    </span>
-  <% end %>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      <%= f.button :submit, "Enviar instruções", class: "btn btn-primary btn-block btn-flat" %>
+  <div class="login-box">
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <%= inline_svg_tag('logo.svg', class: 'logo') %>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg"><b>Esqueceu sua senha?</b>
+          Recupere-a informando abaixo o e-mail que você usou para criar sua conta.
+        </p>
+        <%= f.input :email, wrapper: :floating_labels_form, required: true, 
+          input_html: { placeholder: 'E-mail utilizado ao criar conta' } %>
+    
+        <%= f.button :submit, 'Enviar instruções por e-mail', class: 'btn btn-primary btn-block' %>
+      </div>
+      <div class="card-footer text-center">
+        <%= render 'devise/shared/links' %>
+      </div>
     </div>
   </div>
 <% end %>
-
- <div class="social-auth-links text-center">
-    <%= render 'devise/shared/links' %>
-  </div> 

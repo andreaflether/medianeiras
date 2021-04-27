@@ -1,55 +1,25 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <h3 class="text-center login-box-msg">Criar conta</h3>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :floating_labels_form) do |f| %>
 
-  <%= render 'devise/shared/error_messages' %>
-
-  <%= f.input :full_name, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-user"></i>
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <%= inline_svg_tag('logo.svg', class: 'logo') %>
     </div>
-    <span class="has-float-label">
-      <%= f.input_field :full_name, placeholder: 'Nome completo' %>
-      <%= f.label :full_name %>
-    </span>
-  <% end %>
-
-  <%= f.input :email, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-envelope"></i>
+    <div class="card-body">
+      <p class="register-box-msg">Entre com sua conta para iniciar a sessão</p>
+      <%= f.input :full_name, input_html: { placeholder: 'Nome completo' } %>
+      <%= f.input :email, required: true, input_html: { placeholder: 'Seu e-mail' } %>
+    
+      <%= f.input :password, required: true, input_html: { placeholder: 'Senha' } %>
+      <%= f.input :password_confirmation, required: true,
+        input_html: { placeholder: 'Confirmação da senha' } %>
+      
+      <%= f.button :submit, 'Criar conta', class: 'btn btn-primary btn-block' %>
     </div>
-    <span class="has-float-label">
-      <%= f.input_field :email, placeholder: 'usuario@mail.com' %>
-      <%= f.label :email %>
-    </span>
-  <% end %>
-
-  <%= f.input :password, label: false, wrapper: :prepend, hint: 'Mínimo: 6 caracteres'  do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-lock"></i>
-    </div>
-    <span class="has-float-label">
-      <%= f.input_field :password, placeholder: 'Senha' %>
-      <%= f.label :password%>
-    </span>
-  <% end %>
-
-  <%= f.input :password_confirmation, label: false, wrapper: :prepend do %>
-    <div class="input-group-addon">
-      <i class="glyphicon glyphicon-log-in"></i>
-    </div>
-    <span class="has-float-label">
-      <%= f.input_field :password_confirmation, placeholder: 'Digite a senha novamente' %>
-      <%= f.label :password_confirmation %>
-    </span>
-  <% end %>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      <%= f.button :submit, "Cadastrar", class: "btn btn-primary btn-flat btn-block" %>
+    <div class="card-footer text-center">
+      <%= render 'devise/shared/links' %>
     </div>
   </div>
+</div>
 <% end %>
 
-<div class="social-auth-links text-center">
-  <%= render 'devise/shared/links' %>
-</div>
