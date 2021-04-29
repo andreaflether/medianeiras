@@ -94,7 +94,6 @@ $(document).ready(function() {
       }
     }
     },
-    // buttons: ["copy", "csv", "excel", "pdf", "print"],
     autoWidth: false,
     info: true,
     lengthChange: false,
