@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand py-0" href="#">
+      <%= inline_svg_tag("logo.svg", id: "logo", style: "cursor: pointer; width: 55%; height: auto") %>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <%= active_link_to 'Início', root_path, active: :exclusive,
+          class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+
+        <%= active_link_to 'Sobre nós', about_path, 
+          class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+
+        <%= active_link_to 'Atividades', activities_path, 
+          class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Parceiros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <a class="dropdown-item" href="#">Unifametro</a>
+            <a class="dropdown-item" href="#">Paróquia N. Sª. das Dores</a>
+          </div>
+        </li>
+
+        <%= active_link_to 'Eventos', events_path, 
+          class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+
+        <%= active_link_to 'Contato', contact_path, 
+          class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+      </ul>
+    </div>
+  </div>
+</nav>

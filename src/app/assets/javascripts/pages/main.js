@@ -13,29 +13,29 @@ $(document).ready(function() {
     $(this).toggleClass('hoverEffect');
   })
 
-  const $dropdown = $(".dropdown");
-  const $dropdownToggle = $(".dropdown-toggle");
-  const $dropdownMenu = $(".dropdown-menu");
-  const showClass = "show";
+  const $dropdown = $('.dropdown');
+  const $dropdownToggle = $('.dropdown-toggle');
+  const $dropdownMenu = $('.dropdown-menu');
+  const showClass = 'show';
  
-  $(window).on("load resize", function() {
-    if (this.matchMedia("(min-width: 768px)").matches) {
+  $(window).on('load resize', function() {
+    if (this.matchMedia('(min-width: 768px)').matches) {
       $dropdown.hover(
         function() {
           const $this = $(this);
           $this.addClass(showClass);
-          $this.find($dropdownToggle).attr("aria-expanded", "true");
+          $this.find($dropdownToggle).attr('aria-expanded', 'true');
           $this.find($dropdownMenu).addClass(showClass);
         },
         function() {
           const $this = $(this);
           $this.removeClass(showClass);
-          $this.find($dropdownToggle).attr("aria-expanded", "false");
+          $this.find($dropdownToggle).attr('aria-expanded', 'false');
           $this.find($dropdownMenu).removeClass(showClass);
         }
       );
     } else {
-      $dropdown.off("mouseenter mouseleave");
+      $dropdown.off('mouseenter mouseleave');
     }
   });
 
@@ -43,11 +43,9 @@ $(document).ready(function() {
 
   function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      // document.getElementById("navbar").style.padding = "30px 10px";
-      document.getElementById("logo").style.width = "40%";
+      document.getElementById('logo').style.width = '40%';
     } else {
-      
-      document.getElementById("logo").style.width = "55%";
+      document.getElementById('logo').style.width = '55%';
     }
   }
 
@@ -59,15 +57,8 @@ $(document).ready(function() {
     }
   });
 
-  $("#scroll-to-top").click(function() {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+  $('#scroll-to-top').click(function() {
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
     return false;
-  });
-
-  $('.nav-link').each(function () {
-    var curr_page = ($(this)).attr('href');
-    if (window.location.pathname == curr_page) {
-      $(this).closest('li').addClass('active')
-    }
   });
 })
