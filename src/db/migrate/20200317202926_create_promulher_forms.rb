@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePromulherForms < ActiveRecord::Migration[5.2]
   def change
     create_table :promulher_forms do |t|

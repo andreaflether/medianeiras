@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   layout 'pages'
   def index
@@ -5,7 +7,5 @@ class PagesController < ApplicationController
     @next_events = Event.all.happening_this_month
   end
 
-  def contact 
-
-  end 
+  def contact; end
 end

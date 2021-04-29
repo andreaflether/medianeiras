@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  before_action :set_suggestion, only: %i[show edit update destroy]
 
   # GET /suggestions
   # GET /suggestions.json
@@ -9,8 +11,7 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions/1
   # GET /suggestions/1.json
-  def show
-  end
+  def show; end
 
   # GET /suggestions/new
   def new
@@ -18,8 +19,7 @@ class SuggestionsController < ApplicationController
   end
 
   # GET /suggestions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /suggestions
   # POST /suggestions.json
@@ -62,13 +62,14 @@ class SuggestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_suggestion
-      @suggestion = Suggestion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def suggestion_params
-      params.require(:suggestion).permit(:parents, :children, :comments)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_suggestion
+    @suggestion = Suggestion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def suggestion_params
+    params.require(:suggestion).permit(:parents, :children, :comments)
+  end
 end

@@ -21,7 +21,7 @@ Devise.setup do |config|
 
   # Layout config
   Devise::Mailer.layout 'mailer'
-  Devise::Mailer.send(:include, Roadie::Rails::Automatic)
+  Devise::Mailer.include Roadie::Rails::Automatic
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

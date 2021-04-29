@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PromulherFormsController < ApplicationController
-  before_action :set_promulher_form, only: [:show, :edit, :update, :destroy]
+  before_action :set_promulher_form, only: %i[show edit update destroy]
 
   # GET /promulher_forms
   # GET /promulher_forms.json
@@ -9,8 +11,7 @@ class PromulherFormsController < ApplicationController
 
   # GET /promulher_forms/1
   # GET /promulher_forms/1.json
-  def show
-  end
+  def show; end
 
   # GET /promulher_forms/new
   def new
@@ -18,8 +19,7 @@ class PromulherFormsController < ApplicationController
   end
 
   # GET /promulher_forms/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /promulher_forms
   # POST /promulher_forms.json
@@ -62,13 +62,14 @@ class PromulherFormsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_promulher_form
-      @promulher_form = PromulherForm.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def promulher_form_params
-      params.require(:promulher_form).permit(:family_size, :f_children, :m_children, :works)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_promulher_form
+    @promulher_form = PromulherForm.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def promulher_form_params
+    params.require(:promulher_form).permit(:family_size, :f_children, :m_children, :works)
+  end
 end

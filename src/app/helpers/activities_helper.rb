@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActivitiesHelper
   def find_color(percentage)
     case percentage
@@ -7,12 +9,12 @@ module ActivitiesHelper
       'yellow'
     when 85..100
       'red'
-    end 
+    end
   end
 
   def available(activity)
     activity.max_capacity - activity.students_count
-  end 
+  end
 
   def has_image(activity)
     activity.display_image.attached?
@@ -23,12 +25,12 @@ module ActivitiesHelper
   end
 
   def vacancy(total_students)
-    if (total_students == 0)
+    if total_students.zero?
       'Não há vagas disponíveis'
-    elsif (total_students == 1)
+    elsif total_students == 1
       "#{total_students} vaga disponível"
-    else 
+    else
       "#{total_students} vagas disponíveis"
-    end 
-  end 
+    end
+  end
 end

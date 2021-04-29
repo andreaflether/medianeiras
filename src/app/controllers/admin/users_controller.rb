@@ -1,48 +1,50 @@
-class Admin::UsersController < AdminController
-  before_action :authorize
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
 
-  layout 'admin'
+module Admin
+  class UsersController < AdminController
+    before_action :authorize
+    before_action :set_user, only: %i[show edit update destroy]
 
-  def show
-  end
+    layout 'admin'
 
-  def index
-    @users = User.all
-    add_breadcrumb "usuários", users_path
-  end
+    def show; end
 
-  def edit
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to users_path, notice: 'Usuário atualizado com sucesso!'
-    else
-      render 'edit'
+    def index
+      @users = User.all
+      add_breadcrumb 'usuários', users_path
     end
-  end
 
-  def destroy
-    @user.destroy
+    def edit; end
 
-    redirect_to users_path, notice: 'Usuário apagado com sucesso.'
-  end
+    def update
+      if @user.update(user_params)
+        redirect_to users_path, notice: 'Usuário atualizado com sucesso!'
+      else
+        render 'edit'
+      end
+    end
 
-  private
+    def destroy
+      @user.destroy
 
-  def user_params
-    params.require(:user).permit(:id, :first_name, :last_name, :role, :email, :update_at, :created_at)
-  end
+      redirect_to users_path, notice: 'Usuário apagado com sucesso.'
+    end
 
-  def set_user 
-    @user = User.find(params[:id])
-  end 
+    private
 
-  def authorize
-    unless current_user.superadmin?
-      redirect_to root_path, alert: 'Você não possui acesso a esta página.'
-      return
+    def user_params
+      params.require(:user).permit(:id, :first_name, :last_name, :role, :email, :update_at, :created_at)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def authorize
+      unless current_user.superadmin?
+        redirect_to root_path, alert: 'Você não possui acesso a esta página.'
+        nil
+      end
     end
   end
 end

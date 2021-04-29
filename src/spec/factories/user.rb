@@ -1,19 +1,21 @@
-FactoryBot.define do 
-  factory :user do 
+# frozen_string_literal: true
+
+FactoryBot.define do
+  factory :user do
     full_name { Faker::Name.name_with_middle }
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 8) }
-    
-    trait :visitor do 
+
+    trait :visitor do
       role { 'user' }
     end
 
-    trait :admin do 
+    trait :admin do
       role { 'admin' }
     end
 
-    trait :superadmin do 
+    trait :superadmin do
       role { 'superadmin' }
     end
-  end 
-end 
+  end
+end

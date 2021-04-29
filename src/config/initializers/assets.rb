@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Version of your assets, change this if you want to expire all your assets.
@@ -10,8 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( admin.js admin.css )      # Admin Pages
-Rails.application.config.assets.precompile += %w( devise.js devise.css )    # Devise Pages
-Rails.application.config.assets.precompile += %w( doublearrow.png )
-Rails.application.config.assets.precompile += %w( mailers.css )
-Rails.application.config.assets.precompile += %w( pages.js pages.css )      #Pages 
+Rails.application.config.assets.precompile += %w[admin.js admin.scss]
+Rails.application.config.assets.precompile += %w[admin/calendar.js]
+Rails.application.config.assets.precompile += %w[devise.js devise.scss]
+Rails.application.config.assets.precompile += %w[doublearrow.png]
+Rails.application.config.assets.precompile += %w[mailers.scss]
+Rails.application.config.assets.precompile += %w[pages.js pages.scss]

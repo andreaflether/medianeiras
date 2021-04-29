@@ -1,0 +1,5 @@
+$('.new-location').html("<%= j render 'admin/shared/locations_modal' %>");
+$('#new-location-modal').modal('show');
+$('#new-location-modal').on('shown.bs.modal', function() {
+		$('form[data-client-side-validations]').enableClientSideValidations();
+	});
