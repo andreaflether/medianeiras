@@ -1,3 +1,12 @@
 .logo {
   width: 12rem;
 }
+
+// Corrects autocomplete problems in floating labels
+.form-label-group input:not(:placeholder-shown) ~ label,
+.form-label-group input:-webkit-autofill ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
