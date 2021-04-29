@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-  attribute :start_date, :datetime
-  attribute :end_date, :datetime
-  attribute :location_selection_type, :integer
+  attr_accessor :start_date
+  attr_accessor :end_date
+  attr_accessor :location_selection_type
 
   enum location_selection_type: %i[existing_location new_location]
 

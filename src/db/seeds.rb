@@ -47,7 +47,10 @@ def generate_student
   students
 end
 
-ccnsm = Location.create! description: 'Centro Comunitário Nossa Senhora Medianeira', address: 'Rua Clarindo de Queiroz, 2018'
+ccnsm = Location.find_or_create_by(
+  description: 'Centro Comunitário Nossa Senhora Medianeira',
+  address: 'Rua Clarindo de Queiroz, 2018'
+)
 activities = Activity.create!([
                                 {
                                   name: 'Balé',

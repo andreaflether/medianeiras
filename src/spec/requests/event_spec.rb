@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :request do
-  before(:each) do 
+  before(:each) do
     admin = create(:user, :superadmin)
     login_as(admin)
   end
@@ -100,9 +100,9 @@ RSpec.describe Event, type: :request do
     end
   end
 
-  describe 'GET /calendar' do 
-    it 'renders a successful response' do 
-      get calendar_admin_events_url 
+  describe 'GET /calendar' do
+    it 'renders a successful response' do
+      get calendar_admin_events_url
       expect(response).to be_successful
     end
   end
