@@ -3,17 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe Location, type: :model do
-  subject { create(:location) }
+  describe 'validations' do
+    context 'description' do
+      it { should validate_presence_of(:description) }
+      it { should validate_uniqueness_of(:description) }
+    end
 
-  context 'presence validations' do
-    it { should validate_presence_of(:address) }
+    context 'address' do
+      it { should validate_presence_of(:address) }
+    end
   end
 
-  context 'uniqueness validations' do
-    it { should validate_uniqueness_of(:description) }
+  describe 'associations' do
+    it { should have_many(:events) }
+    it { should have_many(:activities) }
   end
-
-  it { expect { create(:location) }.to change { Location.all.size }.by(1) }
-
-  it { is_expected.to be_valid }
 end
