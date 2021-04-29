@@ -46,12 +46,6 @@ RSpec.configure do |config|
     end
   end
 
-  config.include SoManyDevices::DownloadsHelper, type: :feature
-
-  config.before(:each, type: :feature, js: true) do
-    clear_downloads
-  end
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -65,9 +59,6 @@ RSpec.configure do |config|
 
   # FactoryBot config
   config.include FactoryBot::Syntax::Methods
-
-  config.include Helpers, type: :feature
-  config.include Form, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
