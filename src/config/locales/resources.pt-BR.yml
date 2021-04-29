@@ -35,9 +35,12 @@ pt-BR:
       event:
         title: Título
         description: Descrição
-        start_date: Data/hora de início
-        end_date: Data/hora de término
+        starts_at: Início
+        ends_at: Término
+        scheduled_for: Data
         location: Local
+        existing_location: Utilizar local já cadastrado
+        new_location: Cadastrar novo local
         ransack:
           title: Pesquisar por Título
           location: Pesquisar por Local
@@ -75,23 +78,5 @@ pt-BR:
       location:
         description: Descrição
         address: Endereço
-  controllers:
-    users: Usuários
-    events: Eventos
-    students: Alunos
-    volunteers: Voluntários
-    activities: Atividades
-    admin: Início
-    people: Pessoas
-    devise:
-      registrations:
-        create: Criar conta
-        new: Criar conta
-        edit: Editar informações de conta
-      passwords:
-        new: Recuperar senha
-        edit: Alterar senha
-      sessions:
-        new: Entrar
   custom_actions:
     calendar: Calendário

@@ -1,53 +1,60 @@
+<% breadcrumb @event %>
+<% content_for :title, @event.title %>
 <div class="row">
-  <section class="invoice"> 
-    <div class="row">
-      <div class="col-xs-12">
-        <h2 class="page-header">
-          <i class="fa fa-bullhorn"></i> <%= @event.title %>
-          <small class="pull-right">
-            <% if @event.end_date.future? %>
+  <div class="col-12">
+    <div class="invoice rounded p-3 mb-3">
+      <div class="row">
+        <div class="col-12">
+          <h4><i class="fa fa-bullhorn"></i> <%= @event.title %></h4>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-6 col-sm-12">
+          <span class="font-weight-bold">Descrição do evento</span>
+
+          <p class="text-muted well well-sm shadow-none mt-1 mb-2">
+            <%= @event.description %>
+          </p>
+
+          <p class="text-muted small mb-md-0">
+            <i class="fa fa-clock"></i>
+            <% if @event.start_date.future? %>
               <span class="text-muted"><i class="fa fa-clock-o"></i></span> Acontece em 
             <% else %>
               <span class="text-muted"><i class="fa fa-calendar-check-o"></i></span> Ocorreu há
             <% end %>
             <%= distance_of_time_in_words(DateTime.now, @event.start_date) %> 
-          </small>
-        </h2>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-6 col-sm-12 event-description">
-        <strong>Descrição do evento</strong>
-        <p class="text-muted well well-sm no-shadow">
-          <%= @event.description %>
-        </p>
-      </div>
-      
-      <div class="col-md-6 col-sm-12">
-        <div class="table-responsive">
-          <table class="table">
-            <tbody><tr>
-              <th style="width:50%">Data:</th>
-              <td><%= complete_date(@event.start_date) %></td>
-            </tr>
-            <tr>
-              <th>Horário:</th>
-              <td><%= event_time(@event.start_date, @event.end_date)%></td>
-            </tr>
-            <tr>
-              <th>Local:</th>
-              <td><%= @event.location.description %></td>
-            </tr>
-          </tbody></table>
+          </p>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Data</th>
+                  <td><%= l(@event.scheduled_for, format: :full) %></td>
+                </tr>
+                <tr>
+                  <th>Horário</th>
+                  <td><%= l(@event.starts_at, format: :compact) %> às <%= l(@event.ends_at, format: :compact) %></td>
+                </tr>
+                <tr>
+                  <th>Local</th>
+                  <td><%= @event.location.description %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      
-      <div class="pull-right">
-        <div class="col-xs-12">
-          <%= render 'admin/shared/buttons'%>
+
+      <div class="row">
+        <div class="col-12 d-flex justify-content-md-end justify-content-sm-center">
+          <%= render 'admin/shared/buttons', 
+            locals: { delete_confirmation_message: t('events.destroy_html', title: @event.title) } %>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>

@@ -2,39 +2,30 @@
 //= require activestorage
 //= require admin-lte/plugins/jquery/jquery.min
 //= require admin-lte/plugins/bootstrap/js/bootstrap.bundle.min
-//= require admin-lte/dist/js/adminlte.min
-//= require fastclick/lib/fastclick
-//= require toastr/toastr
-//= require bootstrap-timepicker/js/bootstrap-timepicker.min
+//= require admin-lte/plugins/select2/js/select2.full.min
+//= require admin-lte/plugins/select2/js/i18n/pt-BR
 //= require daterangepicker/moment.min
+//= require moment/locale/pt-br
 //= require daterangepicker/daterangepicker
-// require admin-lte/bower_components/fullcalendar/dist/fullcalendar.min
-// require admin-lte/bower_components/fullcalendar/dist/locale/pt-br.js
-// require admin-lte/bower_components/select2/dist/js/select2.full.min
+//= require admin-lte/plugins/toastr/toastr.min
+//= require admin-lte/plugins/fullcalendar/main.min
+//= require admin-lte/plugins/fullcalendar/locales/pt-br
+//= require admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min
 // require inputmask/dist/inputmask/inputmask
 // require inputmask/dist/inputmask/inputmask.extensions
 // require inputmask/dist/inputmask/jquery.inputmask
-//= require bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox
+// require bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox
+//= require admin-lte/dist/js/adminlte.min
 
-/* DataTables related */
-// require datatables.net/js/jquery.dataTables.min 
-// require datatables.net-bs/js/dataTables.bootstrap.min
-// require jszip/dist/jszip
-// require pdfmake/build/pdfmake
-// require pdfmake/build/vfs_fonts
-// require datatables.net-buttons/js/dataTables.buttons
-// require datatables.net-buttons/js/buttons.flash 
-// require datatables.net-buttons/js/buttons.html5
-// require datatables.net-buttons/js/buttons.print
+/* Gems JS */
+//= require data-confirm-modal
+//= require dependent-fields
+//= require underscore/underscore-min
+
+/* DataTables & Plugins */
+//= require data_tables
 
 /* Custom components */
 //= require admin/overall
-// require admin/activities
 //= require admin/events
-//= require admin/calendar
-//= require admin/selectize-modal
-
-/* Gems JS */
-//= require selectize
-//= require data-confirm-modal
-
+//= require config

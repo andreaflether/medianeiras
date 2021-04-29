@@ -1,0 +1,6 @@
+pt-BR:
+  enums:
+    event:
+      location_selection_type:
+        existing_location: Utilizar local já cadastrado
+        new_location: Cadastrar novo local

@@ -1,0 +1,3 @@
+pt-BR:
+  events:
+    destroy_html: Tem certeza que deseja apagar o evento <b>%{title}</b>? Esta ação não poderá ser desfeita.

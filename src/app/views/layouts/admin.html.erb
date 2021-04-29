@@ -5,85 +5,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Medianeiras</title>
+  <title>
+    <%= (yield(:title).blank? ? title : yield(:title)) + " - #{t('admin_app_name')}" %>
+  </title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'admin' %>
   <%= javascript_include_tag 'admin' %>
-  <%= custom_flash_messages %>
+  <%= javascript_include_tag 'admin/calendar' if action_name == 'calendar' %>
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <%= render 'layouts/admin/navbar' %>
 
-  <!-- Navbar -->
-  <%= render 'layouts/admin/navbar' %>
-  <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <%= render 'layouts/admin/sidebar' %>
 
-  <!-- Main Sidebar Container -->
-  <%= render 'layouts/admin/sidebar' %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0"><%= t controller_name, scope: 'controllers' %></h1>
+            </div>
+            <div class="col-sm-6 ">
+              <%= breadcrumbs style: :bootstrap4, class: 'breadcrumb float-sm-right' %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-      <%= yield %>
-    </div>
-    <!-- /.content -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-inline">
+        <b>Versão</b> 2.0
+      </div>
+      <strong>Copyright &copy; <%= Date.today.year %> 
+      <%= link_to 'Centro Comunitário Nossa Senhora Medianeira', root_path%>.</strong> 
+      Todos os direitos reservados.
+    </footer>
   </div>
-  <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+  <%= custom_flash_messages %>
 </body>
 </html>

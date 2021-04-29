@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AdminHelper
   def actions(action)
     case action
@@ -9,48 +11,48 @@ module AdminHelper
       'Visualizar'
     when ''
       'Formulário'
-    end  
-  end 
-  
-  def events_count 
+    end
+  end
+
+  def events_count
     Event.all.happening_this_month.count
-  end 
+  end
 
   def title
-    case action_name 
+    case action_name
     when 'new', 'create', 'edit', 'update', 'show'
       "#{actions(action_name)} #{translated_resource_name}"
-    when 'index' 
+    when 'index'
       translated_resource_name.pluralize
-    else 
+    else
       t(action_name, scope: 'custom_actions')
-    end 
-  end 
+    end
+  end
 
   def devise_action
     t("#{controller_name}.#{action_name}", scope: 'controllers.devise')
   end
 
-  def resource_name 
+  def resource_name
     controller_name.singularize
   end
 
   def translated_resource_name
     t(controller_name, scope: 'controllers').singularize
-  end 
+  end
 
   def resource_path(action)
-    case action 
+    case action
     when 'new'
-      eval("new_#{resource_name}_path")
+      eval("new_admin_#{resource_name}_path")
     when 'edit'
-      eval("edit_#{resource_name}_path(@#{(resource_name)})")
+      eval("edit_admin_#{resource_name}_path(@#{resource_name})")
     when 'destroy', 'index'
-      eval("#{resource_name}_path(@#{resource_name})")
+      eval("admin_#{resource_name}_path(@#{resource_name})")
     end
-  end 
+  end
 
   def member_since(created_at)
-    l(created_at, format: "%B de %Y")
-  end 
+    l(created_at, format: '%B de %Y')
+  end
 end

@@ -1,44 +1,23 @@
 $(document).ready(function () {
+  var Calendar = FullCalendar.Calendar;
 
-  /* initialize the external events
-   -----------------------------------------------------------------*/
-  function init_events(ele) {
-    ele.each(function () {
-      // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-      // it doesn't need to have a start or end
-      var eventObject = {
-        title: $.trim($(this).text()) // use the element's text as the event title
-      }
-      // store the Event Object in the DOM element so we can get to it later
-      $(this).data('eventObject', eventObject)
-    })
-  }
+	var calendarEl = document.getElementById('calendar');
 
-  init_events($('#external-events div.external-event'))
+	var calendar = new Calendar(calendarEl, {
+		themeSystem: 'bootstrap',
+		events: $('#calendar').attr('data-src'),
+		locale: 'pt-br',
+		headerToolbar: {
+			left  : 'prev,next today',
+			center: 'title',
+			right : 'dayGridMonth,timeGridWeek,timeGridDay'
+		},
+		eventTimeFormat: {
+			hour: 'numeric',
+			minute: '2-digit',
+			meridiem: false
+		}
+	});
 
-  /* initialize the calendar
-   -----------------------------------------------------------------*/
-  var date = new Date()
-  var d    = date.getDate(),
-      m    = date.getMonth(),
-      y    = date.getFullYear()
-
-  $('#calendar').fullCalendar({
-    header    : {
-      left  : 'prev,next today',
-      center: 'title',
-      right : 'month,agendaWeek,agendaDay'
-    },
-    locale: 'pt-br',
-    buttonText: {
-      today: 'Hoje',
-      month: 'Mês',
-      week : 'Semana',
-      day  : 'Dia'
-    },
-    // Random default events
-    events    : '/admin/events.json',
-    editable  : false,
-    droppable : false, // this allows things to be dropped onto the calendar
-  })
+	calendar.render();
 })

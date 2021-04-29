@@ -1,76 +1,68 @@
-class Admin::EventsController < AdminController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb 'Eventos', :events_path
+# frozen_string_literal: true
 
-  def calendar
-    add_breadcrumb 'Calendário'
-  end 
+module Admin
+  class EventsController < AdminController
+    before_action :set_event, only: %i[show edit update destroy]
 
-  def index
-    @q = Event.ransack(params[:q])
-    @events = @q.result.includes([:location])
-  end
+    def calendar; end
 
-  def show
-    add_breadcrumb @event.title
-  end
+    def index
+      @q = Event.ransack(params[:q])
+      @events = @q.result.includes([:location])
+    end
 
-  def new
-    add_breadcrumb 'Cadastrar Evento', new_event_path
-    
-    @event = Event.new  
-  end
+    def show; end
 
-  def edit
-    add_breadcrumb 'Editar Evento'
-  end
+    def new
+      @event = Event.new
+    end
 
-  def create
-    add_breadcrumb 'Cadastrar Evento'
-    @event = Event.new(event_params)
+    def edit; end
 
-    respond_to do |format|
+    def create
+      sanitize_scheduled_for
+
+      @event = Event.new(event_params)
+
       if @event.save
-        format.html { redirect_to @event, notice: 'Evento criado com sucesso!' }
-        format.json { render :show, status: :created, location: @event }
-      else    
-        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    add_breadcrumb 'Editar Evento'
-    respond_to do |format|
-      if @event.update(event_params)
-        flash[:info] = 'Evento atualizado com sucesso!'
-        format.html { redirect_to @event }
-        format.json { render :show, status: :ok, location: @event }
+        redirect_to([:admin, @event], notice: t('create', scope: 'controllers.messages.admin.events'))
       else
-        flash.now[:error] = 'Há erros no formulário. Verifique-os e tente novamente.'
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        flash.now[:error] = t('general_error', scope: 'controllers.messages')
+        render :new
       end
     end
-  end
 
-  def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Evento excluído com sucesso.' }
-      format.json { head :no_content }
+    def update
+      sanitize_scheduled_for
+
+      if @event.update(event_params)
+        redirect_to([:admin, @event], notice: t('update', scope: 'controllers.messages.admin.events'))
+      else
+        flash.now[:error] = t('general_error', scope: 'controllers.messages')
+        render :edit
+      end
     end
-  end
 
-  private
+    def destroy
+      @event.destroy
+      redirect_to admin_events_url, info: t('controllers.admin.events.destroy')
+    end
 
-  def set_event
-    @event = Event.find(params[:id])
-  end
+    private
 
-  def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date, :location_id)
+    def set_event
+      @event = Event.find(params[:id])
+    end
+
+    def sanitize_scheduled_for
+      scheduled_for = event_params[:scheduled_for]
+      params[:event][:scheduled_for] = Date.parse(scheduled_for) if scheduled_for.present?
+    end
+
+    def event_params
+      params.require(:event).permit(:title, :description, :scheduled_for, :starts_at, :ends_at,
+                                    :location_id, :location_selection_type,
+                                    location_attributes: %i[id description address _destroy])
+    end
   end
 end

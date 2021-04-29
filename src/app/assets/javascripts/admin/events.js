@@ -1,51 +1,71 @@
 $(document).ready(function() {
-	moment.locale('pt-br', {
-		weekdaysMin : 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
+	moment.updateLocale('pt-br', {
+		weekdays: 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split('_'),
+		months: 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_')
 	});
 
 	const dateRangePickerOptions = {
-		singleDatePicker    : true,		
-		timePicker          : true,
-		timePicker24Hour    : true,
-		timePickerIncrement : 15,
+		singleDatePicker: true,
 		locale: {
-			format      : 'DD/MM/YYYY HH:mm',
-			applyLabel  : 'Salvar',
-      cancelLabel : 'Cancelar'
+			format: 'dddd, DD [de] MMMM [de] YYYY',
+			applyLabel: 'Salvar',
+			cancelLabel: 'Cancelar',
+			daysOfWeek: [
+				'Dom',
+				'Seg',
+				'Ter',
+				'Qua',
+				'Qui',
+				'Sex',
+				'Sab'
+			],
+			monthNames: [
+				'Janeiro',	
+				'Fevereiro',
+				'Março',
+				'Abril',
+				'Maio',
+				'Junho',
+				'Julho',
+				'Agosto',
+				'Setembro',
+				'Outubro',
+				'Novembro',
+				'Dezembro'
+			],
+			firstDay: 1
 		}
 	}
 	
-	$('#start_date').daterangepicker({
-		...dateRangePickerOptions,
-		autoUpdateInput : false,
-		minDate         : moment(),
-		// startDate: moment().endOf('hour').add(1, 'm'),
-	});
-
-	// Preenche inputs ao preencher data
-	$('#start_date, #end_date').on('apply.daterangepicker', function(ev, picker) {
-    $(this).val(picker.startDate.format('DD/MM/YYYY - HH:mm'));
-  });
-
-  $('#start_date, #end_date').on('cancel.daterangepicker', function(ev, picker) {
-    $(this).val('');
-	});
-	
-	$('#end_date').daterangepicker({
+	$('#scheduled_for').daterangepicker({
 		...dateRangePickerOptions,
 		autoUpdateInput: false,
-		minDate : moment(),
-		// startDate: moment().endOf('hour').add(1, 'm'),
+		minDate: moment(),
 	});
+
+	$('#scheduled_for, #end_date').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('dddd, DD [de] MMMM [de] YYYY'));
+  });
 	
-	// Troca valores mínimos da data final a partir das seleções em data de inínio
-	$('#start_date').on('apply.daterangepicker', function(ev, picker) {
-		var new_start = picker.startDate.clone().add(1, 'h');
-    $('#end_date').daterangepicker({
-			minDate: new_start,
-			startDate: new_start,
-			...dateRangePickerOptions,
+	function toggleNewLocationFieldsProp(state) {
+		$('#new-location-fields input').each(function() {
+			$(this).prop('disabled', state);
+
+			if(state) {
+				$(this).val('');
+			}
 		});
-		$('#end_date').data('daterangepicker').startDate = new_start;
+	}
+
+	$("input[name='event[location_selection_type]']").change(function(){
+		if ($(this).is(':checked') && $(this).val() == 'existing_location') {
+			toggleNewLocationFieldsProp(true);
+		} 
+	}).change();
+
+	$("input[name='event[location_selection_type]']").change(function(){
+		if ($(this).is(':checked') && $(this).val() == 'new_location') {
+			toggleNewLocationFieldsProp(false);
+		}
 	});
 });

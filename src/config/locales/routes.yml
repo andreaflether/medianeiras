@@ -1,0 +1,4 @@
+pt-BR:
+  routes:
+    events: eventos
+    calendar: calendario

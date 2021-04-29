@@ -1,0 +1,21 @@
+pt-BR:
+  controllers:
+    users: Usuários
+    events: Eventos
+    students: Alunos
+    volunteers: Voluntários
+    activities: Atividades
+    admin: Início
+    people: Pessoas
+    devise:
+      registrations:
+        create: Criar conta
+        new: Criar conta
+        edit: Editar informações de conta
+      passwords:
+        new: Recuperar senha
+        create: Recuperar Senha
+        edit: Alterar senha
+        update: Alterar senha
+      sessions:
+        new: Entrar

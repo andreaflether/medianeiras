@@ -4,25 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Centro Comunitário Nossa Senhora Medianeira | <%= devise_action %></title>
+    <title><%= "#{devise_action} - #{t('main_app_name')}" %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'devise' %>
     <%= javascript_include_tag 'devise' %>
-    <%= custom_flash_messages %>
   </head>
 
   <body class="login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <%= inline_svg_tag('logo.svg', class: 'logotipo') %>
-      </div>
-
-      <div class="login-box-body">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
+    <%= custom_flash_messages %>
   </body>
 </html>

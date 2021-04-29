@@ -1,52 +1,105 @@
-<div class="box box-primary">
-  <div class="box-header with-border">
-    <%= actions(action_name) %>
+<div class="card card-outline card-primary">
+  <div class="card-header with-border">
+    <h5 class="card-title"><%= actions(action_name)%></h5>
   </div>
  
-  <div class="box-body">
-    <%= simple_form_for(@event) do |f| %>
+  <div class="card-body">
+    <%= simple_form_for([:admin, @event]) do |f| %>
       <%= f.input :title %>
       <div class="row">
-        <div class="col-xs-6">
-          <%= f.input :start_date, wrapper: :prepend do %>
-            <div class="input-group-addon">
-              <i class="fa fa-calendar"></i>
-            </div>
-            <%= f.input_field :start_date, 
-              as: :string, 
-              id: 'start_date',
-              value: datetime_format(@event.start_date),
-              autocomplete: 'off'
-            %>
-          <% end %>
+        <div class="col-md-6">
+          <%= f.input :scheduled_for, 
+            as: :string, 
+            append: '<i class="fa fa-calendar"></i>'.html_safe,
+            input_html: { 
+              id: 'scheduled_for',
+              autocomplete: 'off',
+              value: date_format(@event.scheduled_for, 'full')
+            },
+            wrapper: :input_group  %>
         </div>
-        <div class="col-xs-6">
-          <%= f.input :end_date, wrapper: :prepend do %>
-            <div class="input-group-addon">
-              <i class="fa fa-calendar"></i>
-            </div>
-              <%= f.input_field :end_date, 
-                as: :string,
-                id: 'end_date', 
-                value: datetime_format(@event.end_date),
-                autocomplete: 'off'
-              %> 
-          <% end %>   
+        <div class="col-md-3">
+          <%= f.input :starts_at, 
+            as: :string, 
+            append: '<i class="fa fa-clock"></i>'.html_safe,
+            input_html: { 
+              autocomplete: 'off',
+              value: time_format(@event.starts_at, 'compact'),
+              class: 'timepicker', 
+              data: { toggle: 'datetimepicker', target: '#event_starts_at' }
+            },
+            wrapper: :input_group  %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :ends_at, 
+            as: :string, 
+            append: '<i class="fa fa-clock"></i>'.html_safe,
+            input_html: { 
+              autocomplete: 'off',
+              value: time_format(@event.ends_at, 'compact'),
+              class: 'timepicker',
+              data: { toggle: 'datetimepicker', target: '#event_ends_at' }
+            },
+            wrapper: :input_group  %>
         </div>
       </div>
-      <%= f.association :location, 
-        label_method: :description, 
-        value_method: :id,
-        prompt: 'Selecione um local',
-        input_html: { class: 'location-input' }
-      %>
-      <%= f.input :description, input_html: { rows: 4 } %>
+
+      <%= collection_radio_buttons(:event, :location_selection_type, 
+        Event.location_selection_types_i18n, :first, :second,
+        { checked: @event.location_selection_type ||= Event.location_selection_types.keys.first }) do |b| %>
+          <div class="custom-radio form-check mt-2 ml-1">
+            <%= b.radio_button(class: 'custom-control-input') %>
+            <%= b.label(class: 'custom-control-label fw-bold') %> 
+            <span class="font-italic">
+              (<%= t("simple_form.hints.event.location_selection_types.#{b.value}") %>)
+            </span>
+          </div>
+
+          <% if b.value == 'existing_location' %>
+            <div class="js-dependent-fields" data-radio-name='event[location_selection_type]' data-radio-value="existing_location">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.association :location, 
+                    label_method: :description, 
+                    value_method: :id,
+                    prompt: 'Selecione um local',
+                    input_html: { class: 'select2' },
+                    wrapper_html: { class: 'mt-1 mb-3' }
+                  %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+          <% if b.value == 'new_location' %>
+            <div class="js-dependent-fields" id="new-location-fields" 
+              data-radio-name='event[location_selection_type]' data-radio-value="new_location">
+              <div class="callout callout-info nested-fields mt-2">
+                <h5>Informações do Local</h5>
+
+                <%= f.simple_fields_for(:location, (@event.build_location if @event.location.nil?)) do |ff| %>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%= ff.input :description %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= ff.input :address %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+       
+      <%= f.input :description, input_html: { rows: 4 }, wrapper_html: { class: 'mt-3' } %>
     </div>
 
-    <div class="box-footer">
+    <div class="card-footer">
       <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
-      <%= f.submit class: 'btn btn-primary pull-right' %>
+      <%= f.submit class: 'btn btn-primary float-right' %>
     </div>
   <% end %>
 </div>
-<%= render 'admin/shared/locations_modal' %>
+
+<div class="new-location"></div>

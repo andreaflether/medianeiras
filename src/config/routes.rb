@@ -1,27 +1,31 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'pages/index'
   resources :suggestions
   resources :promulher_forms
   devise_for :users
-  
+
   get 'admin/index'
   root 'pages#index'
   get '/contato', to: 'pages#contact'
   get '/eventos', to: 'pages#events'
-  
+
   # Admin main route
   get 'admin/', to: 'admin#index'
-  
-  scope module: 'admin' do
+
+  namespace :admin, path_names: { edit: 'editar', new: 'novo' } do
     get 'zip_code', to: 'zip_code#show'
-    resources :people, path: 'admin/people' 
-    resources :students, path: 'admin/students'
-    resources :volunteers, path: 'admin/volunteers'
-    resources :activities, path: 'admin/activities'
-    get 'admin/events/calendar', as: :calendar, to: 'events#calendar'
-    get 'admin/events/next_events', as: :next_events, to: 'events#next_events'
-    resources :events, path: 'admin/events' 
+    resources :people
+    resources :students
+    resources :volunteers
+    resources :activities
+    resources :events, path: I18n.t('events', scope: :routes) do
+      collection do
+        get :calendar, path: I18n.t('calendar', scope: :routes)
+      end
+    end
     resources :locations
-    resources :users, path: 'admin/users'
-  end 
+    resources :users
+  end
 end

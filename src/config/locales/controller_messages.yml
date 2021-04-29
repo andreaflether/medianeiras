@@ -1,0 +1,10 @@
+pt-BR:
+  controllers:
+    messages:
+      general_error: Há erros no formulário. Verifique-os e tente novamente.
+      admin:
+        events:
+          create: Evento criado com sucesso!
+          destroy: Evento excluído com sucesso.
+          update: Evento atualizado com sucesso!
+          

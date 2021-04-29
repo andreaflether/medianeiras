@@ -45,6 +45,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
+    ast (2.4.2)
     awesome_print (1.8.0)
     bcrypt (3.1.16)
     better_errors (2.7.1)
@@ -52,10 +53,10 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    breadcrumbs_on_rails (4.0.0)
-      rails (>= 5.0)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -69,9 +70,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    capybara-select2 (1.0.1)
-      capybara
-      rspec
     childprocess (3.0.0)
     choice (0.2.0)
     cocoon (1.2.14)
@@ -93,6 +91,7 @@ GEM
     data-confirm-modal (1.6.3)
       railties (>= 3.0)
     database_cleaner (1.8.5)
+    debug_inspector (1.1.0)
     dependent-fields-rails (0.4.2)
       coffee-rails
       jquery-rails
@@ -108,6 +107,8 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     eventmachine (1.2.7)
     eventmachine (1.2.7-x64-mingw32)
@@ -125,6 +126,9 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
+    gretel (4.2.0)
+      actionview (>= 5.1, < 7.0)
+      railties (>= 5.1, < 7.0)
     guard (2.16.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -206,6 +210,9 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    parallel (1.20.1)
+    parser (3.0.1.0)
+      ast (~> 2.4.1)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     pry (0.13.1)
@@ -261,6 +268,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.1)
     ransack (2.3.2)
       activerecord (>= 5.2.1)
@@ -281,10 +289,6 @@ GEM
     roadie-rails (2.1.1)
       railties (>= 5.1, < 6.1)
       roadie (>= 3.1, < 5.0)
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
@@ -303,8 +307,24 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
+    rubocop (0.92.0)
+      parallel (~> 1.10)
+      parser (>= 2.7.1.5)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
+      rexml
+      rubocop-ast (>= 0.5.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (1.4.1)
+      parser (>= 2.7.1.5)
+    rubocop-rails (2.9.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 0.90.0, < 2.0)
     ruby-graphviz (1.2.5)
       rexml
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
     sass (3.7.4)
@@ -318,7 +338,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selectize-rails (0.12.6)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -398,12 +419,11 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   better_errors
+  binding_of_caller
   bootsnap (>= 1.1.0)
-  breadcrumbs_on_rails
   bullet
   byebug
   capybara
-  capybara-select2
   cocoon
   coffee-rails (~> 4.2)
   custom_error_message (~> 1.1, >= 1.1.1)
@@ -411,9 +431,11 @@ DEPENDENCIES
   database_cleaner (~> 1.7)
   dependent-fields-rails
   devise
+  enum_help
   factory_bot_rails (~> 4.0)
   faker
   gravatar_image_tag
+  gretel
   guard (~> 2.15)
   guard-livereload
   httparty
@@ -432,8 +454,9 @@ DEPENDENCIES
   roadie-rails (~> 2.1)
   rspec-json_expectations
   rspec-rails (~> 3.6)
+  rubocop-rails
   sass-rails (~> 5.0)
-  selectize-rails
+  select2-rails
   selenium-webdriver
   shoulda-matchers
   simple_form

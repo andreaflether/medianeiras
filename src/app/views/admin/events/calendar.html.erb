@@ -1,9 +1,9 @@
+<% breadcrumb :calendar %>
 <div class="row">
-  <div class="col-xs-12">
-    <div class="box box-primary">
-      <div class="box-body no-padding">
-        <div id="calendar"></div>
-
+  <div class="col-12">
+    <div class="card card-primary">
+      <div class="card-body p-0">
+        <div id="calendar" data-src=<%= admin_events_path(format: :json) %>></div>
       </div>
     </div>
   </div>

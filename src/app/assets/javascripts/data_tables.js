@@ -1,0 +1,12 @@
+//= require admin-lte/plugins/datatables/jquery.dataTables
+//= require admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4
+//= require admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min
+//= require admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min
+//= require admin-lte/plugins/datatables-buttons/js/dataTables.buttons.min
+//= require admin-lte/plugins/datatables-buttons/js/buttons.bootstrap4.min
+//= require admin-lte/plugins/jszip/jszip.min
+//= require admin-lte/plugins/pdfmake/pdfmake.min
+//= require admin-lte/plugins/pdfmake/vfs_fonts
+//= require admin-lte/plugins/datatables-buttons/js/buttons.html5.min
+//= require admin-lte/plugins/datatables-buttons/js/buttons.flash.min
+//= require admin-lte/plugins/datatables-buttons/js/buttons.print.min

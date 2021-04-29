@@ -1,0 +1,11 @@
+$danger: #dc3545;
+
+// Forms
+.form-group-invalid .select2-selection {
+  border: 1px solid $danger !important;
+}
+
+// Correct AdminLTE3 collapsed nav-child-indent bug
+.sidebar-collapse .main-sidebar:hover .nav-sidebar.nav-child-indent .nav-treeview {
+  padding-left: 1rem;
+}

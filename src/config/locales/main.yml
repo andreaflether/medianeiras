@@ -1,0 +1,9 @@
+pt-BR:
+  main_app_name: Centro Comunitário Nossa Senhora Medianeira
+  admin_app_name: Medianeiras Admin
+  date:
+    formats:
+      full: "%A, %d de %B de %Y"
+  time:
+    formats:
+      compact: "%H:%M"
