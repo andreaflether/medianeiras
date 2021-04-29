@@ -4,7 +4,6 @@ class Event < ApplicationRecord
   attribute :start_date, :datetime
   attribute :end_date, :datetime
   attribute :location_selection_type, :integer
-  attribute :scheduled_for_string, :string
 
   enum location_selection_type: %i[existing_location new_location]
 
@@ -20,7 +19,7 @@ class Event < ApplicationRecord
   validate :ends_at_must_be_after_starts_at, if: -> { hour_fields_are_present? }
 
   def ends_at_must_be_after_starts_at
-    errors.add(:ends_at, 'deve ser superior ao horário de início') if ends_at < starts_at
+    errors.add(:ends_at, I18n.t('admin.events.ends_at.invalid_time')) if ends_at < starts_at
   end
 
   def hour_fields_are_present?
