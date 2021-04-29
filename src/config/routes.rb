@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'pages/index'
+  root 'pages#index'
+
+  namespace :pages, path: '/', as: '' do
+    get :about, path: I18n.t('about', scope: :routes)
+    get :activities, path: I18n.t('activities', scope: :routes)
+    get :partners, path: I18n.t('partners', scope: :routes)
+    get :events, path: I18n.t('events', scope: :routes)
+    get :contact, path: I18n.t('contact', scope: :routes)
+  end
+
   resources :suggestions
   resources :promulher_forms
   devise_for :users
-
-  get 'admin/index'
-  root 'pages#index'
-  get '/contato', to: 'pages#contact'
-  get '/eventos', to: 'pages#events'
 
   # Admin main route
   get 'admin/', to: 'admin#index'
@@ -20,9 +24,9 @@ Rails.application.routes.draw do
     resources :students
     resources :volunteers
     resources :activities
-    resources :events, path: I18n.t('events', scope: :routes) do
+    resources :events, path: I18n.t('admin.events', scope: :routes) do
       collection do
-        get :calendar, path: I18n.t('calendar', scope: :routes)
+        get :calendar, path: I18n.t('admin.calendar', scope: :routes)
       end
     end
     resources :locations

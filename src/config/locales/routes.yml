@@ -1,4 +1,10 @@
 pt-BR:
   routes:
+    admin:
+      events: eventos
+      calendar: calendario
     events: eventos
-    calendar: calendario
+    contact: contato
+    about: sobre
+    activities: atividades
+    partners: parceiros
