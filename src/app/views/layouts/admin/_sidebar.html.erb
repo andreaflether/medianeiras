@@ -23,7 +23,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item menu-open">
+          <li class="nav-item <%= active_link_to_class(admin_events_path, active: :inclusive, class_active: 'menu-open') %>">
             <a href="#" class="nav-link <%= active_link_to_class(admin_events_path, active: :inclusive) %>">
               <i class="nav-icon fa fa-bullhorn"></i>
               <p>
@@ -39,13 +39,40 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= active_link_to admin_events_path, active: :exact, class: 'nav-link' do %>
+                <%= active_link_to admin_events_path, 
+                  active: [['admin/events'], ['index']], class: 'nav-link' do %>
                   <i class="fas fa-list nav-icon"></i>
                   <p>Consultar</p>
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= active_link_to new_admin_event_path, active: :exact, class: 'nav-link' do %>
+                <%= active_link_to new_admin_event_path, 
+                  active: [['admin/events'], ['new', 'create']], class: 'nav-link' do %>
+                  <i class="fas fa-plus-circle nav-icon"></i>
+                  <p>Cadastrar</p>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item <%= active_link_to_class(admin_activities_path, active: :inclusive, class_active: 'menu-open') %>">
+            <a href="#" class="nav-link <%= active_link_to_class(admin_activities_path, active: :inclusive) %>">
+              <i class="nav-icon fas fa-shapes"></i>
+              <p>
+                Atividades
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= active_link_to admin_activities_path, 
+                  active: [['admin/activities'], ['index']], class: 'nav-link' do %>
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>Consultar</p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= active_link_to new_admin_activity_path, 
+                  active: [['admin/activities'], ['new', 'create']], class: 'nav-link' do %>
                   <i class="fas fa-plus-circle nav-icon"></i>
                   <p>Cadastrar</p>
                 <% end %>
