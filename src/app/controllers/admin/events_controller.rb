@@ -62,7 +62,7 @@ module Admin
     def event_params
       params.require(:event).permit(:title, :description, :scheduled_for, :starts_at, :ends_at,
                                     :location_id, :location_selection_type,
-                                    location_attributes: %i[id description address _destroy])
+                                    location_attributes: %i[id description address])
     end
   end
 end

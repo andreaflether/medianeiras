@@ -20,8 +20,8 @@ pt-BR:
     #     edit:
     #       email: 'E-mail.'
     hints:
-      event:
-        location_selection_types:
+      location:
+        selection_types:
           existing_location: Seleciona uma opção dentre os locais já cadastrados no sistema
           new_location: Cadastra um novo local no sistema, a ser reaproveitado nas próximas consultas
     #   defaults:

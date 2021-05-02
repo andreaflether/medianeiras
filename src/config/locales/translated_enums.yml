@@ -1,6 +1,13 @@
 pt-BR:
   enums:
-    event:
+    default_selection_type: &default_selection_type
       location_selection_type:
         existing_location: Utilizar local já cadastrado
         new_location: Cadastrar novo local
+    event:
+      <<: *default_selection_type
+    activity:
+      <<: *default_selection_type
+      status:
+        active: Ativa
+        closed: Encerrada

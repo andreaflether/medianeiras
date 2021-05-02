@@ -10,7 +10,7 @@ crumb :event do |event|
 end
 
 crumb :new_event do
-  link 'Novo', new_admin_event_path
+  link 'Cadastrar', new_admin_event_path
   parent :events
 end
 
