@@ -13,7 +13,7 @@ module ActivitiesHelper
   end
 
   def available(activity)
-    activity.max_capacity - activity.students_count
+    activity.max_capacity - activity.students.count
   end
 
   def has_image(activity)

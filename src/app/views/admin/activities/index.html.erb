@@ -2,7 +2,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
 
 <% @activities.each do |act| %>
-  <p><%= act.name %> - <%= link_to 'ver atividade', activity_path(act) %></p>
+  <p><%= act.name %> - <%= link_to 'ver atividade', admin_activity_path(act) %></p>
 <% end %>
 <div class="modal fade bd-example-modal-xl" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">

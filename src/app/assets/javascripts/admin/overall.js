@@ -60,6 +60,59 @@ $(document).ready(function() {
     }
   }
 
+  moment.updateLocale('pt-br', {
+		weekdays: 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split('_'),
+		months: 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_')
+	});
+
+	const dateRangePickerOptions = {
+		singleDatePicker: true,
+		locale: {
+			format: 'dddd, DD [de] MMMM [de] YYYY',
+			applyLabel: 'Salvar',
+			cancelLabel: 'Cancelar',
+			daysOfWeek: [
+				'Dom',
+				'Seg',
+				'Ter',
+				'Qua',
+				'Qui',
+				'Sex',
+				'Sab'
+			],
+			monthNames: [
+				'Janeiro',	
+				'Fevereiro',
+				'Março',
+				'Abril',
+				'Maio',
+				'Junho',
+				'Julho',
+				'Agosto',
+				'Setembro',
+				'Outubro',
+				'Novembro',
+				'Dezembro'
+			],
+			firstDay: 1
+		}
+  }
+  
+  $('#scheduled_for').daterangepicker({
+		...dateRangePickerOptions,
+		autoUpdateInput: false,
+		minDate: moment(),
+  });
+  
+  $('.datepicker').daterangepicker({
+    ...dateRangePickerOptions,
+    autoUpdateInput: false
+  });
+
+  $('.datepicker').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('DD [de] MMMM [de] YYYY'));
+  });
+
   // DataTables
   $('.dataTable').DataTable({
     dom: "<'row align-items-center px-3'<'col-sm-6 col-xs-12 mt-3 mb-2'B><'col-sm-6 col-xs-12 mt-3'f>>" +
@@ -105,4 +158,22 @@ $(document).ready(function() {
       url: 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json'
     },
   });
+  
+  $('.custom-file-input').change(function(e) {
+    var fileName = e.currentTarget.files[0].name;
+    var customFileLabel = e.target.nextElementSibling;
+    customFileLabel.innerText = fileName;
+    /* Pure jquery
+      //get the file name
+      var fileName = $(this).val();
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(fileName);
+    */
+  });
+
+  let imageCache = $('#activity_display_image_cache').data('filename');
+
+  if(imageCache.length) {
+    $('.custom-file-label').text(imageCache);
+  }
 })

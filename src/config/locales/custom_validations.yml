@@ -1,5 +1,10 @@
 pt-BR:
+  errors:
+    messages:
+      extension_whitelist_error: 'descartada pois possui formato inválido (%{extension}). Formatos aceitos: %{allowed_types}'
   admin:
     events:
       ends_at:
         invalid_time: deve ser superior ao horário de início
+    base:
+      max_capacity: Não é possível adicionar alunos nesta atividade pois a capacidade máxima foi atingida (%max).

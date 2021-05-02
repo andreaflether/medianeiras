@@ -3,43 +3,28 @@
 module Admin
   class ActivitiesController < AdminController
     before_action :set_activity, only: %i[show edit update destroy]
-    add_breadcrumb 'Atividades', :activities_path
-    before_action :find_resources, only: %i[new create edit update]
 
     # GET /activities
-    # GET /activities.json
     def index
       @activities = Activity.all
     end
 
     # GET /activities/1
-    # GET /activities/1.json
-    def show
-      add_breadcrumb @activity.name
-    end
+    def show; end
 
     # GET /activities/new
     def new
-      add_breadcrumb 'Nova atividade', new_activity_path
       @activity = Activity.new
-    end
-
-    def find_resources
-      @days = WeekDay.all
-      @students = Student.includes([:person])
-      @volunteers = Volunteer.includes([:person])
     end
 
     # GET /activities/1/edit
     def edit
-      add_breadcrumb "Editar informações de #{@activity.name}"
     end
 
     # POST /activities
-    # POST /activities.json
     def create
+      sanitize_closure_date
       @activity = Activity.new(activity_params)
-      @days = WeekDay.all
 
       respond_to do |format|
         if @activity.save
@@ -54,8 +39,8 @@ module Admin
     end
 
     # PATCH/PUT /activities/1
-    # PATCH/PUT /activities/1.json
     def update
+      sanitize_closure_date
       respond_to do |format|
         if @activity.update(activity_params)
           format.html { redirect_to @activity, flash: { info: 'Atividade atualizada com sucesso.' } }
@@ -69,7 +54,6 @@ module Admin
     end
 
     # DELETE /activities/1
-    # DELETE /activities/1.json
     def destroy
       @activity.destroy
       respond_to do |format|
@@ -85,11 +69,18 @@ module Admin
       @activity = Activity.find(params[:id])
     end
 
+    def sanitize_closure_date
+      closure_date = activity_params[:closure_date]
+      params[:activity][:closure_date] = Date.parse(closure_date) if closure_date.present?
+    end
+
     # Only allow a list of trusted parameters through.
     def activity_params
       params.require(:activity).permit(:name, :description, :location_id, :max_capacity, :starts_at,
-                                       :ends_at, :display_image, :status, :closure_date,
-                                       week_day_ids: [], student_ids: [], volunteer_ids: [])
+                                       :ends_at, :display_image, :status, :location_selection_type,
+                                       :closure_date, :closure_reason, :display_image_cache,
+                                       location_attributes: %i[id description address],
+                                       week_day_list: [], student_ids: [], volunteer_ids: [])
     end
   end
 end

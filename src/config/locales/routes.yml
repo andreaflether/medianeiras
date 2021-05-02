@@ -3,6 +3,7 @@ pt-BR:
     admin:
       events: eventos
       calendar: calendario
+      activities: atividades
     events: eventos
     contact: contato
     about: sobre

@@ -39,8 +39,6 @@ pt-BR:
         ends_at: Término
         scheduled_for: Data
         location: Local
-        existing_location: Utilizar local já cadastrado
-        new_location: Cadastrar novo local
         ransack:
           title: Pesquisar por Título
           location: Pesquisar por Local
@@ -54,8 +52,9 @@ pt-BR:
         starts_at: Inicia às
         students: ""
         volunteers: Professor(a)/Responsável
-        week_days: Dias
+        week_day_list: Dias
         closure_date: Data de encerramento
+        closure_reason: Motivo do encerramento
         status_list:
           active: Ativa
           closed: Encerrada
@@ -76,7 +75,7 @@ pt-BR:
         cpf: CPF
         speciality: Especialização
       location:
-        description: Descrição
+        description: Nome
         address: Endereço
   custom_actions:
     calendar: Calendário

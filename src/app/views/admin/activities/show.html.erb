@@ -3,7 +3,7 @@
     <div class="col-xs-12">
       <h2 class="page-header">
         <%= @activity.name %>
-        <span class="pull-right badge bg-green"><%= @activity.translated_status %></span>
+        <span class="pull-right badge bg-green"><%= @activity.status_i18n %></span>
       </h2>
     </div>
   </div>
@@ -22,13 +22,13 @@
           <tbody>
             <tr>
               <th>Lotação</th>
-              <td><%= t('display.students_count', count: @activity.students_count) %></td>
+              <td><%= t('display.students_count', count: @activity.students.count) %></td>
             </tr>
             <tr>
             <tr>
               <th>Disponibilidade</th>
               <td>
-                <span class="label bg-<%= find_color(@activity.percent_of) %>">
+                <span class="label bg-<%= find_color(@activity.occupation) %>">
                   <%= t('display.availability', count: available(@activity)) %> 
                 </span>&nbsp; (de um total de <b><%= @activity.max_capacity %></b>)
                 </td>
@@ -37,7 +37,7 @@
             <tr>
               <th>Professor(es)</th>
               <td>
-                <%= @activity.volunteers.map{ |v| link_to(v.person.name,volunteer_path(v))}.join(", ").html_safe %>
+                <%= @activity.volunteers.map{ |v| v.person.name }.join(", ").html_safe %>
               </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
               <th>Horário</th>
-              <td><%= event_time(@activity.starts_at, @activity.ends_at) %></td>
+              <td><%= full_time(@activity.starts_at, @activity.ends_at) %></td>
             </tr>
             <tr>
               <th>Local</th>
@@ -60,12 +60,12 @@
         </table>
       </div>
     <%= render 'admin/shared/buttons', 
-      confirm_data: '<h4 class="text-red">Tem certeza? Essa ação não poderá ser desfeita. </h4>
+      locals: { delete_confirmation_message: '<h4 class="text-red">Tem certeza? Essa ação não poderá ser desfeita. </h4>
       <p>Ao apagar uma atividade, a matrícula dos alunos cadastrados na mesma também serão apagadas. 
       Portanto, não será mais possível consultar os alunos que já foram matriculados nesta atividade. </p> 
       <p>Caso queira guardar
       um histórico de quais alunos participaram desta atividade, é recomendado apenas mudar
-      o status da mesma para <b>"Inativa"</b>. Clique aqui para realizar esta ação.</p>' %>
+      o status da mesma para <b>"Inativa"</b>. Clique aqui para realizar esta ação.</p>' } %>
     </div>
     <div class="col-xs-12 col-md-6 col-sm-12">
       <p class="mb-3"><b>Imagem de exibição</b></p>
@@ -94,19 +94,19 @@
           <td><%= student.person.name %></td>
           <td><%= age(student.person.birthday) %></td>
           <td><%= time_ago_in_words(student.person.start_date)%></td>
-          <td><%= link_to student_path(student), 
+          <td><%= link_to '#', 
               class: 'btn btn-success btn-sm', 
               title: 'Visualizar ficha de aluno', 
               data: { toggle: 'tooltip', container: 'body' } do %>
                 <i class="fa fa-eye"></i>
               <% end %>
-              <%= link_to edit_student_path(student), 
+              <%= link_to '#', 
                 class: 'btn btn-primary btn-sm', 
                 title: 'Editar informações de aluno', 
                 data: { toggle: 'tooltip', container: 'body' } do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
-              <%= link_to student_path(student), 
+              <%= link_to '#', 
                 class: 'btn btn-danger btn-sm', 
                 method: :delete, 
                 title: "Remover aluno de #{@activity.name}",

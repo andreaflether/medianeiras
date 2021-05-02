@@ -2,8 +2,17 @@ pt-BR:
   main_app_name: Centro Comunitário Nossa Senhora Medianeira
   admin_app_name: Medianeiras Admin
   date:
+    basic_day_names: 
+      - domingo
+      - segunda
+      - terça
+      - quarta
+      - quinta
+      - sexta
+      - sábado
     formats:
       full: "%A, %d de %B de %Y"
+      long: "%d de %B de %Y"
   time:
     formats:
       compact: "%H:%M"

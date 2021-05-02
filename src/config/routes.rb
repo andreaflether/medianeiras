@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin, path_names: { edit: 'editar', new: 'novo' } do
-    resources :activities
+    resources :activities, path: I18n.t('admin.activities', scope: :routes)
     resources :events, path: I18n.t('admin.events', scope: :routes) do
       collection do
         get :calendar, path: I18n.t('admin.calendar', scope: :routes)
