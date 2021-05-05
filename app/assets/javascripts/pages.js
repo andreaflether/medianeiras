@@ -3,3 +3,4 @@
 //= require bootstrap/dist/js/bootstrap
 //= require pages/main
 //= require aos/dist/aos
+//= require social-share-button

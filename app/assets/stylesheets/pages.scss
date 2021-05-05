@@ -1,8 +1,7 @@
 /*
- *= require_self
  *= require bootstrap/dist/css/bootstrap
  *= require @fortawesome/fontawesome-free/css/all
- *= require pages/custom_pages
- *= require pages/home
  *= require aos/dist/aos
+ *= require social-share-button
+ *= require_tree ./pages
  */
