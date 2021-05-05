@@ -14,7 +14,7 @@ class Activity < ApplicationRecord
 
   acts_as_taggable_on :week_days
 
-  #validate :availability, unless: -> { max_capacity.nil? }
+  # validate :availability, unless: -> { max_capacity.nil? }
 
   WEEK_DAYS = I18n.t('date.basic_day_names')
 
@@ -22,11 +22,12 @@ class Activity < ApplicationRecord
   validates :description, presence: true
   validates :starts_at, presence: true
   validates :ends_at, presence: true
-  validates :max_capacity, 
-    presence: true,
-    numericality: { 
-      only_integer: true,
-      greater_than_or_equal_to: 1, allow_blank: true }
+  validates :max_capacity,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: 1, allow_blank: true
+            }
 
   def occupation
     (students.count.to_f / max_capacity.to_f) * 100.0

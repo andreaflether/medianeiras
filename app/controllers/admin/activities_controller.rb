@@ -18,8 +18,7 @@ module Admin
     end
 
     # GET /activities/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /activities
     def create
