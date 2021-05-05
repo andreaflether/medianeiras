@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Medianeiras</title>
+    <%= display_meta_tags site: t('main_app.name'), 
+      keywords: 'Centro Comunitário, Centro Comunitário Nossa Senhora Medianeira',
+      reverse: true,
+      twitter: { card: 'summary'},
+      og: {
+        title: :title,
+        site_name: :site, 
+        description: t('main_app.description'), 
+        image: 'https://i.postimg.cc/QdWQVh8d/medianeiras.png'
+      } 
+    %>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +23,7 @@
   </head>
 
   <body>
-  <%= render 'layouts/pages/navbar' %>
-  <%= yield %>
+    <%= render 'layouts/pages/navbar' %>
+    <%= yield %>
   </body>
 </html>

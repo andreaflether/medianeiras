@@ -18,7 +18,7 @@ module AdminHelper
     Event.all.happening_this_month.count
   end
 
-  def title
+  def admin_title
     case action_name
     when 'new', 'create', 'edit', 'update', 'show'
       "#{actions(action_name)} #{translated_resource_name}"

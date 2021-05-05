@@ -1,5 +1,7 @@
 pt-BR:
-  main_app_name: Centro Comunitário Nossa Senhora Medianeira
+  main_app:
+    name: Centro Comunitário Nossa Senhora Medianeira
+    description: Instituição sem fins lucrativos, que vem contribuindo com a comunidade das mediações trazendo atividades sociais e espirituais.
   admin_app_name: Medianeiras Admin
   date:
     basic_day_names: 

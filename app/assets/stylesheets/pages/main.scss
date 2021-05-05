@@ -1,0 +1,11 @@
+$size: 26px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size;
+    height: $size;
+    width: $size;
+    display: flex;
+    padding: 1rem;
+  }
+}
