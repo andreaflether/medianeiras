@@ -45,7 +45,7 @@ module Admin
 
     def destroy
       @event.destroy
-      redirect_to admin_events_url, info: t('controllers.admin.events.destroy')
+      redirect_to admin_events_url, notice: t('controllers.admin.events.destroy')
     end
 
     private

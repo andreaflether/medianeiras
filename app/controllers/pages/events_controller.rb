@@ -13,7 +13,9 @@ module Pages
     private
 
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
+
+      return redirect_to @event, status: :moved_permanently if request.path != event_path(@event)
     end
   end
 end
