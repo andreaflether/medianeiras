@@ -5,11 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
-# gem 'bcrypt', '~> 3.1.7'
-# gem 'capistrano-rails', group: :development
-# gem 'duktape'
-# gem 'mini_magick', '~> 4.8'
-# gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
@@ -30,6 +25,7 @@ gem 'data-confirm-modal'
 gem 'dependent-fields-rails'
 gem 'devise'
 gem 'enum_help'
+gem 'friendly_id'
 gem 'gravatar_image_tag'
 gem 'gretel'
 gem 'inline_svg'
@@ -41,7 +37,6 @@ gem 'ransack'
 gem 'roadie-rails', '~> 2.1'
 gem 'select2-rails'
 gem 'simple_form'
-gem 'simple_form_fancy_uploads'
 gem 'social-share-button'
 gem 'translate_enum'
 gem 'tty-spinner'
