@@ -1,346 +1,346 @@
-$primary: #007bff;
-$light: #f8f9fa;
+// // $primary: #007bff;
+// $light: #f8f9fa;
 
-section {
-  padding: 40px 0;
-}
+// section {
+//   padding: 40px 0;
+// }
 
-section.events {
-  padding-bottom: 0;
-  padding-top: 32px;
-}
+// section.events {
+//   padding-bottom: 0;
+//   padding-top: 32px;
+// }
 
-section > h2, h2 {
-  color: $primary;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
+// section > h2, h2 {
+//   color: $primary;
+//   text-align: center;
+//   margin-bottom: 1.5rem;
+// }
 
-//--------------------------- INTRO ----------------------------------------// 
-@media screen and (max-width: 992px) {
-  section.main {
-    text-align: center;
-    justify-content: center;
+// //--------------------------- INTRO ----------------------------------------// 
+// @media screen and (max-width: 992px) {
+//   section.main {
+//     text-align: center;
+//     justify-content: center;
 
-    .embed-responsive {
-      margin-bottom: 0.75rem;
-    }
+//     .embed-responsive {
+//       margin-bottom: 0.75rem;
+//     }
 
-    .more-info {
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
+//     .more-info {
+//       margin-top: 1rem;
+//       margin-bottom: 2rem;
+//     }
 
-    .intro-text {  
-      text-align-last: center;
-      padding-right: 15px !important;
-    }
-  } 
-}
+//     .intro-text {  
+//       text-align-last: center;
+//       padding-right: 15px !important;
+//     }
+//   } 
+// }
 
-@media screen and (min-width: 992px) {
-  .intro-text > h2:after {
-    margin: 0;
-    margin-top: 20px;
-  }
-}
+// @media screen and (min-width: 992px) {
+//   .intro-text > h2:after {
+//     margin: 0;
+//     margin-top: 20px;
+//   }
+// }
 
-section.main {
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 50px;
+// section.main {
+//   border-bottom: 1px solid #eaeaea;
+//   padding-bottom: 50px;
 
-  .intro-text {
-    padding-right: 3rem;
+//   .intro-text {
+//     padding-right: 3rem;
 
-    h2 {
-      text-align: left;
-    }
-  }
+//     h2 {
+//       text-align: left;
+//     }
+//   }
 
-  .more-info {
-    margin-top: 0.5rem;
-  }
-}
-//--------------------------- END INTRO --------------------------------------// 
+//   .more-info {
+//     margin-top: 0.5rem;
+//   }
+// }
+// //--------------------------- END INTRO --------------------------------------// 
 
-//--------------------------- ACTIVITIES -----------------------------------//
-@media screen and (max-width: 992px) {
-  .activity-col {
-    margin-bottom: 2rem;
-  }
+// //--------------------------- ACTIVITIES -----------------------------------//
+// @media screen and (max-width: 992px) {
+//   .activity-col {
+//     margin-bottom: 2rem;
+//   }
 
-  .all-activities {
-    margin-top: 0.25rem !important;
-  }
-}
+//   .all-activities {
+//     margin-top: 0.25rem !important;
+//   }
+// }
 
-section.main-activities {
-  background-color: #f2f2f2;
+// section.main-activities {
+//   background-color: #f2f2f2;
 
-  .container {
-    margin-bottom: 0.5rem;
-  }
+//   .container {
+//     margin-bottom: 0.5rem;
+//   }
 
-  h2, .description, .description-1 {
-    text-align: center;
-  }
+//   h2, .description, .description-1 {
+//     text-align: center;
+//   }
   
-  .description1 {
-    margin-bottom: 0.5rem;
-  }
+//   .description1 {
+//     margin-bottom: 0.5rem;
+//   }
   
-  .description {
-    margin-bottom: 2.5rem;
-  }
+//   .description {
+//     margin-bottom: 2.5rem;
+//   }
 
-  .status {
-    display: flex;
-    position: absolute;
-    padding: 0.5rem;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 123, 255, 0.5);
-    text-transform: uppercase;
-    font-size: 0.7rem;
-  }
+//   .status {
+//     display: flex;
+//     position: absolute;
+//     padding: 0.5rem;
+//     top: 10px;
+//     right: 10px;
+//     background-color: rgba(0, 123, 255, 0.5);
+//     text-transform: uppercase;
+//     font-size: 0.7rem;
+//   }
 
 
-  .activity-card-info {
+//   .activity-card-info {
 
-    .activity-name {
-      font-size: 1.62rem;
-      &:after {
-        display: block;
-        margin-top: 15px; 
-        content: '';
-        width: 50px;
-        height: 2px;
-        background: $primary;
-      }
-    }
+//     .activity-name {
+//       font-size: 1.62rem;
+//       &:after {
+//         display: block;
+//         margin-top: 15px; 
+//         content: '';
+//         width: 50px;
+//         height: 2px;
+//         background: $primary;
+//       }
+//     }
 
-    a, p {
-      font-weight: normal;
-      font-size: 0.95rem;
-      color: rgb(120, 120, 120);
-    }
+//     a, p {
+//       font-weight: normal;
+//       font-size: 0.95rem;
+//       color: rgb(120, 120, 120);
+//     }
 
-    .activity-description {
-      margin: 1rem 0;
-    }
+//     .activity-description {
+//       margin: 1rem 0;
+//     }
 
-    .details {
-      margin-top: 0.5rem;
-      margin-bottom: 0;
-      font-weight: bold;
-      margin-top: 1rem;
-      text-decoration: none !important;
+//     .details {
+//       margin-top: 0.5rem;
+//       margin-bottom: 0;
+//       font-weight: bold;
+//       margin-top: 1rem;
+//       text-decoration: none !important;
 
-      &:hover > i {
-        margin-left: 0.3rem !important;
-      }
+//       &:hover > i {
+//         margin-left: 0.3rem !important;
+//       }
 
-      i {
-        font-size: 0.8rem;
-        margin-left: 0.15rem;
-        transition: all .1s linear;
-      }
-    } 
-  }
-}
+//       i {
+//         font-size: 0.8rem;
+//         margin-left: 0.15rem;
+//         transition: all .1s linear;
+//       }
+//     } 
+//   }
+// }
 
-.all-activities {
-  margin-top: 2rem;
-}
+// .all-activities {
+//   margin-top: 2rem;
+// }
 
-//--------------------------- END ACTIVITIES -----------------------------------//
+// //--------------------------- END ACTIVITIES -----------------------------------//
 
-//--------------------------- VOLUNTEERING  -----------------------------------//
-@media screen and (max-width: 992px) {
-  .volunteer-col:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-}
+// //--------------------------- VOLUNTEERING  -----------------------------------//
+// @media screen and (max-width: 992px) {
+//   .volunteer-col:not(:last-child) {
+//     margin-bottom: 2rem;
+//   }
+// }
 
-section.volunteering {
-  background-color: $primary; 
-  padding-bottom: 60px;
+// section.volunteering {
+//   background-color: $primary; 
+//   padding-bottom: 60px;
 
-  h2 {
-    margin-bottom: 1rem;
+//   h2 {
+//     margin-bottom: 1rem;
 
-    &:after {
-      background-color: #fff;
-    }
-  }
+//     &:after {
+//       background-color: #fff;
+//     }
+//   }
 
-  h2, .donations {
-    color: $light;
-  }
+//   h2, .donations {
+//     color: $light;
+//   }
 
-  .donations {
-    font-weight: normal;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-}
+//   .donations {
+//     font-weight: normal;
+//     margin-bottom: 2rem;
+//     text-align: center;
+//   }
+// }
 
-.volunteer.card {
-  height: 100%;
+// .volunteer.card {
+//   height: 100%;
 
-  .card-body {
-    text-align: center;
-  }
+//   .card-body {
+//     text-align: center;
+//   }
 
-  p {
-    margin: 20px auto;
-    // color: #909090;
-    color: rgb(120, 120, 120);
-  }
+//   p {
+//     margin: 20px auto;
+//     // color: #909090;
+//     color: rgb(120, 120, 120);
+//   }
 
-  svg {
-    width: 4em;
-  }
+//   svg {
+//     width: 4em;
+//   }
 
-  h4 {
-    margin-top: 1rem;
-    font-size: 1.45rem;
-  }
-}
+//   h4 {
+//     margin-top: 1rem;
+//     font-size: 1.45rem;
+//   }
+// }
 
-.donations {
-  margin: 8px auto 25px auto;
-}
+// .donations {
+//   margin: 8px auto 25px auto;
+// }
 
-//--------------------------- EVENTS -----------------------------------//
-@media screen and (max-width: 768px) {
-  .event-details {
-    text-align: center;
-    margin: 20px auto;
-  } 
+// //--------------------------- EVENTS -----------------------------------//
+// @media screen and (max-width: 768px) {
+//   .event-details {
+//     text-align: center;
+//     margin: 20px auto;
+//   } 
 
-  .event-day {
-    margin: auto;  
-  }
+//   .event-day {
+//     margin: auto;  
+//   }
 
-  .icon.facebook {
-    margin-left: 0.5rem;
-    margin-top: 0 !important;
-  }   
-}
+//   .icon.facebook {
+//     margin-left: 0.5rem;
+//     margin-top: 0 !important;
+//   }   
+// }
 
-@media screen and (max-width: 726px) {
-  .event-details > span,
-  .event-details > p {
-    margin-bottom: 1.2rem !important;
-  }
-}
+// @media screen and (max-width: 726px) {
+//   .event-details > span,
+//   .event-details > p {
+//     margin-bottom: 1.2rem !important;
+//   }
+// }
 
-.event-card {
-  border: 1px solid #e3e3e3;
-  background-color: #f2f2f2;
-  margin-bottom: 1rem;
+// .event-card {
+//   border: 1px solid #e3e3e3;
+//   background-color: #f2f2f2;
+//   margin-bottom: 1rem;
 
-  .event-day {
-    background-color: $primary;
-    display: flex;
-    width: 4em; 
-    height: 4em;
+//   .event-day {
+//     background-color: $primary;
+//     display: flex;
+//     width: 4em; 
+//     height: 4em;
 
-    h4 {
-      margin: auto;
-      color: $light;
-    }
-  }
-}
+//     h4 {
+//       margin: auto;
+//       color: $light;
+//     }
+//   }
+// }
 
-.event-details {
-  font-size: 0.9rem !important;
+// .event-details {
+//   font-size: 0.9rem !important;
 
-  i {
-    color: $primary;
-  }
+//   i {
+//     color: $primary;
+//   }
 
-  span {
-    color: #5f666d !important;
-    // color: #555;
-    font-size: 0.9rem;
+//   span {
+//     color: #5f666d !important;
+//     // color: #555;
+//     font-size: 0.9rem;
 
-    i {
-      margin-right: 0.5rem;
-    }
+//     i {
+//       margin-right: 0.5rem;
+//     }
     
-    span { 
-      margin-right: 1.5rem; 
-    }
-  }
+//     span { 
+//       margin-right: 1.5rem; 
+//     }
+//   }
 
-  .event-title, .event-description {
-    margin-bottom: 0.5rem;
-  }
+//   .event-title, .event-description {
+//     margin-bottom: 0.5rem;
+//   }
 
-  .event-title {
-    font-weight: bold;
-    color: #444;
-    font-family: 'Roboto Slab', sans-serif;
-    font-size: 1.1rem;
-  }
+//   .event-title {
+//     font-weight: bold;
+//     color: #444;
+//     font-family: 'Roboto Slab', sans-serif;
+//     font-size: 1.1rem;
+//   }
 
-  .event-description {
-    color: #666;  
-  }
-}
+//   .event-description {
+//     color: #666;  
+//   }
+// }
 
-.twitter-share-button {
-  text-decoration: none !important;
-}
+// .twitter-share-button {
+//   text-decoration: none !important;
+// }
 
-.icon {
-  display: flex;
-  color: $light;
-  padding: 0.5rem;
-  width: 2.2em;
-  height: 2.2em;
-  transition: all .2s ease-in-out;
+// .icon {
+//   display: flex;
+//   color: $light;
+//   padding: 0.5rem;
+//   width: 2.2em;
+//   height: 2.2em;
+//   transition: all .2s ease-in-out;
 
-  i {
-    margin: auto;
-  }
-}
+//   i {
+//     margin: auto;
+//   }
+// }
 
-.icon.twitter {
-  background-color: #00acee;
+// .icon.twitter {
+//   background-color: #00acee;
 
-  &:hover {
-    background-color: darken($color: #00acee, $amount: 7%);
-  }
-}
+//   &:hover {
+//     background-color: darken($color: #00acee, $amount: 7%);
+//   }
+// }
 
-.icon.facebook {
-  background-color: #3b5998;
-  margin-top: 0.5rem;  
+// .icon.facebook {
+//   background-color: #3b5998;
+//   margin-top: 0.5rem;  
 
-  &:hover {
-    background-color: darken($color: #3b5998, $amount: 7%);
-  }
-}
+//   &:hover {
+//     background-color: darken($color: #3b5998, $amount: 7%);
+//   }
+// }
 
-.no-events {
-  margin-top: 0.5rem;
-  color: #555;
-  font-weight: normal;
-  text-align: center;
-}
-//--------------------------- END EVENTS -----------------------------------//
+// .no-events {
+//   margin-top: 0.5rem;
+//   color: #555;
+//   font-weight: normal;
+//   text-align: center;
+// }
+// //--------------------------- END EVENTS -----------------------------------//
 
-//--------------------------- PARTNERS ------------------------------------// 
-.partner-logo {
-  text-align: center;
-  background-color: rgba(220, 220, 220, 0.4);
-  padding: 13px; 
-  border-radius: 8px;
-  border: 1px solid #e3e3e3;
-}
+// //--------------------------- PARTNERS ------------------------------------// 
+// .partner-logo {
+//   text-align: center;
+//   background-color: rgba(220, 220, 220, 0.4);
+//   padding: 13px; 
+//   border-radius: 8px;
+//   border: 1px solid #e3e3e3;
+// }
 
 
 

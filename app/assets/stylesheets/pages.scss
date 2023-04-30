@@ -3,5 +3,6 @@
  *= require @fortawesome/fontawesome-free/css/all
  *= require aos/dist/aos
  *= require social-share-button
- *= require_tree ./pages
+ * require_tree ./pages
+ *= require pages/main
  */
